@@ -3,6 +3,14 @@ import numpy as np
 import seaborn as sns
 import warnings
 
+# Import libraries for collaborative filtering approach
+from surprise import KNNWithMeans
+from surprise import Dataset
+from surprise import accuracy
+from surprise import Reader
+from surprise.model_selection import train_test_split
+from sklearn.decomposition import TruncatedSVD
+
 warnings.filterwarnings('ignore')
 sns.set_theme(color_codes=True)
 
@@ -35,15 +43,6 @@ top_20_products = no_of_rating_per_product.head(20).index.tolist()
 print("Top 20 Products based on Number of Ratings:")
 for i, product_id in enumerate(top_20_products, 1):
     print(f"{i}. Product ID: {product_id}")
-
-# %%
-# Import libraries for collaborative filtering approach
-from surprise import KNNWithMeans
-from surprise import Dataset
-from surprise import accuracy
-from surprise import Reader
-from surprise.model_selection import train_test_split
-from sklearn.decomposition import TruncatedSVD
 
 # Specify the rating scale of data
 reader = Reader(rating_scale=(1, 5))
@@ -104,7 +103,7 @@ def recommend_products(selected_product_id, print_correlation=False, top_n=21, c
                         for x in top_indices}
 
     # Print the recommended products
-    print(f"Top {top_n} Recommended Products for '{product_id}':")
+    print(f"Top {top_n} Recommended Products for '{selected_product_id}':")
     if print_correlation:
         for recommended_product_id, correlation_value in correlation_dict.items():
             print(f"Product ID: {recommended_product_id}, Correlation Value: {correlation_value}")
