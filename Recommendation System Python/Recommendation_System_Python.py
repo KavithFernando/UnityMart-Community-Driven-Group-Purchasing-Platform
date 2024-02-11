@@ -79,7 +79,7 @@ decomposed_matrix = SVD.fit_transform(ratings_matrix)
 correlation_matrix = np.corrcoef(decomposed_matrix)
 
 
-def recommend_products(selected_product_id, print_correlation=False, top_n=21, correlation_threshold=0.85):
+def recommend_similar_products(selected_product_id, print_correlation=False, top_n=4, correlation_threshold=0.85):
     # Find the index of the specified product ID
     try:
         # Make a list of index values
@@ -103,7 +103,7 @@ def recommend_products(selected_product_id, print_correlation=False, top_n=21, c
                         for x in top_indices}
 
     # Print the recommended products
-    print(f"Top {top_n} Recommended Products for '{selected_product_id}':")
+    print(f"Top {top_n-1} Recommended Products for '{selected_product_id}':")
     if print_correlation:
         for recommended_product_id, correlation_value in correlation_dict.items():
             print(f"Product ID: {recommended_product_id}, Correlation Value: {correlation_value}")
@@ -113,4 +113,6 @@ def recommend_products(selected_product_id, print_correlation=False, top_n=21, c
 
 
 # Example usage:
-recommend_products("B00001P4ZH", True)
+product_id_list = ["B00D02AG7C", "B0002A4M4I", "B0002L5R78", "B00BGA9WK2", "B004QK7HI8"]
+for item in product_id_list:
+    recommend_similar_products(item, True)
