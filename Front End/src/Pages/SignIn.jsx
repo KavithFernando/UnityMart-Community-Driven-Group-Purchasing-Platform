@@ -19,7 +19,6 @@ export default function SignIn() {
             <input className='label1' type="password" placeholder='Password'/>
             <button className='button'>Sign In</button>
         </div>
-
       
     </div>
   )
