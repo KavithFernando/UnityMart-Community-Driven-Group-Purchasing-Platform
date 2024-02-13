@@ -1,7 +1,9 @@
 import React from 'react'
 import './SignUp.css'
+import {  useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+    const Navigate=useNavigate();
   return (
     <div className='signUpContainer'>
         
@@ -19,7 +21,7 @@ export default function SignUp() {
             
             <h1 className='title'>Welcome</h1>
             <p className='paragraph'>Please login with your personal information to join us</p>
-            <button className='button'>Sign In</button>
+            <button className='secoundButton' onClick={()=>Navigate("/signin")}>Sign In</button>
         </div>
 
       
