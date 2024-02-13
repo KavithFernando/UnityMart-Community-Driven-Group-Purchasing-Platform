@@ -89,6 +89,16 @@
     } 
 }
 
+.radioButton{
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.radioButtonPart{
+    display: inline-block;
+}
+
 .rightPanel{
     display: inline;   
     position: absolute;
@@ -115,4 +125,8 @@
     
     
 
+}
+
+.error{
+    color:red;
 }

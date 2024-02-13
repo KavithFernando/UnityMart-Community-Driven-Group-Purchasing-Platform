@@ -14,8 +14,21 @@ export default function SignUp() {
             <input className='label' type="text" placeholder='Name'/>
             <input className='label' type="email" placeholder='Email'/>
             <input className='label' type="password" placeholder='Password'/>
+
+            <div className='radioButtonPart'>
+              <label className='radioButton'>
+              <input type="radio" value="option1"  />
+              Seller
+              </label>
+
+              <label className='radioButton'>
+              <input type="radio" value="option2"  />
+              Buyer
+              </label>
+            </div>
             <button className='button'>Sign Up</button>
-        </div>
+            </div>
+        
 
         <div className='rightPanel'>
             
