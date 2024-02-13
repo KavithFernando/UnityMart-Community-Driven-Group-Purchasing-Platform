@@ -130,3 +130,25 @@
 .error{
     color:red;
 }
+
+.reEntedPassworPosition{
+    position: relative;
+    top: -25px;
+    left: -15px;
+    width: 100%;
+    
+}
+
+.seeReEnted{
+    position: relative;
+    top: -38px;
+    left: 185px;
+}
+.reEntedPasswordError{
+    color:red;
+    font-size: 12px;
+    position: relative;
+    top: -25px;
+    left: 15px;
+
+}

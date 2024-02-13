@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './SignIn.css'
 import {  useNavigate } from "react-router-dom";
+import{EyeInvisibleOutlined,EyeOutlined} from "@ant-design/icons";
 
 export default function SignIn() {
     const Navigate=useNavigate();
@@ -8,6 +9,7 @@ export default function SignIn() {
     const[email,setEmail]= useState('');
     const[password,setPassword]= useState('');
     const[errors,setErrors]= useState([]);
+    const[visible,setVisible]=useState(true);
 
     const handleSubmit=()=>{
       event.preventDefault();
@@ -42,22 +44,28 @@ export default function SignIn() {
   return (
     <div className='signInContainer'>
         <div className='leftPanel'>
-          <form onSubmit={handleSubmit}>
+          
             <h1 className='title'>Hellow Friend</h1>
             <p className='paragraph1'>Please enter your Email and password</p>
-          </form>   
+            
             <button className='secoundButton' onClick={()=>Navigate("/signup")} >Sign Up</button>
            
         </div>
-
+        
         <div className='signInForm'>
             <h1 className='title'>Sign In</h1>
-            <input className='label1' type="email" placeholder='Email' onChange={(e)=>setEmail(e.target.value)  } />
+            <input className='label1' type="email"  placeholder='Email' onChange={(e)=>setEmail(e.target.value)  } />
             {errors.email&&<div className='error'>{errors.email}</div>}
-            <input className='label1' type="password" placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
-             {errors.password&&<div className='error'>{errors.password}</div>}           
+            <input className='label1' type={visible?"text":"password"} placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
+            
+            <div className='see' onClick={()=>setVisible(!visible)}>
+              {visible?<EyeOutlined/>:<EyeInvisibleOutlined/>}
+            </div>
+            {errors.password&&<div className='passwordError'>{errors.password}</div>}  
+                      
             <button className='button' onClick={handleSubmit}>Sign In</button>
         </div>
+        
       
     </div>
   )
