@@ -28,7 +28,7 @@ padding: 4rem 4rem;
 .developTeam{
     position: relative;
     left: 950px;
-    top: -70px;
+    top: -120px;
 }
 
 
@@ -40,7 +40,7 @@ padding: 4rem 4rem;
 .footerIcon{
     position: relative;
     left: 1750px;
-    top: -170px;
+    top: -220px;
 }
 
 .aboutUsButton{
@@ -55,7 +55,7 @@ padding: 4rem 4rem;
     font-size: larger;
     position: relative;
     left: 1800px;
-    top: -210px;
+    top: -250px;
 border-radius: 20px;
 font-weight: bold;}
 

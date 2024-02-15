@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="footer">
             <h1 className="footerHeadder"><i>Unity Mart</i></h1>
-            <p className="footerPharagraph">Unity Mart's endeavor is<br/> to provide quality product at lowers prices</p>
+            <p className="footerPharagraph">Unity Mart's ultimate goal is <br/>to consistently provide customers with high-quality products<br/> at prices that are significantly lower,<br/> ensuring accessibility without compromising on quality.</p>
             
             <div className="developTeam">
             <h2>Develop team</h2>

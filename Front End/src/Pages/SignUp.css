@@ -48,7 +48,7 @@
     border: none;
     padding: 12px 15px;
     margin: 8px 0;
-    width: 130%;
+    width: 85%;
 }
 
 .button{
@@ -117,7 +117,7 @@
     color: #ffffff;
     position: relative;   
     height: 500px;
-    width: 400px;
+    width: 550px;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 
@@ -134,15 +134,15 @@
 .reEntedPassworPosition{
     position: relative;
     top: -25px;
-    left: -15px;
-    width: 100%;
+    
+    
     
 }
 
 .seeReEnted{
     position: relative;
     top: -38px;
-    left: 185px;
+    left: 170px;
 }
 .reEntedPasswordError{
     color:red;
@@ -152,3 +152,9 @@
     left: 15px;
 
 }
+
+.formeAline{
+    width: 110%;
+    position: relative;
+}
+

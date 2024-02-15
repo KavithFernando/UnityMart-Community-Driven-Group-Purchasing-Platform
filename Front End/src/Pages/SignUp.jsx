@@ -63,22 +63,24 @@ export default function SignUp() {
         <div className='signUpForm'>
             
             <h1 className='title'>Create Account</h1>
-
-            <input className='label' type="text" placeholder='Name'/>
-            <input className='label' type="email" placeholder='Email'onChange={(e)=>setEmail(e.target.value)}/>
-            {errors.email&&<div className='error'>{errors.email}</div>}
-            <input className='label'  type={visible?"text":"password"}placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
-            <div className='see' onClick={()=>setVisible(!visible)}>
-              {visible?<EyeOutlined/>:<EyeInvisibleOutlined/>}
-            </div>
-            {errors.password&&<div className='passwordError'>{errors.password}</div>} 
-            <div className='reEntedPassworPosition'>
-            <input className='label'  type={reEntedPasswordVisible?"text":"password"}placeholder='Re ented Password' onChange={(e)=>setReEntedPassword(e.target.value)}/>
-            <div className='seeReEnted' onClick={()=>setReEntedPasswordVisible(!reEntedPasswordVisible)}>
-              {reEntedPasswordVisible?<EyeOutlined/>:<EyeInvisibleOutlined/>}
-            </div>
-            {errors.reEnted&&<div className='reEntedPasswordError'>{errors.reEnted}</div>} 
-            </div>
+              <div className='formeAline'>
+              <input className='label' type="text" placeholder='Name'/>
+              <input className='label' type="email" placeholder='Email'onChange={(e)=>setEmail(e.target.value)}/>
+              {errors.email&&<div className='error'>{errors.email}</div>}
+              <input className='label'  type={visible?"text":"password"}placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
+              <div className='see' onClick={()=>setVisible(!visible)}>
+                {visible?<EyeOutlined/>:<EyeInvisibleOutlined/>}
+              </div>
+              {errors.password&&<div className='passwordError'>{errors.password}</div>} 
+              
+              <div className='reEntedPassworPosition'>
+              <input className='label'  type={reEntedPasswordVisible?"text":"password"}placeholder='Re ented Password' onChange={(e)=>setReEntedPassword(e.target.value)}/>
+              <div className='seeReEnted' onClick={()=>setReEntedPasswordVisible(!reEntedPasswordVisible)}>
+                {reEntedPasswordVisible?<EyeOutlined/>:<EyeInvisibleOutlined/>}
+              </div>
+              {errors.reEnted&&<div className='reEntedPasswordError'>{errors.reEnted}</div>} 
+              </div>
+              </div>
             <div className='radioButtonPart'>
               <label className='radioButton'>
               <input type="radio" value="seller"  />
