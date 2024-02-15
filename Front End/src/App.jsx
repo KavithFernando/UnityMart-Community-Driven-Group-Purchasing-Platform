@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home'
 import Footer from './Components/Footer'
 import Navbar from './Components/Common/Navbar';
+import Buyer from './Pages/Buyer';
 
 
 
@@ -20,8 +21,11 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp />} /> 
+          <Route path="/buyer" element={<Buyer />} />
+          
         </Routes>
         <Footer/>
+        
       </BrowserRouter>
       
     </div>
