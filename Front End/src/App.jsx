@@ -24,6 +24,7 @@ function App() {
           <Route path="/buyer" element={<Buyer />} />
           
         </Routes>
+        
         <Footer/>
         
       </BrowserRouter>

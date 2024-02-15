@@ -1,9 +1,17 @@
 import React from 'react';
 import './Buyer.css'; // Import CSS file
+import { useNavigate } from 'react-router';
 
 // Define the Buyer component without importing React
 export default function Buyer() {
   return (
-    <div><h1>Buyer 1</h1></div>
+    <div className='container'>
+        <div className='usermain'>
+
+        </div>
+        <div className='userprop'>
+
+        </div>
+    </div>
   );
 }

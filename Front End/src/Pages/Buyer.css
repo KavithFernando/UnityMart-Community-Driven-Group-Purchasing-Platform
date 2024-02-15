@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+}
+
+.usermain, .userprop{
+height: 50vh;
+width: 50%;
+
+}
+
+.usermain{
+
+    background-color: aqua;
+}
+
+.userprop{
+    background-color: bisque;
+}
