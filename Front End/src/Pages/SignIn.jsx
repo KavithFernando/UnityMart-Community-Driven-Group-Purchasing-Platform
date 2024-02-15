@@ -44,8 +44,12 @@ export default function SignIn() {
   return (
     <div className='signInContainer'>
         <div className='leftPanel'>
+
           
             <h1 className='title'>Hellow Friend</h1>
+
+            <h1 className='title'>Hello Friend</h1>
+
             <p className='paragraph1'>Please enter your Email and password</p>
             
             <button className='secoundButton' onClick={()=>Navigate("/signup")} >Sign Up</button>
