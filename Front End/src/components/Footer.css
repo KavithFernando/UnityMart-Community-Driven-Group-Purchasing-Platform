@@ -4,114 +4,61 @@ padding: 4rem 4rem;
 }
 
 .footer{
-    background-color: rgb(212, 215, 218);
+    
     display: flex;
     flex-direction: column;
-    height:auto;
-
-}
-.footer_links{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 2rem;
-    height: 50px;
-
+    height:200px;
+    background: linear-gradient(to right, #f3ceac, #FA7831);
 
 }
 
-.footer_links_div{
+.footerHeadder{
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+
+.footerPharagraph{
+    position: relative;
+    top: 30px;
+    left: 20px;
+    font-weight: 500;
+}
+
+.developTeam{
+    position: relative;
+    left: 950px;
+    top: -70px;
+}
+
+
+.icon{font-size: 150%;
+    color: rgb(0, 0, 0);
+    margin: 20px;
+}
+    
+.footerIcon{
+    position: relative;
+    left: 1750px;
+    top: -170px;
+}
+
+.aboutUsButton{
+    transition: transform 80ms ease-in;
+    &:active{
+        transform: scale(0.95);
+    }
+    &:focus {
+        outline: none;}
     width: 150px;
-    margin: 1rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    color: white;
-    height: 100px;
+    padding: 8px 0px;
+    font-size: larger;
+    position: relative;
+    left: 1800px;
+    top: -210px;
+border-radius: 20px;
+font-weight: bold;}
+
+.name{
+    font-weight: 500;
 }
-
-a{
-    color: rgb(175, 175, 179);
-    text-decoration: none;
-}
-
-.footer_links_div h4{
-    font-size: 14px;
-    line-height: 17px;
-    margin-bottom: 0.9rem;
-}
-.footer_links_div p{
-    font-size: 12px;
-    line-height: 15px;
-    margin: 0.5rem;
-    cursor: pointer;
-
-}
-.footer_below{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0.2rem;
-   
-}
-
-.footer_below_links{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.footer_below_links p{
-    font-size: 13px;
-    line-height: 15px;
-    margin-left: 2rem;
-    color: azure;
-    font-weight: 600;
-}
-
-hr{
-    color: white;
-    width: 100%;
-
-}
-
-.footer_copyright{
-    font-size: 13px;
-    line-height: 15px;
-    color: rgb(255, 255,255);
-    font-weight: 600;
-
-}
-
-@media screen and (max-width:850px) {
-    .footer_heading h1{
-        font-size: 44px;
-        line-height: 50px;
-    }
-    
-}
-
-@media screen and(max-width:  550px){
-    .footer_heading h1{
-        font-size: 34px;
-        line-height: 42px;
-    }
-}
-
-.footer_links div{
-    margin: 1rem 0;
-    height: 50px;
-}
-
-footer_btn p{
-    font-size: 14px;
-    line-height: 20px;
-}
-
-
-    
-
