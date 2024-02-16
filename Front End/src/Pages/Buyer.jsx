@@ -7,6 +7,7 @@ export default function Buyer() {
   return (
     <div className='container'>
         <div className='usermain'>
+            <img src="./images/buyer.jpg" alt=""/>
 
         </div>
         <div className='userprop'>
