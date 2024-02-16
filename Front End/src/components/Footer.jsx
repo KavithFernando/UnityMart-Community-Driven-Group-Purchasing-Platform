@@ -14,6 +14,8 @@ const Footer = () => {
             <p className="name">Pabasara Ravindaka<br/>Kavith Fernando <br/>Sanjaya Perera <br/>Niketh Randil <br/>Subhavitha Dharmasiri </p>
             
             </div>
+
+            <dev className="rightSide">
             <button className="aboutUsButton">About Us</button>
             <div className="footerIcon"> 
                 <a href="" className="icon">{<InstagramOutlined />}</a>
@@ -22,7 +24,7 @@ const Footer = () => {
                 <a href="" className="icon">{<GithubOutlined />}</a>    
             
             </div>
-
+            </dev>
             
           
         </div>
