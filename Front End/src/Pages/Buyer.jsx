@@ -1,18 +1,24 @@
 import React from 'react';
-import './Buyer.css'; // Import CSS file
+import './Buyer.css'; 
 import { useNavigate } from 'react-router';
 
-// Define the Buyer component without importing React
+
 export default function Buyer() {
-  return (
-    <div className='container'>
-        <div className='usermain'>
-            <img src="./images/buyer.jpg" alt=""/>
 
+    const name= "pabasara ravindraka"
+    return (
+        <div className='container'>
+            <div className='usermain'>
+                <div className='picborder'>
+                    <div className="image-container">
+                        <img src="../src/images/buyer.jpg" alt="" />
+                    
+                    <h3>{name}</h3>
+                    </div>
+                </div>
+            </div>
+            <div className='userprop'>
+            </div>
         </div>
-        <div className='userprop'>
-
-        </div>
-    </div>
-  );
+    );
 }
