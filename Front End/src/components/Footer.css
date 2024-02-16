@@ -1,65 +1,70 @@
-.section_padding{
-padding: 4rem 4rem;
 
+.section_padding {
+  padding: 4rem 3rem;
 }
 
-.footer{
-    
-    display: flex;
-    flex-direction: column;
-    height: 200px;;
-    background: linear-gradient(to right, #f3ceac, #FA7831);
-    width: 100%;
-
+.footer {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  background: linear-gradient(to right, #f3ceac, #fa7831);
+  width: 100%;
 }
 
-.footerHeadder{
-    position: relative;
-    top: 20px;
-    left: 30px;
+.footerHeadder {
+  position: relative;
+  top: 20px;
+  left: 30px;
 }
 
-.footerPharagraph{
-    position: relative;
-    top: 30px;
-    left: 20px;
-    font-weight: 500;
+.footerPharagraph {
+  position: relative;
+  top: 30px;
+  left: 20px;
+  font-weight: 500;
 }
 
-.developTeam{
-    position: relative;
-    left: 700px;
-    top: -120px;
+.developTeam {
+  position: relative;
+  left: 950px;
+  top: -120px;
 }
 
-
-.icon{font-size: 150%;
-    color: rgb(0, 0, 0);
-    margin: 20px;
-}
-    
-.footerIcon{
-    position: relative;
-    left: 1050px;
-    top: -220px;
+.icon {
+  font-size: 150%;
+  color: rgb(0, 0, 0);
+  margin: 20px;
 }
 
-.aboutUsButton{
-    transition: transform 80ms ease-in;
-    &:active{
-        transform: scale(0.95);
-    }
-    &:focus {
-        outline: none;}
-    width: 150px;
-    padding: 8px 0px;
-    font-size: larger;
-    position: relative;
-    left: 1100px;
-    top: -250px;
-border-radius: 20px;
-font-weight: bold;}
+.footerIcon {
+  position: relative;
+  left: 1050px;
+  top: -220px;
+}
 
-.name{
-    font-weight: 500;
+.aboutUsButton {
+  transition: transform 80ms ease-in;
+  &:active {
+    transform: scale(0.95);
+  }
+  &:focus {
+    outline: none;
+  }
+  width: 150px;
+  padding: 8px 0px;
+  font-size: larger;
+  position: relative;
+  left: 1100px;
+  top: -250px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.rightSide {
+  position: relative;
+  left: 700px;
 }
