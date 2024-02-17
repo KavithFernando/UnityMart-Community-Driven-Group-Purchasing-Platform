@@ -8,12 +8,21 @@ nav {
     color: white;
 }
 
+nav .search {
+    background-color:#eee;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 0px 10px;
+    width: 450px;
+}
+
 nav ul {
     display: flex;
     list-style-type: none;
 }
 
-nav ul > li:nth-child(2) a {
+nav ul > li:nth-child(1) a {
     font-size: 20px;
     padding: 12px 20px;
 }

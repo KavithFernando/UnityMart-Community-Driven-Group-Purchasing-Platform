@@ -7,8 +7,8 @@ export default function Navbar() {
   return (
     <nav>
       <h1>UnityMart</h1>
+      <input className='search' type="text" placeholder='Search UnityMart'/>
       <ul>
-        <li></li>
         <li><Link to="/"><IoHome/></Link></li>
         <li><Link to="/signin">Login</Link></li>
         |
