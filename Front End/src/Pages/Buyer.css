@@ -1,18 +1,33 @@
-.container{
+.container {
     display: flex;
 }
 
-.usermain, .userprop{
-height: 50vh;
-width: 50%;
-
-}
-
 .usermain{
+    width: 20%;
 
-    background-color: aqua;
 }
 
-.userprop{
+.userprop {
+    
+    width: 80%;
+}
+
+.usermain {
+    background-color: rgb(255, 255, 255);
+}
+
+.userprop {
     background-color: bisque;
+}
+
+.picborder {
+    border: 10px solid rgb(58, 55, 55); 
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.h3{
+    border: 10px solid rgb(58, 55, 55); 
+    padding: 10px;
+    border-radius: 20px;
 }
