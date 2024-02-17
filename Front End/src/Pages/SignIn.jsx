@@ -24,16 +24,16 @@ export default function SignIn() {
       if(!email){
         error.email="Email is Required";
       }else if(!/\S+@\S+\.\S+/.test(email)){
-        error.email="Email is not valide";
+        error.email="The Email is Invalid";
       }else{
         error.email='';
       }
 
 
       if(!password){
-        error.password="Password is Required";
+        error.password="Password is Required.";
       }else if(password.length<8){
-        error.password="Password is not valide";
+        error.password="Use 8 or more characters for your password.";
       }else{
         error.password='';
       }
@@ -45,12 +45,9 @@ export default function SignIn() {
     <div className='signInContainer'>
         <div className='leftPanel'>
 
-          
-            <h1 className='title'>Hellow Friend</h1>
+            <h1 className='title'>New to UnityMart?</h1>
 
-            <h1 className='title'>Hello Friend</h1>
-
-            <p className='paragraph1'>Please enter your Email and password</p>
+            <p className='paragraph1'>Please create an account here to join us.</p>
             
             <button className='secoundButton' onClick={()=>Navigate("/signup")} >Sign Up</button>
            

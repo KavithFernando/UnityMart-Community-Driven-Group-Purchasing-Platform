@@ -24,28 +24,28 @@ export default function SignUp() {
       const error={};
 
       if(!email){
-        error.email="Email is Required";
+        error.email="Email is Required.";
       }else if(!/\S+@\S+\.\S+/.test(email)){
-        error.email="Email is not valide";
+        error.email="The Email is Invalid.";
       }else{
         error.email='';
       }
 
 
       if(!password){
-        error.password="Password is Required";
+        error.password="Password is Required.";
       }else if(password.length<8){
-        error.password="Password is not valide";
+        error.password="Use 8 or more characters for your password.";
       }else{
         error.password='';
       }
 
 
       if(!reEntedPassword){
-        error.reEnted="Password is Required"
+        error.reEnted="Password is Required."
       }
       else if(!(reEntedPassword===password)){
-        error.reEnted="The password does not match"
+        error.reEnted="The passwords did not match. Try again."
       }
       
       else{
@@ -74,7 +74,7 @@ export default function SignUp() {
               {errors.password&&<div className='passwordError'>{errors.password}</div>} 
               
               <div className='reEntedPassworPosition'>
-              <input className='label'  type={reEntedPasswordVisible?"text":"password"}placeholder='Re ented Password' onChange={(e)=>setReEntedPassword(e.target.value)}/>
+              <input className='label'  type={reEntedPasswordVisible?"text":"password"}placeholder='Confirm Password' onChange={(e)=>setReEntedPassword(e.target.value)}/>
               <div className='seeReEnted' onClick={()=>setReEntedPasswordVisible(!reEntedPasswordVisible)}>
                 {reEntedPasswordVisible?<EyeOutlined/>:<EyeInvisibleOutlined/>}
               </div>
@@ -83,12 +83,11 @@ export default function SignUp() {
               </div>
             <div className='radioButtonPart'>
               <label className='radioButton'>
-              <input type="radio" value="seller"  />
+              <input type="radio" name="account" value="seller"  />
               Seller
               </label>
-
               <label className='radioButton'>
-              <input type="radio" value="buyer"  />
+              <input type="radio" name="account" value="buyer"  />
               Buyer
               </label>
             </div>
@@ -98,8 +97,8 @@ export default function SignUp() {
 
         <div className='rightPanel'>
             
-            <h1 className='title'>Welcome</h1>
-            <p className='paragraph'>Please login with your personal information to join us</p>
+            <h1 className='title'>Already a Registered User?</h1>
+            <p className='paragraph'>Please enter your Email and Password to Login.</p>
             <button className='secoundButton' onClick={()=>Navigate("/signin")}>Sign In</button>
         </div>
 
