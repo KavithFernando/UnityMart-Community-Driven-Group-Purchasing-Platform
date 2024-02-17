@@ -7,8 +7,9 @@ export default function Navbar() {
     <nav>
       <h1>UnityMart</h1>
       <ul>
-        <li><Link to="/"></Link></li>
-        <li></li>
+        <li><Link to="/signin">Login</Link></li>
+        |
+        <li><Link to="/signup">Sign Up</Link></li>
       </ul>
     </nav>
   )
