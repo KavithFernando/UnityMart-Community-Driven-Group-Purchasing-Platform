@@ -6,7 +6,6 @@ export default function Home() {
     const Navigate=useNavigate();
   return (
     <div>
-      <button onClick={()=>Navigate("/signin")}>Sign in / Sign up</button>
       <button onClick={()=>Navigate("/Buyer")}>Buyer</button>
       
     </div>
