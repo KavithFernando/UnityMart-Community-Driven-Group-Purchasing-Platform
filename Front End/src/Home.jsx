@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <div>
       <button onClick={()=>Navigate("/Buyer")}>Buyer</button>
+      <button onClick={()=>Navigate("/Seller")}>Seller Page</button>
       
     </div>
     
