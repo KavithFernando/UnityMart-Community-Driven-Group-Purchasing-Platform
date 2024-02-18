@@ -68,6 +68,23 @@ header {
     padding: 20px;
     box-sizing: border-box;
   }
+  /* Chat bubble styles */
+.chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Hover effect for chat bubble */
+.chat-bubble:hover {
+  background-color: #2980b9;
+}
   
  
  

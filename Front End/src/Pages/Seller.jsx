@@ -35,8 +35,16 @@ function Seller() {
           <div className="add-card">
             <h2>Add an Order</h2> 
           </div>
+          <div className="income-card">
+            <h2>Sales Prediction</h2>
+          </div>
         </section>
       </header>
+      <main>
+        <div className="chat-bubble">
+          Chat
+        </div>
+      </main>
 
      
     </div>
