@@ -23,7 +23,6 @@ function Seller() {
       <header>
         <section>
           <div className="user-container">
-           
             <div>
               <h2>Name: {user.name}</h2>
               <p>Rating: {user.rating}</p>
