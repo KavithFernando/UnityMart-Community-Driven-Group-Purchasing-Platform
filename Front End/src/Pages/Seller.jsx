@@ -1,9 +1,8 @@
 // App.js
 
 import { useState } from 'react';
-import './seller.css';
+import './Seller.css';
 
-import userLogo from './assets/man_4140048.png';
 
 
 function Seller() {
@@ -15,6 +14,8 @@ function Seller() {
     rating: 4.5, 
   };
 
+  const averageIncome = 1000;
+
  
 
   return (
@@ -22,7 +23,7 @@ function Seller() {
       <header>
         <section>
           <div className="user-container">
-            <img src={userLogo} alt="User Logo" className="user-logo" />
+           
             <div>
               <h2>Name: {user.name}</h2>
               <p>Rating: {user.rating}</p>

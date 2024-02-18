@@ -5,7 +5,7 @@ import Home from './Home'
 import Footer from './Components/Footer'
 import Navbar from './Components/Common/Navbar';
 import Buyer from './Pages/Buyer';
-
+import Seller from './Pages/Seller';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp />} /> 
           <Route path="/buyer" element={<Buyer />} />
-          
+          <Route path="/Seller" element={<Seller />} />
         </Routes>
         
         <Footer/>
