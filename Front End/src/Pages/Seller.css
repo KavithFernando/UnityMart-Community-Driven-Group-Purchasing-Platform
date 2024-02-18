@@ -30,15 +30,34 @@ header {
     padding: 10px;
     border-radius: 5px;
   }
-  
-  
   .user-logo {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
   }
+  .income-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5a173;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .add-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5a173;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    width: 160px;
+    text-align: center;
+  }
   
+  .app-wrapper{
+    display: inline-flex;
+  }
  
  
   
