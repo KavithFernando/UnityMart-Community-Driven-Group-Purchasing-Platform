@@ -10,7 +10,8 @@ export default function PopularProduct({ path }) {
           <div className="details">
             <h4>Sony Wireless Headphones</h4>
             <div className="progress-bar">Placeholder<br/>Placeholder<br/>Placeholder</div>
-            Rs&nbsp;<span className='price'>1500.00</span>
+            <br />
+            Rs&nbsp;<span className='price-tag'>1500.00</span>
             <br />
             <span className='discount'>Join and Save upto 40%</span>
           </div>
