@@ -26,8 +26,14 @@ function Seller() {
             <div>
               <h2>Name: {user.name}</h2>
               <p>Rating: {user.rating}</p>
-              
             </div>
+          </div>
+          <div className="income-card">
+            <h2>Average Income</h2>
+            <p>${averageIncome}</p>
+          </div>
+          <div className="add-card">
+            <h2>Add an Order</h2> 
           </div>
         </section>
       </header>
