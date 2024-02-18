@@ -84,6 +84,44 @@ header {
 .chat-bubble:hover {
   background-color: #2980b9;
 }
+
+.orders-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px; /* Add margin between orders and chat bubble */
+}
+
+.order-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Add margin between orders */
+  width: 800px;
+}
+
+.order-details {
+  margin-top: 10px;
+}
+
+/* Progress bar styles */
+.order-progress {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  height: 10px;
+  border-radius: 10px;
+}
+
+/* Customize progress bar color */
+.order1 .progress-bar,
+.order2 .progress-bar,
+.order3 .progress-bar,
+.order4 .progress-bar {
+  background-color: #FA7831;
+}
   
  
  
