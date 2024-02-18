@@ -8,13 +8,29 @@ nav {
     color: white;
 }
 
-nav .search {
+nav .searchDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .searchDiv .search {
     background-color:#eee;
     border: none;
     border-radius: 20px;
     padding: 8px 15px;
     margin: 0px 10px;
     width: 450px;
+}
+
+nav .searchDiv > :nth-child(2) {
+    padding: 1.5%;
+    font-size: 18px;
+    border-radius: 7px;
+}
+
+nav .searchDiv > :nth-child(2):hover {
+    background-color: #e16a2a;
 }
 
 nav ul {
@@ -24,7 +40,7 @@ nav ul {
 
 nav ul > li:nth-child(1) a {
     font-size: 20px;
-    padding: 12px 20px;
+    padding: 10px 20px;
 }
 
 nav ul li a{
@@ -33,10 +49,12 @@ nav ul li a{
     font-weight: bold;
     font-family: Arial;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 15px 10px;
+    margin: 0 10px;
+    border-radius: 10px;
     transition: 0.2s;
 }
 
 nav ul li a:hover {
-    background-color: #b65622;
+    background-color: #e16a2a;
 }
