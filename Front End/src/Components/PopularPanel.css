@@ -1,0 +1,18 @@
+.pop-panel {
+    width: 100%;
+    display: flex;
+    background-color: #fff1e9;
+    padding: 1%;
+}
+
+.pop-panel .carousel {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.blah {
+    width: 100px;
+    margin: 0 20px;
+    background-color: green;
+}
