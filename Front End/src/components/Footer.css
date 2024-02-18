@@ -1,70 +1,50 @@
 
-.section_padding {
-  padding: 4rem 3rem;
-}
-
 .footer {
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  background: linear-gradient(to right, #f3ceac, #fa7831);
   width: 100%;
+  min-height: 100px;
+  padding: 2% 0;
+  background-color: rgb(76, 73, 73);
+  text-align: center;
 }
 
-.footerHeadder {
-  position: relative;
-  top: 20px;
-  left: 30px;
+.footer p {
+  color: whitesmoke;
+  margin: 20px auto;
 }
 
-.footerPharagraph {
-  position: relative;
-  top: 30px;
-  left: 20px;
-  font-weight: 500;
+.footer-col {
+  color: #f5f3f3;
+  font-size: 20px;
 }
 
-.developTeam {
-  position: relative;
-  left: 950px;
-  top: -120px;
+.footer-col .dev-team {
+  display: flex;
+  justify-content: space-around;
 }
 
-.icon {
-  font-size: 150%;
-  color: rgb(0, 0, 0);
-  margin: 20px;
+.footer-col .dev-member {
+  color: #f5f3f3;
+  font-size: 15px;
+  margin-top: 40px;
 }
 
-.footerIcon {
-  position: relative;
-  left: 1050px;
-  top: -220px;
+.footer-col .social-links {
+  margin: 10px;
 }
 
-.aboutUsButton {
-  transition: transform 80ms ease-in;
-  &:active {
-    transform: scale(0.95);
-  }
-  &:focus {
-    outline: none;
-  }
-  width: 150px;
-  padding: 8px 0px;
-  font-size: larger;
-  position: relative;
-  left: 1100px;
-  top: -250px;
-  border-radius: 20px;
-  font-weight: bold;
+.footer-col .social-links a {
+  margin: 0 5px;
+  font-size: 25px;
+  color: #d4d1d1;
+  transition: all 0.5s ease;
 }
 
-.name {
-  font-weight: 500;
+.footer-col .social-links a:hover {
+  transform: rotate(360);
 }
 
-.rightSide {
-  position: relative;
-  left: 700px;
+.logof {
+  font-weight: 600;
+  color: rgb(241, 237, 237);
+  font-size: 26px;
 }

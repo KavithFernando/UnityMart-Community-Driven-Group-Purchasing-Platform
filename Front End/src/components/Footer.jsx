@@ -1,32 +1,61 @@
 import React from "react";
 import './Footer.css'
-import { Link } from "react-router-dom"; 
-import{InstagramOutlined,WhatsAppOutlined,FacebookOutlined, GithubOutlined   } from "@ant-design/icons";
+import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <div className="footer">
-            <h1 className="footerHeadder"><i>Unity Mart</i></h1>
-            <p className="footerPharagraph">Unity Mart's ultimate goal is <br/>to consistently provide customers with high-quality products<br/> at prices that are significantly lower,<br/> ensuring accessibility without compromising on quality.</p>
-            
-            <div className="developTeam">
-            <h2>Develop team</h2>
-            <br/>
-            <p className="name">Pabasara Ravindaka<br/>Kavith Fernando <br/>Sanjaya Perera <br/>Niketh Randil <br/>Subhavitha Dharmasiri </p>
-            
+            <div class="logof ">
+                <span>Unity Mart</span>
             </div>
-
-            <dev className="rightSide">
-            <button className="aboutUsButton">About Us</button>
-            <div className="footerIcon"> 
-                <a href="" className="icon">{<InstagramOutlined />}</a>
-                <a href="" className="icon">{<WhatsAppOutlined />}</a>
-                <a href="" className="icon">{<FacebookOutlined />}</a>
-                <a href="" className="icon">{<GithubOutlined />}</a>    
-            
+            <p>419, 1, Ramakrishna Road, Wellawatte, Colombo 06, Sri Lanka. | Phone: +94 712872263 | Email:unitymart@gmail.com</p>
+            <p>Unity Mart © 2023 All Rights Reserved</p>
+            <div class="footer-col">
+                <h4>Follow the Development Team</h4>
+                <div className="dev-team">
+                    <div className="dev-member">
+                        <h4>Niketh Randil</h4>
+                        <div class="social-links">
+                            <Link to="/"><FaLinkedin/></Link>
+                            <Link to="/"><FaGithub/></Link>
+                            <Link to="/"><FaInstagram/></Link>
+                        </div>
+                    </div>
+                    <div className="dev-member">
+                        <h4>Sanjaya Perera</h4>
+                        <div class="social-links">
+                            <Link to="/"><FaLinkedin/></Link>
+                            <Link to="/"><FaGithub/></Link>
+                            <Link to="/"><FaInstagram/></Link>
+                        </div>
+                    </div>
+                    <div className="dev-member">
+                        <h4>Pabasara Ravindaka</h4>
+                        <div class="social-links">
+                            <Link to="/"><FaLinkedin/></Link>
+                            <Link to="/"><FaGithub/></Link>
+                            <Link to="/"><FaInstagram/></Link>
+                        </div>
+                    </div>
+                    <div className="dev-member">
+                        <h4>Kavith Fernando</h4>
+                        <div class="social-links">
+                            <Link to="/"><FaLinkedin/></Link>
+                            <Link to="/"><FaGithub/></Link>
+                            <Link to="/"><FaInstagram/></Link>
+                        </div>
+                    </div>
+                    <div className="dev-member">
+                        <h4>Susitha Subavitha</h4>
+                        <div class="social-links">
+                            <Link to="/"><FaLinkedin/></Link>
+                            <Link to="/"><FaGithub/></Link>
+                            <Link to="/"><FaInstagram/></Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </dev>
-            
-          
         </div>
     );
 };
