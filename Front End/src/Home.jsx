@@ -1,6 +1,6 @@
 import React from 'react'
 import {  useNavigate } from "react-router-dom";
-import PopularPanel from './Components/PopularPanel';
+import PopularPanel from './Components/PopularProducts/PopularPanel';
 
 
 export default function Home() {
