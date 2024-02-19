@@ -8,10 +8,10 @@ export default function PopularProduct({ path }) {
         <Link to={path} className='link-area'>
           <img src="src\ProductImages\headphones.jpg" alt="Product-Image" />
           <div className="details">
-            <h4>Sony Wireless Headphones</h4>
-            <div className="progress-bar">Placeholder<br/>Placeholder<br/>Placeholder</div>
+            <div className='title-card'>Sony Wireless Headphones bngjbngjbnnjnjjnvjnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn jnfj</div>
+            <div className="progress-bar"><br /><br/><br/></div>
             <br />
-            Rs&nbsp;<span className='price-tag'>1500.00</span>
+            Rs&nbsp;<span className='price-tag'>1500.00</span>&nbsp;&nbsp;<span className='market-price'>Rs 2100.00</span>
             <br />
             <span className='discount'>Join and Save upto 40%</span>
           </div>
