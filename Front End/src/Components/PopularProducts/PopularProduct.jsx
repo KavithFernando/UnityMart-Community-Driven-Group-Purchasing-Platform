@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ProgressBar from "@ramonak/react-progress-bar";
 import "./PopularPanel.css"
 
 export default function PopularProduct({ path }) {
@@ -9,11 +10,23 @@ export default function PopularProduct({ path }) {
           <img src="src\ProductImages\headphones.jpg" alt="Product-Image" />
           <div className="details">
             <div className='title-card'>Sony Wireless Headphones bngjbngjbnnjnjjnvjnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn jnfj</div>
-            <div className="progress-bar"><br /><br/><br/></div>
+            <div className="progress">
+              <div className="reach">Reach 150</div>
+              <ProgressBar className='progress-bar'
+                completed={90}
+                isLabelVisible={false}
+                height={7}
+                bgColor="#ff5900"
+                baseBgColor="#dddddd"
+                padding="3px"
+                animateOnRender={true}
+              />
+              <div className="more">15 more to go</div>
+            </div>
             <br />
             Rs&nbsp;<span className='price-tag'>1500.00</span>&nbsp;&nbsp;<span className='market-price'>Rs 2100.00</span>
             <br />
-            <span className='discount'>Join and Save upto 40%</span>
+            <span className='discount'>Hurry up and Save 40%</span>
           </div>
         </Link>
       </div>

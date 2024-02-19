@@ -1,7 +1,6 @@
 .pop-panel {
-    width: 98%;
+    width: 100%;
     display: flex;
-    padding: 1%;
     background-color: rgb(255, 255, 160);
 }
 
@@ -9,7 +8,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    padding: 0 1%;
+    padding: 1% 1%;
 }
 
 .pop-product {
@@ -48,8 +47,28 @@
     color: black;
 }
 
-.pop-product .details .progress-bar{
-    margin-bottom: 35px;
+.pop-product .details .progress {
+    margin: 10px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pop-product .details .progress .reach {
+    color: #ff5900;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.pop-product .details .progress .progress-bar {
+    width: 91%;
+    margin: 5px auto 7px 5px;
+}
+
+.pop-product .details .progress .more {
+    color: #6d6d6d;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 .pop-product .details .price-tag {
@@ -60,7 +79,7 @@
 }
 
 .pop-product .details .market-price {
-    color: rgb(58, 58, 58);
+    color: #6d6d6d;
     text-decoration: line-through;
     font-size: 13px;
 }
