@@ -1,19 +1,30 @@
 const express = require("express");
 const { chats } = require("./data");
+const { connect } = require("mongoose");
+const connectDB = require("./config/db");
+const dotenv = require("dotenv");
+const colors = require("colors");
+const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
+const { notFound, errorHandler } = require("./middleWare/errorMiddleware");
 
+dotenv.config();
+connectDB();
 const app = express();
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
-  res.send("API is runings ok");
+  res.send("API is runings success");
 });
 
-app.get("/api/chat", (req, res) => {
-  res.send(chats);
-});
+app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
 
-app.get("/api/chat/:id", (req, res) => {
-  const singleChat = chats.find((c) => c._id === req.params.id);
-  res.send(singleChat);
-});
+app.use(notFound);
+app.use(errorHandler);
 
-app.listen(5000, console.log("server start on port 5000"));
+app.listen(
+  process.env.PORT,
+  console.log(`server start on port ${process.env.PORT}`.yellow.bold)
+);
