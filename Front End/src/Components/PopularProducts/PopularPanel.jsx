@@ -28,6 +28,7 @@ export default function PopularPanel() {
 
   return (
     <div className='pop-panel'>
+      <div className="pop-product-title">Most Popular Deals of this Week</div>
       <Carousel
         className='carousel'
         responsive={responsive}

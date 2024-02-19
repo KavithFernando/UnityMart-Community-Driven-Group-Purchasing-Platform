@@ -15,10 +15,10 @@ export default function PopularProduct({ path }) {
               <ProgressBar className='progress-bar'
                 completed={90}
                 isLabelVisible={false}
-                height={7}
+                height={8}
                 bgColor="#ff5900"
                 baseBgColor="#dddddd"
-                padding="3px"
+                padding="2px"
                 animateOnRender={true}
               />
               <div className="more">15 more to go</div>

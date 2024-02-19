@@ -1,7 +1,16 @@
 .pop-panel {
     width: 100%;
-    display: flex;
     background-color: rgb(255, 255, 160);
+}
+
+.pop-panel .pop-product-title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 2.5% 0 1% 0;
+    font-weight: bold;
+    font-size: 22px;
+    font-style: italic;
 }
 
 .pop-panel .carousel {
@@ -66,7 +75,7 @@
 }
 
 .pop-product .details .progress .more {
-    color: #6d6d6d;
+    color: #999999;
     font-weight: bold;
     font-size: 13px;
 }
