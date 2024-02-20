@@ -14,10 +14,10 @@
 }
 
 .pop-panel .carousel {
-    margin-left: auto;
+    margin-left: 5%;
     margin-right: auto;
-    width: 90%;
-    padding: 1% 1%;
+    width: 92%;
+    padding: 1% 0 2% 0;
 }
 
 .pop-product {
