@@ -1,160 +1,145 @@
-.signUpContainer{
-    align-items: center;
-    justify-content: center;   
-    display: inline-block;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    position: relative;
-    overflow: hidden;
-    width: 900px;
-    max-width: 100%;
-    min-height: 400px;
-    display: flex;
-    justify-content: space-between; 
-
+.signUpContainer {
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 900px;
+  max-width: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-.signUpForm{
-    display: inline;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 50px;
-    height: 100%;
-    text-align: center;
-    
+.signUpForm {
+  display: inline;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
 }
 
-.title{
-    font-weight: bold;
-    margin: 0;
+.title {
+  font-weight: bold;
+  margin: 0;
 }
 
-.paragraph{
-    font-size: 16px;
-   font-weight: 100;
-   line-height: 20px;
-   letter-spacing: 0.5px;
-   margin: 20px 0 30px
-
+.paragraph {
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
 }
 
-.label{
-    background-color:#eee;
-    border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
-    width: 85%;
+.label {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 85%;
 }
 
-.button{
-    border-radius: 20px;
-    border: 1px solid #ffffff;
-    background-color: #FA7831;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-    &:active{
-        transform: scale(0.95);
-    }
-    &:focus {
-        outline: none;
-    } 
+.button {
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: #fa7831;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  &:active {
+    transform: scale(0.95);
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-.secoundButton{
-    border-radius: 20px;
-    border: 1px solid #ffffff;
-    background-color: #ffffff;
-    color: #FA7831;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-    &:active{
-        transform: scale(0.95);
-    }
-    &:focus {
-        outline: none;
-    } 
+.secoundButton {
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  color: #fa7831;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  &:active {
+    transform: scale(0.95);
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-.radioButton{
-    font-size: 16px;
-    font-weight: bold;
-
+.radioButton {
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.radioButtonPart{
-    display: inline-block;
+.radioButtonPart {
+  display: inline-block;
 }
 
-.rightPanel{
-    display: inline;   
-    position: absolute;
-    display: flex;   
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    background: #000000;
-    background: -webkit-linear-gradient(to left, #ffffff, #FA7831);
-    background: linear-gradient(to left,#f58a50, #FA7831);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0px 0px;
-    color: #ffffff;
-    position: relative;   
-    height: 500px;
-    width: 550px;
-    transform: translateX(0);
-    transition: transform 0.6s ease-in-out;
-
-    
-    
-    
-
+.rightPanel {
+  display: inline;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  background: #000000;
+  background: -webkit-linear-gradient(to left, #ffffff, #fa7831);
+  background: linear-gradient(to left, #f58a50, #fa7831);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px 0px;
+  color: #ffffff;
+  position: relative;
+  height: 500px;
+  width: 550px;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
 }
 
-.error{
-    color:red;
+.error {
+  color: red;
 }
 
-.reEntedPassworPosition{
-    position: relative;
-    top: -25px;
-    
-    
-    
+.reEntedPassworPosition {
+  position: relative;
+  top: -25px;
 }
 
-.seeReEnted{
-    position: relative;
-    top: -38px;
-    left: 170px;
+.seeReEnted {
+  position: relative;
+  top: -38px;
+  left: 170px;
 }
-.reEntedPasswordError{
-    color:red;
-    font-size: 12px;
-    position: relative;
-    top: -25px;
-    left: 15px;
-
-}
-
-.formeAline{
-    width: 110%;
-    position: relative;
+.reEntedPasswordError {
+  color: red;
+  font-size: 12px;
+  position: relative;
+  top: -25px;
+  left: 15px;
 }
 
+.formeAline {
+  width: 110%;
+  position: relative;
+}
