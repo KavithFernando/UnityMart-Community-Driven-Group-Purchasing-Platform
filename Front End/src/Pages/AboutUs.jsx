@@ -15,26 +15,31 @@ const AboutUsPage = () => {
             <h3>Bla Bla </h3>
             <p><strong>Role:</strong> CEO</p>
             <p>Lorem ipsum dolor sit amet.</p>
+          
           </div>
           <div className="team-member-card">
             <h3>Bla Bla </h3>
             <p><strong>Role:</strong> CTO</p>
             <p>Lorem ipsum dolor sit amet.</p>
+           
           </div>
           <div className="team-member-card">
             <h3>Bla</h3>
             <p><strong>Role:</strong> CEO</p>
             <p>Lorem ipsum dolor sit amet.</p>
+           
           </div>
           <div className="team-member-card">
             <h3>Bla</h3>
             <p><strong>Role:</strong> CTO</p>
             <p>Lorem ipsum dolor sit amet.</p>
+           
           </div>
           <div className="team-member-card">
             <h3>Bla</h3>
             <p><strong>Role:</strong> CTO</p>
             <p>Lorem ipsum dolor sit amet.</p>
+           
           </div>
          
         </div>
