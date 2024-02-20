@@ -13,7 +13,7 @@ export default function SignIn() {
   const [visible, setVisible] = useState(true);
 
   const handleSubmit = async () => {
-    event.preventDefault();
+    //event.preventDefault();
     const errors = validate();
     setErrors(errors);
 

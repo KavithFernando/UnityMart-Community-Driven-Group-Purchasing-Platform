@@ -1,0 +1,16 @@
+.box {
+  background-color: aquamarine;
+  height: 50px;
+}
+
+.b1 {
+  padding: auto;
+}
+
+.header {
+  position: relative;
+  left: 700px;
+  top: -50px;
+  font-size: 40px;
+  font-weight: bold;
+}

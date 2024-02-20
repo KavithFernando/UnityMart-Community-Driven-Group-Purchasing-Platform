@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Chat from "./pages/Chat";
+
 import SignIn from "./pages/SineIn";
 import SignUp from "./pages/SineUp";
 
