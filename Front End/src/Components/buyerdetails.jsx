@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Buyerdetails.css';
 
 
 export default function Buyerdetails({props,props2,props3,props4}) {
+
+    
     
     return (
        
@@ -22,13 +24,44 @@ export default function Buyerdetails({props,props2,props3,props4}) {
 
         </div>
         <div className='userprop'>
+        <h1>You are currently on this queues</h1>
+        <br/>
             <div className='prop-c1'>
-                <h1>You are currently on this queues</h1>
+                
                 <div className='prop-c2'>
                     <p>order name :{props3} </p>
                     <p>order id is {props4}</p>
-                    
+                    <br/>
+                    <div className='progressbar'>
+                        <div className='profrasbarfil'>
+                            
+                        </div>
+
+                    </div>
+                    <button>leave queue</button>
+
                 </div>
+                
+            </div>
+            <br/>
+            <div className='prop-c1'>
+                
+                <div className='prop-c2'>
+                    <p>order name :{props3} </p>
+                    <p>order id is {props4}</p>
+                    <button>leave queue</button>
+                </div>
+                
+            </div>
+            <br/>
+            <div className='prop-c1'>
+                
+                <div className='prop-c2'>
+                    <p>order name :{props3} </p>
+                    <p>order id is {props4}</p>
+                    <button>leave queue</button>
+                </div>
+                
             </div>
         </div>
     </div>

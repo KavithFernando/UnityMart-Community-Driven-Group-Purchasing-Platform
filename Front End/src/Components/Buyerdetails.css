@@ -43,3 +43,34 @@
     transition: 3s;
     
 }
+.userprop{
+    .prop-c1 {
+        border: 10px solid #CCCCCC; /* Light gray border */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        background-color: #ffffff;
+        
+    }
+    
+    /* border-color: blue;
+    border-radius: 10px;
+    font-size: 20px;
+    font-style: italic; */
+}
+
+.progressbar{
+    border: 10px;
+    
+    background-color: rgb(170, 156, 156);
+    width: 50%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.profrasbarfil{
+    height: 100%;
+    border-radius: 10px;
+    background-color: aquamarine;
+    transition: width 0.5s ease-out;
+    
+}
