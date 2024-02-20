@@ -1,0 +1,14 @@
+.recomSection {
+    display: flex;
+    background-color: aqua;
+}
+
+.forYou {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 3% 0 1.5% 0;
+    font-weight: bold;
+    font-size: 22px;
+    font-style: italic;
+}

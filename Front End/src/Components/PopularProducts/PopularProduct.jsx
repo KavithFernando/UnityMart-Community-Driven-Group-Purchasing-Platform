@@ -9,7 +9,7 @@ export default function PopularProduct({ path }) {
         <Link to={path} className='link-area'>
           <img src="src\ProductImages\headphones.jpg" alt="Product-Image" />
           <div className="details">
-            <div className='title-card'>Sony Wireless Headphones bngjbngjbnnjnjjnvjnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn jnfj</div>
+            <div className='title-card'>Sony Wireless Headphones</div>
             <div className="progress">
               <div className="reach">Reach 150</div>
               <ProgressBar className='progress-bar'

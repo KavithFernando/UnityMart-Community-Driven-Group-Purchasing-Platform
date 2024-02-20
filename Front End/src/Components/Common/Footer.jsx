@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="footer">
             <div class="logof ">
-                <span>Unity Mart</span>
+                <span>UnityMart</span>
             </div>
             <p>419, 1, Ramakrishna Road, Wellawatte, Colombo 06, Sri Lanka. | Phone: +94 712872263 | Email:unitymart@gmail.com</p>
             <p>Unity Mart © 2023 All Rights Reserved</p>
