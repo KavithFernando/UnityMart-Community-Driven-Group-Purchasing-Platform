@@ -1,0 +1,35 @@
+.box {
+  display: flex;
+  background-color: aquamarine;
+  height: 50px;
+  padding: 5px 10px 5px 10px;
+}
+
+.b1 {
+  padding-right: 1000px;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 700px;
+}
+
+.bellIcon {
+  font-size: 220%;
+}
+.avatar {
+  display: inline-block;
+  font-size: 220%;
+}
+.chevronDownIcon {
+  display: inline-block;
+  font-size: 180%;
+}
+.profil {
+  padding-left: 10px;
+}
+
+.rightPart {
+  padding-left: 650px;
+}
