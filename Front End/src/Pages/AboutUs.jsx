@@ -12,8 +12,8 @@ const AboutUsPage = () => {
         <div className="team-member-cards">
          
           <div className="team-member-card">
-            <h3>Bla Bla </h3>
-            <p><strong>Role:</strong> CEO</p>
+            <h3>Niketh Randil Weragala</h3>
+            <p><strong>Role: Devoloper </strong></p>
             <p>Lorem ipsum dolor sit amet.</p>
           
           </div>

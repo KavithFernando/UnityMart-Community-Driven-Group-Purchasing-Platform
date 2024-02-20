@@ -1,7 +1,7 @@
 /* AboutUs.css */
 
 .about-us-page {
-    max-width: 800px;
+   
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -21,7 +21,7 @@
 }
 
 .team-member-card {
-    width: 200px; 
+    width: 400px; 
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
