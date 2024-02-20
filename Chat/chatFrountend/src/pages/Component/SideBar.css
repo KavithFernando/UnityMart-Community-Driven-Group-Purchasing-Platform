@@ -33,3 +33,8 @@
 .rightPart {
   padding-left: 650px;
 }
+
+.box2 {
+  display: flex;
+  padding-bottom: 2px;
+}
