@@ -7,13 +7,13 @@
 
   background-color: white;
 
-  width: 100%;
   border-radius: 10px;
   border-width: 1px;
+  width: 600px;
+  height: 600px;
 }
 
 .box2 {
-  background-color: azure;
   padding-bottom: 3px;
   padding-left: 3px;
   padding-right: 3px;
@@ -24,9 +24,6 @@
   font-family: "Work Sans";
 
   display: flex;
-
-  width: 600px;
-  height: 600px;
 
   justify-content: space-between;
 
