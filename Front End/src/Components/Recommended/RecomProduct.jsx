@@ -8,7 +8,7 @@ import "./RecomHolder.css"
 export default function RecomProduct({ path }) {
   return (
     <div className='recomProduct-card'>
-			<Link to={path} className='link-area'>
+			<Link to="/Product" className='link-area'>
 				<img src="src\ProductImages\shoes.jpeg" alt="Product-Image" />
 				<div className="details">
 					<div className='title-card'>Walking Sneakers for Women 2024 Spring New Ladies Thick-soled Sneakers Casual Height-increasing Women's Shoes Free Shipping</div>

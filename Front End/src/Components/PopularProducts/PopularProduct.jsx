@@ -6,7 +6,7 @@ import "./PopularPanel.css"
 export default function PopularProduct({ path }) {
   return (
       <div className="pop-product">
-        <Link to={path} className='link-area'>
+        <Link to='/Product' className='link-area'>
           <img src="src\ProductImages\headphones.jpg" alt="Product-Image" />
           <div className="details">
             <div className='title-card'>Sony Wireless Headphones</div>

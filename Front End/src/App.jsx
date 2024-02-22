@@ -7,6 +7,7 @@ import Navbar from './Components/Common/Navbar';
 import Buyer from './Pages/Buyer';
 import Seller from './Pages/Seller';
 import AboutUsPage from './Pages/AboutUs';
+import Product from './Pages/Product';
 
 function App() {
    
@@ -24,6 +25,7 @@ function App() {
           <Route path="/buyer" element={<Buyer />} />
           <Route path="/Seller" element={<Seller />} />
           <Route path="/AboutUsPage" element={<AboutUsPage />} />
+          <Route path="/product" element={<Product/>} />
         </Routes>
         
         <Footer/>
