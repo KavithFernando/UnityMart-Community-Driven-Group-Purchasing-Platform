@@ -1,0 +1,39 @@
+/* AboutUs.css */
+
+.about-us-page {
+   
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+.team-members {
+    margin-top: 50px;
+}
+
+.team-member-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.team-member-card {
+    width: 400px; 
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align text to the left within the card */
+    padding: 15px; /* Adjust padding for better spacing */
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}

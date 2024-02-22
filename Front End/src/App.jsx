@@ -6,7 +6,7 @@ import Footer from './Components/Common/Footer'
 import Navbar from './Components/Common/Navbar';
 import Buyer from './Pages/Buyer';
 import Seller from './Pages/Seller';
-
+import AboutUsPage from './Pages/AboutUs';
 
 function App() {
    
@@ -23,6 +23,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} /> 
           <Route path="/buyer" element={<Buyer />} />
           <Route path="/Seller" element={<Seller />} />
+          <Route path="/AboutUsPage" element={<AboutUsPage />} />
         </Routes>
         
         <Footer/>
