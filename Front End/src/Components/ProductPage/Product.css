@@ -1,0 +1,21 @@
+.three-panel-holder {
+    display: grid;
+    grid-template-columns: 500px 550px 1fr;
+    margin: 1% 2%;
+}
+
+.image-display {
+    width: 100%;
+    background-color: aqua;
+}
+
+
+.description-display {
+    width: 100%;
+    background-color: green;
+}
+
+.fuctions-display {
+    width: 100%;
+    background-color: yellow;
+}
