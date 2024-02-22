@@ -27,6 +27,9 @@ export default function RecomProduct({ path }) {
 					</div>
 					<b>Rs</b><span className='price-tag'>1500.00</span>&nbsp;&nbsp;<span className='market-price'>Rs 2100.00</span>
 				</div>
+				<div className="buttons">
+					<div className='button-join'>Join Purchase</div>
+				</div>
 			</Link>
     </div>
   )

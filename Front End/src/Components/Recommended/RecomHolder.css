@@ -6,7 +6,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    padding: 3% 0 1.5% 0;
+    padding: 5% 0 1.5% 0;
     font-weight: bold;
     font-size: 22px;
     font-style: italic;
@@ -19,16 +19,16 @@
 
 .recomProduct-card {
     display: flex;
-    /* background-color: #eeeeee; */
     padding: 15px 0;
     width: 250px;
     border-radius: 18px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 40px 0 0 0;
+    margin:0;
+    position: static;
 }
 
 .recomProduct-card:hover {
-    box-shadow: 0 0 10px 2px #00000047;
+    box-shadow: 0 0 10px 2px #0000001e;
     z-index: 999;
 }
 
@@ -76,15 +76,41 @@
 }
 
 .recomProduct-card .details .price-tag {
-    /* color: #ff5900; */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 27px;
     font-weight: bold;
-    margin: 0 0 20px 0;
 }
 
 .recomProduct-card .details .market-price {
     color: #6d6d6d;
     text-decoration: line-through;
     font-size: 13px;
+}
+
+.recomProduct-card .buttons {
+    display: flex;
+    margin: 20px 0 10px 0;
+    justify-content: space-between;
+}
+
+.recomProduct-card .buttons .button-join {
+    width: 100%;
+    padding: 4% 0;
+    text-align: center;
+    background-color: #ff5900;
+    background-color: white;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+}
+
+.recomProduct-card .buttons .button-join:hover {
+    transition: 0.5s;
+    transform: scale(0.95);
+}
+
+.recomProduct-card:hover .buttons .button-join {
+    background-color: black;
 }
