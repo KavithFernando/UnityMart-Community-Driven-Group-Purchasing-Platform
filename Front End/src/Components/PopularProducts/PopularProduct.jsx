@@ -23,7 +23,6 @@ export default function PopularProduct({ path }) {
               />
               <div className="more">15 more to go</div>
             </div>
-            <br />
             Rs&nbsp;<span className='price-tag'>1500.00</span>&nbsp;&nbsp;<span className='market-price'>Rs 2100.00</span>
             <br />
             <span className='discount'>Hurry up and Save 40%</span>

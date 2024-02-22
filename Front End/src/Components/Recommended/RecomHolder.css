@@ -1,9 +1,8 @@
 .recomSection {
-    display: flex;
-    background-color: aqua;
+    margin: 0 0 3% 0;
 }
 
-.forYou {
+.recomSection .forYou {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -11,4 +10,81 @@
     font-weight: bold;
     font-size: 22px;
     font-style: italic;
+}
+
+.recomSection .recom-product-holder {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+}
+
+.recomProduct-card {
+    display: flex;
+    /* background-color: #eeeeee; */
+    padding: 15px 0;
+    width: 250px;
+    border-radius: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px 0 0 0;
+}
+
+.recomProduct-card:hover {
+    box-shadow: 0 0 10px 2px #00000047;
+    z-index: 999;
+}
+
+.recomProduct-card img {
+    width: 220px;
+    height: 220px;
+    border-radius: 15px;
+}
+
+.recomProduct-card a {
+    margin: auto;
+    text-decoration: none;
+    color: black;
+}
+
+.recomProduct-card .details .title-card {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 2% 0;
+    color: black;
+}
+
+.recomProduct-card .details .progress .reach {
+    color: #ff5900;
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0 5px 0;
+}
+
+.recomProduct-card .details .progress .progress-bar {
+    width: 98%;
+}
+
+.recomProduct-card .details .progress .more {
+    width: 100%;
+    text-align: center;
+    color: #838383;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 7px 0 12px 0;
+}
+
+.recomProduct-card .details .price-tag {
+    /* color: #ff5900; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+}
+
+.recomProduct-card .details .market-price {
+    color: #6d6d6d;
+    text-decoration: line-through;
+    font-size: 13px;
 }
