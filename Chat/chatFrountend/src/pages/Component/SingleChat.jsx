@@ -4,6 +4,7 @@ import { Box, Text } from "@chakra-ui/layout";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { IconButton, Spinner, useToast } from "@chakra-ui/react";
 import { getSender } from "../../config/ChatLogics";
+import UpdateGroupChat from "./UpdateGroupChat";
 
 export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const { user, selectedChat, setselectedChat } = ChatState();
@@ -31,11 +32,12 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             ) : (
               <>
                 {selectedChat.chatName.toUpperCase()}
-                {/*<UpdateGroupChatModal
-                    fetchMessages={fetchMessages}
+                {
+                  <UpdateGroupChat
                     fetchAgain={fetchAgain}
                     setFetchAgain={setFetchAgain}
-              />*/}
+                  />
+                }
               </>
             )}
           </Text>

@@ -1,8 +1,38 @@
-import { useDisclosure } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  FormControl,
+  Input,
+  useToast,
+  Box,
+  IconButton,
+  Spinner,
+} from "@chakra-ui/react";
+import { ChatState } from "../../Context/chatProvider";
+import UserBadgeItem from "./UserAvater/UserBadgeItem";
 
 export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { selectedChat, setSelectedChat, user } = ChatState();
+  const { groupChatName, setGroupChatName } = useState();
+  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const [renameloading, setRenameLoading] = useState(false);
+  const toast = useToast();
+
+  const handleRemove = () => {};
+  const handleRename = () => {};
+
   return (
     <div>
       <Button onClick={onOpen}>Open Modal</Button>
@@ -10,10 +40,43 @@ export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader
+            fontSize="35px"
+            fontFamily="Work sans"
+            d="flex"
+            justifyContent="center"
+          >
+            {selectedChat.chatName}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Lorem count={2} />
+            <Box w="100%" d="flex" flexWrap="wrap" pb={3}>
+              {selectedChat.users.map((u) => (
+                <UserBadgeItem
+                  key={u._id}
+                  user={u}
+                  admin={selectedChat.groupAdmin}
+                  handleFunction={() => handleRemove(u)}
+                />
+              ))}
+            </Box>
+            <FormControl d="flex">
+              <Input
+                placeholder="Chat Name"
+                mb={3}
+                value={groupChatName}
+                onChange={(e) => setGroupChatName(e.target.value)}
+              />
+              <Button
+                variant="solid"
+                colorScheme="teal"
+                ml={1}
+                isLoading={renameloading}
+                onClick={handleRename}
+              >
+                Update
+              </Button>
+            </FormControl>
           </ModalBody>
 
           <ModalFooter>
