@@ -86,13 +86,44 @@
 
 .fuctions-display {
     width: 100%;
-    background-color: yellow;
+    border: 1px solid rgba(0, 0, 0, 0.126);
+    border-radius: 15px;
+}
+
+.fuctions-display .progress {
+    text-align: center;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+.fuctions-display .progress .reach {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff5900;
+    margin: 0 0 3% 0;
+}
+
+.fuctions-display .progress .progress-bar {
+    width: 90%;
+    margin-left: auto;
+    margin-right: 6%;
+    margin-bottom: 5%;
+}
+
+
+.fuctions-display .progress .available {
+    font-size: 15px;
+    color: #3b3b3b;
+}
+
+.fuctions-display .progress .available span {
+    font-weight: bold;
 }
 
 .fuctions-display .quantity {
     width: 100%;
     text-align: center;
-    margin: 3% 0;
+    margin: 10% 0 0 0;
 }
 
 .fuctions-display .quantity .title {
@@ -109,7 +140,8 @@
     margin: 2%;
 }
 
-.fuctions-display .quantity .buttons-and-text .minus, 
+.fuctions-display .quantity .buttons-and-text 
+.minus, 
 .plus {
     user-select: none;
     display: flex;
@@ -122,7 +154,8 @@
     background-image: linear-gradient(to left top, #f3f3f3, #efefef, #ececec, #e8e8e8, #e5e5e5);
 }
 
-.fuctions-display .quantity .buttons-and-text .minus:active, 
+.fuctions-display .quantity .buttons-and-text 
+.minus:active, 
 .plus:active {
     background-image: linear-gradient(to right bottom, #f3f3f3, #efefef, #ececec, #e8e8e8, #e5e5e5);
 }
@@ -150,8 +183,64 @@
     -webkit-appearance: none;
 }
 
-.fuctions-display .progress {
+.fuctions-display .total-display {
     display: flex;
     justify-content: center;
-    margin: 5% 0;
+    align-items: baseline;
+    margin: 0 0 10% 0;
+}
+
+.fuctions-display .total-display .total {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.fuctions-display .total-display .cal-total {
+    font-weight: bold;
+    font-size: 30px;
+    /* color: #ff5900; */
+}
+
+.fuctions-display .join-share {
+    display: flex;
+    flex-direction: column;
+}
+
+.fuctions-display .join-share 
+.join,
+.share {
+    font-weight: bold;
+    width: 80%;
+    margin: 2% auto;
+    text-align: center;
+    border-radius: 25px;
+    padding: 3% 0;
+    transition: 0.2s;
+    user-select: none;
+    cursor: pointer;
+}
+
+.fuctions-display .join-share .join {
+    background-color: #ff5900;
+    color: white;
+}
+
+.fuctions-display .join-share .share {
+    background-color: #ffe3d4;
+    color: #ff5900;
+    display: flex;
+    justify-content: center;
+}
+
+.fuctions-display .join-share .share .share-icon {
+    margin: 0 5% 0 0;
+    font-size: 18px;
+}
+
+.fuctions-display .join-share .join:hover {
+    background-color: #c14300;
+}
+
+.fuctions-display .join-share .share:hover {
+    background-color: #e7cfc2;
 }

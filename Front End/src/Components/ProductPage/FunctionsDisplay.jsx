@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import ProgressBar from "@ramonak/react-progress-bar";
+import { IoShareSocial } from "react-icons/io5";
+
 
 export default function FunctionsDisplay() {
 
@@ -23,6 +26,18 @@ export default function FunctionsDisplay() {
 
   return (
     <div className='fuctions-display'>
+      <div className="progress">
+        <div className="reach">REACH 150</div>
+        <ProgressBar className='progress-bar'
+          completed={60}
+          height={15}
+          bgColor="#ff5900"
+          baseBgColor="#dddddd"
+          padding="4px"
+          animateOnRender={true}
+        />
+        <div className="available">Only <span>60</span> more items available</div>
+      </div>
       <div className="quantity">
         <div className="title">Quantity</div>
         <div className="buttons-and-text">
