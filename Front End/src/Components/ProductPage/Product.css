@@ -1,7 +1,7 @@
 .three-panel-holder {
     display: grid;
     grid-template-columns: 500px 550px 1fr;
-    column-gap: 15px;
+    column-gap: 35px;
     margin: 1%;
 }
 
@@ -12,12 +12,12 @@
 
 .description-display {
     width: 100%;
-    /* background-color: green; */
 }
 
 .description-display .seller-info {
     display: flex;
     align-items: center;
+    margin: 3% 0;
 }
 
 .description-display .seller-info .pfp {
@@ -76,7 +76,7 @@
 .description-display .pricing-details .store-price {
     text-decoration: line-through;
     margin: 0 37% 0 2%;
-    color: black;
+    color: #838383;
 }
 
 .description-display .pricing-details .discount {
@@ -87,4 +87,71 @@
 .fuctions-display {
     width: 100%;
     background-color: yellow;
+}
+
+.fuctions-display .quantity {
+    width: 100%;
+    text-align: center;
+    margin: 3% 0;
+}
+
+.fuctions-display .quantity .title {
+    font-size: 18px;
+}
+
+.fuctions-display .quantity .buttons-and-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fuctions-display .quantity .buttons-and-text * {
+    margin: 2%;
+}
+
+.fuctions-display .quantity .buttons-and-text .minus, 
+.plus {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-image: linear-gradient(to left top, #f3f3f3, #efefef, #ececec, #e8e8e8, #e5e5e5);
+}
+
+.fuctions-display .quantity .buttons-and-text .minus:active, 
+.plus:active {
+    background-image: linear-gradient(to right bottom, #f3f3f3, #efefef, #ececec, #e8e8e8, #e5e5e5);
+}
+
+.fuctions-display .quantity .buttons-and-text .minus:hover, 
+.plus:hover {
+    cursor: pointer;
+}
+
+.fuctions-display .quantity .buttons-and-text .count {
+    padding: 1%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.fuctions-display .quantity .buttons-and-text .count:focus {
+    border: none;
+}
+
+.fuctions-display .quantity .buttons-and-text 
+.count::-webkit-inner-spin-button,
+.count::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.fuctions-display .progress {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
 }
