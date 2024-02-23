@@ -1,7 +1,8 @@
 .three-panel-holder {
     display: grid;
     grid-template-columns: 500px 550px 1fr;
-    margin: 1% 2%;
+    column-gap: 15px;
+    margin: 1%;
 }
 
 .image-display {
@@ -9,10 +10,78 @@
     background-color: aqua;
 }
 
-
 .description-display {
     width: 100%;
-    background-color: green;
+    /* background-color: green; */
+}
+
+.description-display .seller-info {
+    display: flex;
+    align-items: center;
+}
+
+.description-display .seller-info .pfp {
+    background-color: #ff5900;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.description-display .seller-info .pfp img {
+    width: 50px;
+    height: 50px;
+}
+
+.description-display .seller-info .seller-names {
+    margin: 0 5% 0 5%;
+}
+
+.description-display .seller-info .seller-names a {
+    text-decoration: none;
+    color: black;
+}
+
+.description-display .seller-info .seller-names h5 {
+    color: #838383;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.description-display .description-title {
+    font-weight: bold;
+    margin: 6% 0 2.5% 0;
+    text-align: justify;
+}
+
+.description-display .description-detailed {
+    font-size: 13px;
+    text-align: justify;
+}
+
+.description-display .pricing-details {
+    display: flex;
+    align-items: baseline;
+    margin: 8% 0 4% 0;
+    font-weight: bold;
+    color: #ff5900;
+}
+
+.description-display .pricing-details .rs {
+    font-size: 22px;
+}
+
+.description-display .pricing-details .price {
+    font-size: 35px;
+}
+
+.description-display .pricing-details .store-price {
+    text-decoration: line-through;
+    margin: 0 37% 0 2%;
+    color: black;
+}
+
+.description-display .pricing-details .discount {
+    font-weight: 300;
+    font-size: 30px;
 }
 
 .fuctions-display {
