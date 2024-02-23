@@ -1,20 +1,23 @@
-import React from 'react'
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-
+import React, { useState } from 'react';
+import './Product.css';
 
 export default function ImageDisplay() {
+  const [mainImage, setMainImage] = useState("../src/images/shoe2.jpg"); 
+
+  
+  const handleImageClick = (newImage) => {
+    setMainImage(newImage); 
+  };
 
   return (
     <div className='image-display'>
-      <div className='main img' src="../src/images/shoe2.jpg" alt=""/>
+      <img className='main_img' src={mainImage} alt="" /> 
       <div className='chilimg'>
-      <img className="imgdis1" src="../src/images/shoe2.jpg" alt="" />
-      <img className="imgdis1" src="../src/images/shoe3.png" alt="" />
-      <img className="imgdis1" src="../src/images/shoe2.jpg" alt="" />
+        
+        <img className="imgdis1" src="../src/images/shoe2.jpg" alt="" onClick={() => handleImageClick("../src/images/shoe2.jpg")} />
+        <img className="imgdis1" src="../src/images/shoe3.png" alt="" onClick={() => handleImageClick("../src/images/shoe3.png")} />
+        <img className="imgdis1" src="../src/images/shoe2.jpg" alt="" onClick={() => handleImageClick("../src/images/shoe2.jpg")} />
       </div>
-      
-			
     </div>
-  )
+  );
 }
