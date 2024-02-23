@@ -7,7 +7,7 @@ export default function ImageDisplay() {
 
   return (
     <div className='image-display'>
-      <img className="imgdis1" src="../src/images/shoe`1.png" alt="abs" />
+      <img className="imgdis1" src="../src/images/shoe2.jpg" alt="" />
 			
     </div>
   )
