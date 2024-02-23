@@ -1,5 +1,5 @@
 import React from 'react';
- import './Buyer.css'; 
+  
 
 import Buyerdetails from '../Components/buyerdetails';
 
@@ -9,7 +9,7 @@ export default function Buyer() {
 
     const name= "pabasara ravindraka"
     const email="pabasara12@gmail.com"
-    const ordername="apple watch"
+    const ordername="apple12watch"
     const orderid="122"
     
    //pass the properties

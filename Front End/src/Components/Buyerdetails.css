@@ -4,6 +4,8 @@
 
 .usermain{
     width: 20%;
+    background-color: #ffffff;
+    
 
 }
 
@@ -12,55 +14,60 @@
     width: 80%;
 }
 
-.usermain {
-    background-color: rgb(255, 255, 255);
-    
-}
 
 .userprop {
-    background-color: bisque;
+    background-color: #ffffff;
 }
 
+.h3-1 {
+    font-family: Arial, sans-serif; 
+    font-size: 18px; 
+    color: #000000; 
+    text-align: center;
+    margin: 0; 
+    padding: 0; 
+  }
 
+  .h3-1:hover {
+    transform: scale(1.15); 
+  }
 
-.h3{
-    border: 10px solid rgb(58, 55, 55); 
-    padding: 10px;
-    border-radius: 20px;
-    color: orange;
-   
-}
 
 .img1{
     border-radius: 50%;
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-    margin-left:20px;
-    transition: 3s;
+    margin-left:30px;
+    opacity: 1;
+    transition: 500ms linear; 
     
 }
+.img1:hover {
+    transform: scale(1.15); 
+  }
     .prop-c1 {
-        border: 10px solid #CCCCCC; 
-        border-radius: 10px; 
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        width: 600px;
+        border: 5px solid #CCCCCC; 
+        border-radius: 5px; 
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
         background-color: #ffffff;
         
     }
-    
-    
 
-.progressbar{
-    border: 10px;
-    
-    background-color: rgb(170, 156, 156);
-    width: 50%;
-    height: 30px;
-    margin-bottom: 10px;
+.prop-c2{
+    background-color: #fae289;
+
 }
-
-.profrasbarfil{
-    height: 100%;
-    border-radius: 10px;
-    background-color: aquamarine;
-    transition: width 0.5s ease-out;
     
+    
+
+
+
+.h1-1{
+    font-family: Arial, sans-serif;
+  font-size: 24px; 
+  font-weight: bold; 
+  color: #333; 
+  
+  text-transform: capitalize; 
+  margin-bottom: 5px; 
 }
