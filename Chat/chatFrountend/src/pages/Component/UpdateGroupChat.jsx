@@ -18,11 +18,12 @@ import {
 } from "@chakra-ui/react";
 import { ChatState } from "../../Context/chatProvider";
 import UserBadgeItem from "./UserAvater/UserBadgeItem";
+import axios from "axios";
 
 export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { selectedChat, setSelectedChat, user } = ChatState();
-  const { groupChatName, setGroupChatName } = useState();
+  const [groupChatName, setGroupChatName] = useState();
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,44 @@ export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
   const toast = useToast();
 
   const handleRemove = () => {};
-  const handleRename = () => {};
+  const handleRename = async () => {
+    if (!groupChatName) return;
+
+    try {
+      setRenameLoading(true);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+      const { data } = await axios.put(
+        `/api/chat/rename`,
+        {
+          chatId: selectedChat._id,
+          chatName: groupChatName,
+        },
+        config
+      );
+
+      console.log(data._id);
+      // setSelectedChat("");
+      setSelectedChat(data);
+      setFetchAgain(!fetchAgain);
+      setRenameLoading(false);
+    } catch (error) {
+      toast({
+        title: "Error Occured!",
+        description: error.response.data.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      setRenameLoading(false);
+    }
+    setGroupChatName("");
+  };
+  const handleSearch = () => {};
 
   return (
     <div>
@@ -77,13 +115,19 @@ export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
                 Update
               </Button>
             </FormControl>
+            <FormControl>
+              <Input
+                placeholder="Add User to group"
+                mb={1}
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+            </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button onClick={() => handleRemove(user)} colorScheme="red">
+              Leave Group
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
