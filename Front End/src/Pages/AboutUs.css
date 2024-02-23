@@ -30,10 +30,10 @@
     padding: 15px; /* Adjust padding for better spacing */
 }
 
-h1, h2, h3 {
+.about-us-page h1, h2, h3 {
     color: #333;
 }
 
-p {
+.about-us-page p {
     color: #555;
 }
