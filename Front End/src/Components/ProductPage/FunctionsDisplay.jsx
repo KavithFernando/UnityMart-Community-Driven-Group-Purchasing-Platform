@@ -53,8 +53,17 @@ export default function FunctionsDisplay() {
           <div className="plus" onClick={handleIncrement}>+</div>
         </div>
       </div>
-      <div className="progress">
-        <div className="reach">REACH 150</div>
+      <div className="total-display">
+        <div className="total">
+          TOTAL: Rs
+        </div>
+        <div className="cal-total">
+          &nbsp;3000.00
+        </div>
+      </div>
+      <div className="join-share">
+        <div className="join">Join Purchase</div>
+        <div className="share"><IoShareSocial className='share-icon'/>Share</div>
       </div>
     </div>
   )
