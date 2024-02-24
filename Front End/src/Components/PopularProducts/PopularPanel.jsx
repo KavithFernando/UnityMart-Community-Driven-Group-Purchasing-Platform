@@ -46,13 +46,78 @@ export default function PopularPanel() {
         infinite={true}
         // autoPlay={true}
       >
+        <PopularProduct
+          title = "Bluetooth Wireless Headset"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+          imageSrc="src/ProductImages/headphones.jpg"
+        />
         <PopularProduct/>
-        <PopularProduct/>
-        <PopularProduct/>
-        <PopularProduct/>
-        <PopularProduct/>
-        <PopularProduct/>
-        <PopularProduct/>
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
+        <PopularProduct
+          title = "Product Title"
+          reach = {150}
+          current = {90}
+          price = {1500}
+          storePrice = {2700}
+        />
       </Carousel>
         
     </div>

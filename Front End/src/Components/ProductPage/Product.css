@@ -7,30 +7,30 @@
 
 .image-display {
     width: 100%;
-  }
+}
   
-  .main_img {
-    width: 100%;
-    height: auto;
-  }
+.main_img {
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.126);
+    border-radius: 15px;
+}
   
-  .chilimg {
+.chilimg {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-  }
+}
   
-  .imgdis1 {
+.imgdis1 {
     width: 30%;
     height: auto;
     cursor: pointer;
-  }
+}
   
-  .imgdis1:hover {
+.imgdis1:hover {
     opacity: 0.7; 
-  }
-  
-
+}
 
 .description-display {
     width: 100%;
@@ -108,6 +108,9 @@
 
 .fuctions-display {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     border: 1px solid rgba(0, 0, 0, 0.126);
     border-radius: 15px;
 }
@@ -115,7 +118,7 @@
 .fuctions-display .progress {
     text-align: center;
     justify-content: center;
-    margin: 5% 0;
+    /* margin: 15% 0; */
 }
 
 .fuctions-display .progress .reach {
@@ -145,7 +148,7 @@
 .fuctions-display .quantity {
     width: 100%;
     text-align: center;
-    margin: 10% 0 0 0;
+    /* margin: 20% 0 0 0; */
 }
 
 .fuctions-display .quantity .title {
@@ -209,7 +212,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
-    margin: 0 0 10% 0;
+    /* margin: 0 0 20% 0; */
 }
 
 .fuctions-display .total-display .total {
@@ -220,7 +223,6 @@
 .fuctions-display .total-display .cal-total {
     font-weight: bold;
     font-size: 30px;
-    /* color: #ff5900; */
 }
 
 .fuctions-display .join-share {

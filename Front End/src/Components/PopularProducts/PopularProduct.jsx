@@ -3,17 +3,36 @@ import { Link } from 'react-router-dom'
 import ProgressBar from "@ramonak/react-progress-bar";
 import "./PopularPanel.css"
 
-export default function PopularProduct({ path }) {
+export default function PopularProduct(
+    {
+      title="Product Title", 
+      reach=0, current=0, 
+      price=9999.99, 
+      storePrice=9999.99, 
+      imageSrc="src/ProductImages/MissingImage.jpg"
+    }
+  ) 
+{
+  
+  // Use toFixed(2) to format price and storePrice with two decimal places
+  const formattedPrice = price.toFixed(2);
+  const formattedStorePrice = storePrice.toFixed(2);
+
+  // Calculations-------------------------------------------
+  const to_go = reach - current;
+  const completed = (current / reach) * 100;
+  const discount = Math.round(((storePrice - price) / storePrice) * 100);
+
   return (
       <div className="pop-product">
         <Link to='/Product' className='link-area'>
-          <img src="src\ProductImages\headphones.jpg" alt="Product-Image" />
+          <img src={imageSrc} alt="Product-Image"/>
           <div className="details">
-            <div className='title-card'>Sony Wireless Headphones</div>
+            <div className='title-card'>{title}</div>
             <div className="progress">
-              <div className="reach">Reach 150</div>
+              <div className="reach">Reach {reach}</div>
               <ProgressBar className='progress-bar'
-                completed={90}
+                completed={completed}
                 isLabelVisible={false}
                 height={8}
                 bgColor="#ff5900"
@@ -21,11 +40,11 @@ export default function PopularProduct({ path }) {
                 padding="2px"
                 animateOnRender={true}
               />
-              <div className="more">15 more to go</div>
+              <div className="more">{to_go} more to go</div>
             </div>
-            Rs&nbsp;<span className='price-tag'>1500.00</span>&nbsp;&nbsp;<span className='market-price'>Rs 2100.00</span>
+            Rs&nbsp;<span className='price-tag'>{formattedPrice}</span>&nbsp;&nbsp;<span className='market-price'>Rs {formattedStorePrice}</span>
             <br />
-            <span className='discount'>Hurry up and Save 40%</span>
+            <span className='discount'>Hurry up and Save {discount}%</span>
           </div>
         </Link>
       </div>
