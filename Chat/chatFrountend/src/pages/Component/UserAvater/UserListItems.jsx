@@ -22,13 +22,7 @@ function UserListItems({ user, handleFunction }) {
       mb={2}
       borderRadius="lg"
     >
-      <Avatar
-        mr={2}
-        size="sm"
-        cursor="pointer"
-        name={user.name}
-        src={user.pic}
-      />
+      <Avatar mr={2} size="sm" cursor="pointer" name={user.name} />
       <Box>
         <Text>{user.name}</Text>
         <Text fontSize="xs">
