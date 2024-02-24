@@ -42,6 +42,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\UnityMart-Community-Driven-Group-Purchasing-Platform\Recommendation System Python" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,6 +79,8 @@
       <workItem from="1707557227624" duration="914000" />
       <workItem from="1707558202212" duration="554000" />
       <workItem from="1707626538276" duration="2750000" />
+      <workItem from="1708752971316" duration="4136000" />
+      <workItem from="1708761018066" duration="792000" />
     </task>
     <servers />
   </component>
