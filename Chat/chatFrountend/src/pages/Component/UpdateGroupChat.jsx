@@ -21,7 +21,11 @@ import UserBadgeItem from "./UserAvater/UserBadgeItem";
 import axios from "axios";
 import UserListItems from "./UserAvater/UserListItems";
 
-export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
+export default function UpdateGroupChat({
+  fetchAgain,
+  setFetchAgain,
+  fetchMessages,
+}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { selectedChat, setSelectedChat, user } = ChatState();
   const [groupChatName, setGroupChatName] = useState();
@@ -62,6 +66,7 @@ export default function UpdateGroupChat({ fetchAgain, setFetchAgain }) {
 
       user1._id === user._id ? setSelectedChat() : setSelectedChat(data);
       setFetchAgain(!fetchAgain);
+      fetchMessages();
 
       setLoading(false);
     } catch (error) {
