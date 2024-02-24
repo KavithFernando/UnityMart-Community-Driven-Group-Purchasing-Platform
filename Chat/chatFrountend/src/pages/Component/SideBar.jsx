@@ -113,7 +113,9 @@ export default function SideBar() {
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" className="b1" onClick={onOpen}>
             <i class="fa fa-search" aria-hidden="true"></i>
-            <Text>Search User</Text>
+            <Text d={{ base: "none", md: "flex" }} px={4}>
+              Search User
+            </Text>
           </Button>
         </Tooltip>
 

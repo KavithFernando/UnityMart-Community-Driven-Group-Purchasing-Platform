@@ -30,11 +30,16 @@ export default function Buyerdetails({ props, props2, props3, props4 }) {
                 <br/>
                 <h1 className='h1-1'>You are currently on this queues</h1>
                 <br />
+                <div className=' buyerprod'>
                 <BuyerProduct orderName={props3} orderId={props4} progress={order.progress} />
                 <br />
                 <BuyerProduct orderName={props3} orderId={props4} progress={order.progress} />
                 <br />
                 <BuyerProduct orderName={props3} orderId={props4} progress={order.progress} />
+                </div>
+            </div>
+            <div className='userlast'>
+
             </div>
         </div>
     );

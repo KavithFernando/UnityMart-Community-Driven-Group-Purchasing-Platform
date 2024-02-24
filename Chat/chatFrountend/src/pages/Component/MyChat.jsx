@@ -11,7 +11,7 @@ import ChatLoading from "./ChatLoading";
 import { getSender } from "../../config/ChatLogics";
 import GroupChat from "./GroupChat";
 
-export default function MyChat() {
+export default function MyChat({ fetchAgain }) {
   const [loggedUser, setLoggedUser] = useState();
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
 
@@ -43,14 +43,30 @@ export default function MyChat() {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
-  }, []);
+  }, [fetchAgain]);
   return (
     <div>
       <Box
         d={{ base: selectedChat ? "none" : "flex", md: "flex" }}
-        className="box1"
+        flexDir="column"
+        alignItems="center"
+        p={3}
+        bg="white"
+        w={{ base: "100%", md: "31%" }}
+        borderRadius="lg"
+        borderWidth="1px"
       >
-        <Box className="box2">
+        <Box
+          className="box2"
+          pb={3}
+          px={3}
+          fontSize={{ base: "28px", md: "30px" }}
+          fontFamily="Work sans"
+          d="flex"
+          w="100%"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           my chat
           <GroupChat>
             <Button
