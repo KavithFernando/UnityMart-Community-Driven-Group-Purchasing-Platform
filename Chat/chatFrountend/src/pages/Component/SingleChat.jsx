@@ -10,6 +10,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./SingleChat.css";
 import ScrollableChat from "./ScrollableChat";
+import io from "socket.io-client";
+import { set } from "mongoose";
+
+const ENDPOINT = "http://localhost:5000";
+var socket, selectedChatCompare;
 
 export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const { user, selectedChat, setselectedChat } = ChatState();
@@ -17,6 +22,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
   const toast = useToast();
+  const [socketConnected, setSocketConnected] = useState(false);
 
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
@@ -52,6 +58,12 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
       }
     }
   };
+  useEffect(() => {
+    socket = io(ENDPOINT);
+    socket.emit("setup", user);
+    socket.on("connection", () => setSocketConnected(true));
+    // eslint-disable-next-line
+  }, []);
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
   };
@@ -72,9 +84,11 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
         `/api/message/${selectedChat._id}`,
         config
       );
-      console.log(messages);
+
       setMessages(data);
       setLoading(false);
+
+      socket.emit("join chat", selectedChat._id);
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -88,7 +102,20 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   };
   useEffect(() => {
     fetchMessages();
+    selectedChatCompare = selectedChat;
   }, [selectedChat]);
+
+  useEffect(() => {
+    socket.on("message recieved", (newMessageRecieved) => {
+      if (
+        !selectedChatCompare || // if chat is not selected or doesn't match current chat
+        selectedChatCompare._id !== newMessageRecieved.chat._id
+      ) {
+      } else {
+        setMessages([...messages, newMessageRecieved]);
+      }
+    });
+  });
 
   return (
     <>
