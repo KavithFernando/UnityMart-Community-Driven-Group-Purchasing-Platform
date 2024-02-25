@@ -52,13 +52,13 @@ export default function FunctionsDisplay() {
             inputMode="numeric"/>
           <div className="plus" onClick={handleIncrement}>+</div>
         </div>
-      </div>
-      <div className="total-display">
-        <div className="total">
-          TOTAL: Rs
-        </div>
-        <div className="cal-total">
-          &nbsp;3000.00
+        <div className="total-display">
+          <div className="total">
+            TOTAL: Rs
+          </div>
+          <div className="cal-total">
+            &nbsp;3000.00
+          </div>
         </div>
       </div>
       <div className="join-share">

@@ -11,7 +11,7 @@ export default function ImageDisplay() {
 
   return (
     <div className='image-display'>
-      <img className='main_img' src={mainImage} alt="" /> 
+      <img className='main_img' src={mainImage} alt="Main Product Image" /> 
       <div className='chilimg'>       
         <img className="imgdis1" src="../src/images/shoe2.jpg" alt="" onClick={() => handleImageClick("../src/images/shoe2.jpg")} />
         <img className="imgdis1" src="../src/images/shoe3.png" alt="" onClick={() => handleImageClick("../src/images/shoe3.png")} />
