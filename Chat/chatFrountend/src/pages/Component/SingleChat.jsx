@@ -4,7 +4,7 @@ import { FormControl } from "@chakra-ui/form-control";
 import { ChatState } from "../../Context/chatProvider";
 import { Box, Text } from "@chakra-ui/layout";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { IconButton, Spinner, useToast, Input } from "@chakra-ui/react";
+import { IconButton, Spinner, useToast, Input, Button } from "@chakra-ui/react";
 import { getSender } from "../../config/ChatLogics";
 import UpdateGroupChat from "./UpdateGroupChat";
 import { useEffect, useState } from "react";
@@ -169,24 +169,27 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             justifyContent={{ base: "space-between" }}
             alignItems="center"
           >
-            <IconButton
+            {/*<IconButton
               d={{ base: "flex", md: "none" }}
               icon={<ArrowBackIcon />}
-              onClick={() => setselectedChat("")}
-            />
+             onClick={() => setselectedChat("")}
+      />*/}
             {!selectedChat.isGroupChat ? (
-              <>{getSender(user, selectedChat.users)}</>
+              <b>{getSender(user, selectedChat.users)}</b>
             ) : (
-              <>
-                {selectedChat.chatName.toUpperCase()}
+              <div className="hedPart">
+                <b>{selectedChat.chatName.toUpperCase()}</b>
+
                 {
-                  <UpdateGroupChat
-                    fetchAgain={fetchAgain}
-                    setFetchAgain={setFetchAgain}
-                    fetchMessages={fetchMessages}
-                  />
+                  <div className="abcd">
+                    <UpdateGroupChat
+                      fetchAgain={fetchAgain}
+                      setFetchAgain={setFetchAgain}
+                      fetchMessages={fetchMessages}
+                    />
+                  </div>
                 }
-              </>
+              </div>
             )}
           </Text>
           <Box
@@ -231,14 +234,15 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
               ) : (
                 <></>
               )}
-              <Input
-                className="inputBar"
-                variant="filled"
-                bg="#E0E0E0"
-                placeholder="Enter a message.."
-                value={newMessage}
-                onChange={typingHandler}
-              />
+              <div className="inputBar">
+                <Input
+                  variant="filled"
+                  bg="#E0E0E0"
+                  placeholder="Enter a message.."
+                  value={newMessage}
+                  onChange={typingHandler}
+                />
+              </div>
             </FormControl>
           </Box>
         </>

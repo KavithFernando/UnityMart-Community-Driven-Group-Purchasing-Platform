@@ -13,3 +13,18 @@
   border-width: 10px;
   border-radius: 30px;
 }
+
+.hedPart {
+  display: flex;
+}
+
+.abcd {
+  position: fixed;
+  right: 40px;
+}
+
+.inputBar {
+  width: 75%;
+  position: fixed;
+  top: 1000px;
+}

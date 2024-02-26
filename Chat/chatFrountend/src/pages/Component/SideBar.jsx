@@ -129,12 +129,7 @@ export default function SideBar() {
                 aria-hidden="true"
                 style={{ color: "white" }}
               ></i>
-              <Text
-                display={{ base: "none", md: "flex" }}
-                px={4}
-                color={"white"}
-                className="q"
-              >
+              <Text px={4} color={"white"} className="q">
                 Search User
               </Text>
             </Button>
