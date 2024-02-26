@@ -1,4 +1,5 @@
 import React from "react";
+import Lottie from "react-lottie";
 import { FormControl } from "@chakra-ui/form-control";
 import { ChatState } from "../../Context/chatProvider";
 import { Box, Text } from "@chakra-ui/layout";
@@ -12,6 +13,7 @@ import "./SingleChat.css";
 import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import { set } from "mongoose";
+import animationData from "../../Animation/typing.json";
 
 const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
@@ -26,8 +28,18 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
+      socket.emit("stop typing", selectedChat._id);
       try {
         const config = {
           headers: {
@@ -63,7 +75,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
-    socket.on("connection", () => setSocketConnected(true));
+    socket.on("connected", () => setSocketConnected(true));
     socket.on("typing", () => setIsTyping(true));
     socket.on("stop typing", () => setIsTyping(false));
     // eslint-disable-next-line
@@ -202,7 +214,18 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
               isRequired
               mt={3}
             >
-              {istyping ? <div>Loding..</div> : <></>}
+              {istyping ? (
+                <div>
+                  <Lottie
+                    options={defaultOptions}
+                    height={20}
+                    width={50}
+                    style={{ marginBottom: 15, marginLeft: 0 }}
+                  />
+                </div>
+              ) : (
+                <></>
+              )}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
