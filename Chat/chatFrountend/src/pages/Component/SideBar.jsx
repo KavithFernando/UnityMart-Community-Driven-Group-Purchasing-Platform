@@ -121,24 +121,25 @@ export default function SideBar() {
   return (
     <div>
       <Box className="box">
-        <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" className="button1" onClick={onOpen}>
-            <i
-              class="fa fa-search"
-              aria-hidden="true"
-              style={{ color: "white" }}
-            ></i>
-            <Text
-              display={{ base: "none", md: "flex" }}
-              px={4}
-              color={"white"}
-              className="q"
-            >
-              Search User
-            </Text>
-          </Button>
-        </Tooltip>
-
+        <div className="abc">
+          <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
+            <Button colorScheme="black" className="button1" onClick={onOpen}>
+              <i
+                class="fa fa-search"
+                aria-hidden="true"
+                style={{ color: "white" }}
+              ></i>
+              <Text
+                display={{ base: "none", md: "flex" }}
+                px={4}
+                color={"white"}
+                className="q"
+              >
+                Search User
+              </Text>
+            </Button>
+          </Tooltip>
+        </div>
         <Text className="header">Unity Mart Chat Room</Text>
 
         <div className="rightPart">

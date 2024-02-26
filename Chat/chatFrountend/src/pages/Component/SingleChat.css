@@ -1,6 +1,15 @@
+.all {
+  border-radius: 30px;
+}
+
 .messages {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   scrollbar-width: none;
+}
+
+.box1 {
+  border-width: 10px;
+  border-radius: 30px;
 }

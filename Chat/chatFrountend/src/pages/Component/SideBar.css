@@ -1,6 +1,6 @@
 .box {
   display: flex;
-  background-color: #bb7373;
+  background-color: #000000;
   height: 55px;
   padding: 5px 10px 5px 10px;
 
@@ -38,6 +38,6 @@
   padding-bottom: 2px;
 }
 
-.q:hover {
-  color: #000000;
+.button1:hover {
+  color: red;
 }
