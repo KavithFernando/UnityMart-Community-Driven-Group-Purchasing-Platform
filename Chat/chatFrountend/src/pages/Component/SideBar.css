@@ -1,18 +1,17 @@
 .box {
   display: flex;
-  background-color: #fa7831;
+  background-color: #bb7373;
   height: 55px;
   padding: 5px 10px 5px 10px;
-}
 
-.b1 {
-  padding-right: 1000px;
+  height: 60px;
 }
 
 .header {
   font-size: 40px;
   font-weight: bold;
   padding-left: 700px;
+  color: white;
 }
 
 .bellIcon {
@@ -31,10 +30,14 @@
 }
 
 .rightPart {
-  padding-left: 650px;
+  padding-left: 900px;
 }
 
 .box2 {
   display: flex;
   padding-bottom: 2px;
+}
+
+.q:hover {
+  color: #000000;
 }

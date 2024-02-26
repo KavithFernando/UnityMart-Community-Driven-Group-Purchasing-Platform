@@ -15,6 +15,7 @@ import {
   DrawerHeader,
   DrawerBody,
   Input,
+  color,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/hooks";
 import React from "react";
@@ -121,9 +122,18 @@ export default function SideBar() {
     <div>
       <Box className="box">
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" className="b1" onClick={onOpen}>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <Text d={{ base: "none", md: "flex" }} px={4}>
+          <Button variant="ghost" className="button1" onClick={onOpen}>
+            <i
+              class="fa fa-search"
+              aria-hidden="true"
+              style={{ color: "white" }}
+            ></i>
+            <Text
+              display={{ base: "none", md: "flex" }}
+              px={4}
+              color={"white"}
+              className="q"
+            >
               Search User
             </Text>
           </Button>
@@ -138,7 +148,7 @@ export default function SideBar() {
                 count={notification.length}
                 effect={Effect.SCALE}
               />
-              <BellIcon className="bellIcon" />
+              <BellIcon className="bellIcon" style={{ color: "white" }} />
             </MenuButton>
             {
               <MenuList>
@@ -184,6 +194,7 @@ export default function SideBar() {
           <DrawerBody>
             <Box className="box2">
               <Input
+                className="inputTag"
                 placeholder="Search by name or email"
                 mr={2}
                 value={search}

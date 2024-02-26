@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Chat.css";
+import "./ChatPage.css";
 import { ChatState } from "../Context/chatProvider";
 import SideBar from "./Component/SideBar";
 import MyChat from "./Component/MyChat";
