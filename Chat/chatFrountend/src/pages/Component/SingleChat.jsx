@@ -23,6 +23,8 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const [newMessage, setNewMessage] = useState("");
   const toast = useToast();
   const [socketConnected, setSocketConnected] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [istyping, setIsTyping] = useState(false);
 
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
@@ -62,10 +64,29 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
     socket.on("connection", () => setSocketConnected(true));
+    socket.on("typing", () => setIsTyping(true));
+    socket.on("stop typing", () => setIsTyping(false));
     // eslint-disable-next-line
   }, []);
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
+
+    if (!socketConnected) return;
+
+    if (!typing) {
+      setTyping(true);
+      socket.emit("typing", selectedChat._id);
+    }
+    let lastTypingTime = new Date().getTime();
+    var timerLength = 3000;
+    setTimeout(() => {
+      var timeNow = new Date().getTime();
+      var timeDiff = timeNow - lastTypingTime;
+      if (timeDiff >= timerLength && typing) {
+        socket.emit("stop typing", selectedChat._id);
+        setTyping(false);
+      }
+    }, timerLength);
   };
 
   const fetchMessages = async () => {
@@ -181,6 +202,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
               isRequired
               mt={3}
             >
+              {istyping ? <div>Loding..</div> : <></>}
               <Input
                 variant="filled"
                 bg="#E0E0E0"

@@ -1,7 +1,7 @@
 .box {
   display: flex;
-  background-color: aquamarine;
-  height: 50px;
+  background-color: #fa7831;
+  height: 55px;
   padding: 5px 10px 5px 10px;
 }
 
