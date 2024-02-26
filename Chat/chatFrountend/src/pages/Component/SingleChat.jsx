@@ -204,18 +204,22 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             overflowY="hidden"
           >
             {loading ? (
-              <Spinner
-                size="xl"
-                w={20}
-                h={20}
-                alignSelf="center"
-                margin="auto"
-              />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "70vh",
+                }}
+              >
+                <Spinner size="xl" height={300} width={300} />
+              </div>
             ) : (
               <div className="messages">
                 <ScrollableChat messages={messages} />
               </div>
             )}
+
             <FormControl
               onKeyDown={sendMessage}
               id="first-name"
@@ -247,9 +251,9 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
           </Box>
         </>
       ) : (
-        <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-          <Text fontSize="3xl" pd={3}>
-            Click on a user to start chatting
+        <Box d="flex" h="100%">
+          <Text fontSize="3xl" textAlign="center">
+            <b>Click on a user to start chatting</b>
           </Text>
         </Box>
       )}

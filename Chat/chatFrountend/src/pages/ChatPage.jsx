@@ -12,7 +12,7 @@ const ChatPage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div className="body" style={{ width: "100%" }}>
       {user && <SideBar />}
 
       <Box
@@ -21,6 +21,7 @@ const ChatPage = () => {
         width="100%"
         height="91.5vh"
         padding="10px"
+        flexDirection={{ base: "column", md: "row" }}
       >
         <>
           {user && <MyChat fetchAgain={fetchAgain} />}

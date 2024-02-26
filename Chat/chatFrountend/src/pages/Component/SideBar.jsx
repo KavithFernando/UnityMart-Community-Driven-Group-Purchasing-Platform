@@ -120,16 +120,25 @@ export default function SideBar() {
 
   return (
     <div>
-      <Box className="box">
-        <div className="abc">
+      <Box
+        className="box"
+        textAlign="center"
+        marginBottom={{ base: "1rem", md: "0" }}
+      >
+        <div>
           <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-            <Button colorScheme="black" className="button1" onClick={onOpen}>
+            <Button
+              colorScheme="black"
+              className="button1"
+              onClick={onOpen}
+              variant="outline"
+            >
               <i
                 class="fa fa-search"
                 aria-hidden="true"
                 style={{ color: "white" }}
               ></i>
-              <Text px={4} color={"white"} className="q">
+              <Text px={4} color={"white"}>
                 Search User
               </Text>
             </Button>

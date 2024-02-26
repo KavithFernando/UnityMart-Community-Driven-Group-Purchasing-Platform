@@ -56,7 +56,7 @@ export default function MyChat({ fetchAgain }) {
         width={{ base: "100%", md: "120%" }}
         height={"100%"}
         borderWidth="10px"
-        backgroundColor={"blue"}
+        backgroundColor={" #fa7831;"}
       >
         <Box
           className="box2"
