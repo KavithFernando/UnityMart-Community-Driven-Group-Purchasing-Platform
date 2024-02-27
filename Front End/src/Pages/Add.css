@@ -54,7 +54,7 @@
     width: calc(100% - 22px);
   }
   
-  .Add-Order button {
+  .button {
     padding: 12px;
     background-color: #ff6600;
     color: #fff;
@@ -64,7 +64,7 @@
     font-size: 16px;
   }
   
-  .Add-Order button:hover {
+  .button:hover {
     background-color: #cc5500;
   }
   
