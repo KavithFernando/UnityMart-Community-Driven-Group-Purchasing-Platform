@@ -47,14 +47,16 @@ export default function MyChat({ fetchAgain }) {
   return (
     <div>
       <Box
+        className="box1"
         d={{ base: selectedChat ? "none" : "flex", md: "flex" }}
         flexDir="column"
         alignItems="center"
         p={3}
         bg="white"
-        w={{ base: "100%", md: "31%" }}
-        borderRadius="lg"
-        borderWidth="1px"
+        width={{ base: "100%", md: "120%" }}
+        height={"100%"}
+        borderWidth="10px"
+        backgroundColor={" #fa7831;"}
       >
         <Box
           className="box2"
@@ -62,12 +64,12 @@ export default function MyChat({ fetchAgain }) {
           px={3}
           fontSize={{ base: "28px", md: "30px" }}
           fontFamily="Work sans"
-          d="flex"
-          w="100%"
+          display="flex"
+          wi="100%"
           justifyContent="space-between"
           alignItems="center"
         >
-          my chat
+          <div className="ok">My chat</div>
           <GroupChat>
             <Button
               d="flex"
@@ -80,13 +82,13 @@ export default function MyChat({ fetchAgain }) {
         </Box>
 
         <Box
+          className="box2"
           d="flex"
           flexDir="column"
           p={3}
           bg="#F8F8F8"
-          w="100%"
-          h="100%"
-          borderRadius="lg"
+          width="100%"
+          height="93%"
           overflowY="hidden"
         >
           {chats ? (

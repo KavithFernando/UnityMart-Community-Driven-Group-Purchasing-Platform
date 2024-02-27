@@ -1,31 +1,12 @@
 .box1 {
-  flex-direction: column;
-
-  align-items: center;
-
-  padding: 3px;
-
-  background-color: white;
-
-  border-radius: 10px;
-  border-width: 1px;
-  width: 400px;
-  height: 600px;
+  border-radius: 30px;
 }
 
 .box2 {
-  padding-bottom: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
+  border-radius: 30px;
+}
 
-  font-size: 28px;
-  font-size: 30px;
-
-  font-family: "Work Sans";
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
+.ok {
+  font-size: 40px;
+  font-weight: bold;
 }
