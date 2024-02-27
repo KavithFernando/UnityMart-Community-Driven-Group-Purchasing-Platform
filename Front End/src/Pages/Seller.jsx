@@ -31,7 +31,7 @@ function Seller() {
       <header>
         <section>
           <div className="user-container">
-         
+            <img src="src\images\man_4140048.png" alt="User Logo" className="user-logo" />
             <div>
               <h2>Name: {user.name}</h2>
               <p>Rating: {user.rating}</p>
