@@ -41,6 +41,10 @@ export default function Buyerdetails({ props, props2, props3, props4 }) {
             <div className='userlast'>
 
             </div>
+            <div className="chat-bubble">
+                <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+                Chat
+            </div>
         </div>
     );
 }
