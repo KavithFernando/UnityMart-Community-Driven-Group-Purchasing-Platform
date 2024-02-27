@@ -21,6 +21,7 @@ function Seller() {
   ];
 
   const averageIncome = 1000;
+  const navigate = useNavigate();
 
  
 
@@ -39,7 +40,7 @@ function Seller() {
             <p>${averageIncome}</p>
           </div>
           <div className="add-card">
-             <button onClick={()=>Navigate("/AddOrder")}>Add Order</button>
+            <button onClick={() => navigate("/AddOrder")}>Add Order</button>
           </div>
           <div className="income-card">
             <h2>Sales Prediction</h2>
