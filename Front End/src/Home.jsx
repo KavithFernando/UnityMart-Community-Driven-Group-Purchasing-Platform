@@ -9,8 +9,6 @@ export default function Home() {
     <div>
       <button onClick={()=>Navigate("/Buyer")}>Buyer</button>
       <button onClick={()=>Navigate("/Seller")}>Seller Page</button>
-      <button onClick={()=>Navigate("/AboutUsPage")}>About Us</button>
-      <button onClick={()=>Navigate("/Product")}>Product Page</button>
       <PopularPanel/>
       <RecomHolder/>
     </div>
