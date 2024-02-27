@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import './Seller.css';
+import {  useNavigate } from "react-router-dom";
 
 
 
@@ -21,6 +22,7 @@ function Seller() {
   ];
 
   const averageIncome = 1000;
+  const navigate = useNavigate();
 
  
 
@@ -29,6 +31,7 @@ function Seller() {
       <header>
         <section>
           <div className="user-container">
+            <img src="src\images\man_4140048.png" alt="User Logo" className="user-logo" />
             <div>
               <h2>Name: {user.name}</h2>
               <p>Rating: {user.rating}</p>
@@ -39,7 +42,7 @@ function Seller() {
             <p>${averageIncome}</p>
           </div>
           <div className="add-card">
-            <h2>Add an Order</h2> 
+            <button onClick={() => navigate("/AddOrder")}>Add Order</button>
           </div>
           <div className="income-card">
             <h2>Sales Prediction</h2>
@@ -66,6 +69,7 @@ function Seller() {
         </div>
         </div>
         <div className="chat-bubble">
+        <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
           Chat
         </div>
       </main>

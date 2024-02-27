@@ -1,11 +1,16 @@
 nav {
-    background-color: black;
+    background-color: #100F0F;
     padding: 0.75%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     transition: 0.5s;
     color: white;
+}
+
+nav img {
+    height: 40px;
+    width: auto;
 }
 
 nav h1 {

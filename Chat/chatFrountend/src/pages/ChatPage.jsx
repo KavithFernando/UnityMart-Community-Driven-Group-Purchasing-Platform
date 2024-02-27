@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Chat.css";
+import "./ChatPage.css";
 import { ChatState } from "../Context/chatProvider";
 import SideBar from "./Component/SideBar";
 import MyChat from "./Component/MyChat";
@@ -12,14 +12,23 @@ const ChatPage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div className="body" style={{ width: "100%" }}>
       {user && <SideBar />}
 
-      <Box d="flex" justifyContent="space-between" w="100%" h="91.5vh" p="10px">
-        {user && <MyChat fetchAgain={fetchAgain} />}
-        {user && (
-          <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
-        )}
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        width="100%"
+        height="91.5vh"
+        padding="10px"
+        flexDirection={{ base: "column", md: "row" }}
+      >
+        <>
+          {user && <MyChat fetchAgain={fetchAgain} />}
+          {user && (
+            <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+          )}
+        </>
       </Box>
     </div>
   );

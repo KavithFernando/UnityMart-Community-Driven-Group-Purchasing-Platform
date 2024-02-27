@@ -206,7 +206,7 @@ export default function UpdateGroupChat({
 
   return (
     <div>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen}>Group settings</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

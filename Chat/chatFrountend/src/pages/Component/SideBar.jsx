@@ -15,6 +15,7 @@ import {
   DrawerHeader,
   DrawerBody,
   Input,
+  color,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/hooks";
 import React from "react";
@@ -28,6 +29,9 @@ import ChatLoading from "./ChatLoading";
 import UserListItems from "./UserAvater/UserListItems";
 import { ChatState } from "../../Context/chatProvider";
 import { Spinner } from "@chakra-ui/spinner";
+import { getSender } from "../../config/ChatLogics";
+import NotificationBadge from "react-notification-badge";
+import { Effect } from "react-notification-badge";
 
 export default function SideBar() {
   const [search, setSearch] = useState("k");
@@ -35,7 +39,14 @@ export default function SideBar() {
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
 
-  const { user, setSelectedChat, chats, setChats } = ChatState();
+  const {
+    user,
+    setSelectedChat,
+    chats,
+    setChats,
+    notification,
+    setNotification,
+  } = ChatState();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
@@ -109,24 +120,59 @@ export default function SideBar() {
 
   return (
     <div>
-      <Box className="box">
-        <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" className="b1" onClick={onOpen}>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <Text d={{ base: "none", md: "flex" }} px={4}>
-              Search User
-            </Text>
-          </Button>
-        </Tooltip>
-
+      <Box
+        className="box"
+        textAlign="center"
+        marginBottom={{ base: "1rem", md: "0" }}
+      >
+        <div>
+          <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
+            <Button
+              colorScheme="black"
+              className="button1"
+              onClick={onOpen}
+              variant="outline"
+            >
+              <i
+                class="fa fa-search"
+                aria-hidden="true"
+                style={{ color: "white" }}
+              ></i>
+              <Text px={4} color={"white"}>
+                Search User
+              </Text>
+            </Button>
+          </Tooltip>
+        </div>
         <Text className="header">Unity Mart Chat Room</Text>
 
         <div className="rightPart">
           <Menu>
             <MenuButton>
-              <BellIcon className="bellIcon" />
+              <NotificationBadge
+                count={notification.length}
+                effect={Effect.SCALE}
+              />
+              <BellIcon className="bellIcon" style={{ color: "white" }} />
             </MenuButton>
-            {/*<MenuList></MenuList>*/}
+            {
+              <MenuList>
+                {!notification.length && "No New Messages"}
+                {notification.map((notif) => (
+                  <MenuItem
+                    key={notif._id}
+                    onClick={() => {
+                      setSelectedChat(notif.chat);
+                      setNotification(notification.filter((n) => n !== notif));
+                    }}
+                  >
+                    {notif.chat.isGroupChat
+                      ? `New Message in ${notif.chat.chatName}`
+                      : `New Message from ${getSender(user, notif.chat.users)}`}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            }
           </Menu>
 
           <Menu>
@@ -153,6 +199,7 @@ export default function SideBar() {
           <DrawerBody>
             <Box className="box2">
               <Input
+                className="inputTag"
                 placeholder="Search by name or email"
                 mr={2}
                 value={search}

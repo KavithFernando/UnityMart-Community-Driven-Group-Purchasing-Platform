@@ -107,7 +107,9 @@ const OrderForm = () => {
             onChange={handlePhotoChange}
           />
         </div>
-        <button type="submit">Submit Order</button>
+        <div className='button'>
+          <button type="submit">Submit Order</button>
+        </div>
       </form>
     </div>
   );
