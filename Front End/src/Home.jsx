@@ -11,7 +11,6 @@ export default function Home() {
       <button onClick={()=>Navigate("/Seller")}>Seller Page</button>
       <button onClick={()=>Navigate("/AboutUsPage")}>About Us</button>
       <button onClick={()=>Navigate("/Product")}>Product Page</button>
-      
       <PopularPanel/>
       <RecomHolder/>
     </div>
