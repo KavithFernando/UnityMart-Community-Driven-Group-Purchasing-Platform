@@ -39,7 +39,7 @@ function Seller() {
             <p>${averageIncome}</p>
           </div>
           <div className="add-card">
-            <h2>Add an Order</h2> 
+             <button onClick={()=>Navigate("/Product")}>Product Page</button>
           </div>
           <div className="income-card">
             <h2>Sales Prediction</h2>
