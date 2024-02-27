@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import './Seller.css';
-
+import {  useNavigate } from "react-router-dom";
 
 
 function Seller() {
@@ -39,7 +39,7 @@ function Seller() {
             <p>${averageIncome}</p>
           </div>
           <div className="add-card">
-             <button onClick={()=>Navigate("/Product")}>Product Page</button>
+             <button onClick={()=>Navigate("/AddOrder")}>Add Order</button>
           </div>
           <div className="income-card">
             <h2>Sales Prediction</h2>
