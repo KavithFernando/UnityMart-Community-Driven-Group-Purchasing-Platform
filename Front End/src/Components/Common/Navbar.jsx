@@ -10,7 +10,8 @@ import "./Navbar.css"
 export default function Navbar() {
   return (
     <nav>
-      <h1>UnityMart</h1>
+      {/* <h1>UnityMart</h1> */}
+      <img src="Images\UnityMartLongLogo.png" alt="Logo" />
       <div className="searchDiv">
         <input className='search' type="text" placeholder='Search UnityMart'/>
         <FaSearch/>
