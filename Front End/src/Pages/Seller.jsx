@@ -5,6 +5,7 @@ import './Seller.css';
 import {  useNavigate } from "react-router-dom";
 
 
+
 function Seller() {
   const [count, setCount] = useState(0);
 
@@ -30,6 +31,7 @@ function Seller() {
       <header>
         <section>
           <div className="user-container">
+         
             <div>
               <h2>Name: {user.name}</h2>
               <p>Rating: {user.rating}</p>
