@@ -13,6 +13,10 @@ export default function Home() {
       <button onClick={()=>Navigate("/Product")}>Product Page</button>
       <PopularPanel/>
       <RecomHolder/>
+      <div className="chat-bubble">
+        <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+          Chat
+        </div>
     </div>
     
   )
