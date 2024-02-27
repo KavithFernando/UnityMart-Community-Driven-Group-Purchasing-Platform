@@ -8,6 +8,7 @@ import Buyer from './Pages/Buyer';
 import Seller from './Pages/Seller';
 import AboutUsPage from './Pages/AboutUs';
 import Product from './Pages/Product';
+import OrderForm from './Pages/AddOrder';
 
 function App() {
    
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Seller" element={<Seller />} />
           <Route path="/AboutUsPage" element={<AboutUsPage />} />
           <Route path="/product" element={<Product/>} />
+          <Route path="/OrderForm" element={<OrderForm/>} />
         </Routes>
         
         <Footer/>
