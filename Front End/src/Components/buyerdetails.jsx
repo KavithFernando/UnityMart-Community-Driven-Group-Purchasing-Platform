@@ -39,6 +39,9 @@ export default function Buyerdetails({ props, props2, props3, props4 }) {
                 </div>
             </div>
             <div className='userlast'>
+                <button className='btnul'>Last Orders</button>
+                <button className='btnul1'>Price prediction</button>
+
 
             </div>
             <div className="chat-bubble">
