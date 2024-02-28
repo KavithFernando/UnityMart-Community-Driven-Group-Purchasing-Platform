@@ -25,7 +25,7 @@ export default function PopularProduct(
 
   return (
       <div className="pop-product">
-        <Link to='/Product' className='link-area'>
+        <Link to='/product' className='link-area'>
           <img src={imageSrc} alt="Product-Image"/>
           <div className="details">
             <div className='title-card'>{title}</div>
