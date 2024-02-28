@@ -3,7 +3,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import { IoShareSocial } from "react-icons/io5";
 
 
-export default function FunctionsDisplay() {
+export default function FunctionsDisplay({price=1500.00}) {
 
   const [count, setCount] = useState(1);
 
@@ -23,6 +23,8 @@ export default function FunctionsDisplay() {
       setCount(count - 1);
     }
   };
+  
+  const formattedPrice = (count*price).toFixed(2);
 
   return (
     <div className='fuctions-display'>
@@ -57,7 +59,7 @@ export default function FunctionsDisplay() {
             TOTAL: Rs
           </div>
           <div className="cal-total">
-            &nbsp;3000.00
+            &nbsp;{formattedPrice}
           </div>
         </div>
       </div>

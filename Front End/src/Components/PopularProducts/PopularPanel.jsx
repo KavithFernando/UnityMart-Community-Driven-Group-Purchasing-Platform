@@ -120,7 +120,7 @@ export default function PopularPanel() {
           imageSrc="src/ProductImages/jbl.jpg"
         />
         <PopularProduct
-          title = "Product Title"
+          title = "Women's Classy Shoes"
           reach = {150}
           current = {90}
           price = {1500}
