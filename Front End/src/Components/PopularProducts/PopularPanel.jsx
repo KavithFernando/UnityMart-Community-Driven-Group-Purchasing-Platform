@@ -44,7 +44,7 @@ export default function PopularPanel() {
         className='carousel'
         responsive={responsive}
         infinite={true}
-        // autoPlay={true}
+        autoPlay={true}
       >
         <PopularProduct
           title = "Bluetooth Wireless Headset"

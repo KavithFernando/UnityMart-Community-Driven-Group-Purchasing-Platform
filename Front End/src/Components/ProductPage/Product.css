@@ -105,6 +105,28 @@
     font-size: 30px;
 }
 
+.description-display hr {
+    opacity: 0.5;
+}
+
+.description-display .process {
+    margin: 6% 0 0 0;
+    font-size: 15px;
+}
+
+.description-display .process ul {
+    list-style: none;
+    margin: 3% 0 0 0
+}
+
+.description-display .process ul li {
+    margin: 2% 0 0 0;
+}
+
+.description-display .process ul li span {
+    color: #9d9d9d;
+}
+
 .fuctions-display {
     width: 100%;
     display: flex;
