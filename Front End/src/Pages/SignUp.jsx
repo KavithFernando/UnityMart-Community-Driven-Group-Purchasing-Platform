@@ -81,6 +81,7 @@ export default function SignUp() {
               placeholder="Confirm Password"
               onChange={(e) => setReEntedPassword(e.target.value)}
             />
+
             <div
               className="seeReEnted"
               onClick={() => setReEntedPasswordVisible(!reEntedPasswordVisible)}

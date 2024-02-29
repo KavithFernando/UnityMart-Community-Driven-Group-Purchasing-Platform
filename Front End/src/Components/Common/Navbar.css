@@ -1,74 +1,74 @@
 nav {
-    background-color: black;
-    padding: 0.75%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    transition: 0.5s;
-    color: white;
+  background-color: black;
+  padding: 0.75%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.5s;
+  color: white;
 }
 
 nav img {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
 
 nav h1 {
-    color: white;
+  color: white;
 }
 
 nav .searchDiv {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 nav .searchDiv .search {
-    background-color:#eee;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 15px;
-    margin: 0px 10px;
-    width: 450px;
+  background-color: #eee;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin: 0px 10px;
+  width: 450px;
 }
 
-nav .searchDiv > :nth-child(2){
-    padding: 1.5%;
-    font-size: 18px;
-    border-radius: 7px;
+nav .searchDiv > :nth-child(2) {
+  padding: 1.5%;
+  font-size: 18px;
+  border-radius: 7px;
 }
 
 nav .searchDiv > :nth-child(2):hover {
-    background-color: #e16a2a;
+  background-color: #e16a2a;
 }
 
 nav ul {
-    display: flex;
-    list-style-type: none;
+  display: flex;
+  list-style-type: none;
 }
 
 nav ul > li:nth-child(1) a {
-    font-size: 20px;
-    padding: 10px 15px;
+  font-size: 20px;
+  padding: 10px 15px;
 }
 
 nav ul > li:nth-child(2) a {
-    font-size: 22px;
-    padding: 11px 15px 7px 15px;
+  font-size: 22px;
+  padding: 11px 15px 7px 15px;
 }
 
-nav ul li a{
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
-    font-family: Arial;
-    text-decoration: none;
-    padding: 12px 10px 15px 10px;
-    margin: 0 5px;
-    border-radius: 10px;
-    transition: 0.2s;
+nav ul li a {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Arial;
+  text-decoration: none;
+  padding: 12px 10px 15px 10px;
+  margin: 0 5px;
+  border-radius: 10px;
+  transition: 0.2s;
 }
 
 nav ul li a:hover {
-    background-color: #e16a2a;
+  background-color: #e16a2a;
 }
