@@ -28,7 +28,6 @@ function App() {
           <Route path="/AboutUsPage" element={<AboutUsPage />} />
           <Route path="/product" element={<Product/>} />
           <Route path="/AddOrder" element={<OrderForm/>} />
-          {/* <Route path="/Product/:title/:reach/:current/:price/:storePrice/:to_go/:completed/:discount" component={Product} /> */}
         </Routes>
         
         <Footer/>

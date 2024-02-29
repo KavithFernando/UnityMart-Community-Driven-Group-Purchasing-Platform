@@ -6,7 +6,8 @@ import "./PopularPanel.css"
 export default function PopularProduct(
     {
       title="Product Title", 
-      reach=0, current=0, 
+      reach=0, 
+      current=0, 
       price=9999.99, 
       storePrice=9999.99, 
       imageSrc="src/ProductImages/MissingImage.jpg"
@@ -23,9 +24,21 @@ export default function PopularProduct(
   const completed = (current / reach) * 100;
   const discount = Math.round(((storePrice - price) / storePrice) * 100);
 
+  const handleClick = () => {
+
+    // Save the product details to local storage
+    localStorage.setItem('title', title);
+    localStorage.setItem('reach', reach);
+    localStorage.setItem('price', price);
+    localStorage.setItem('storePrice', storePrice);
+    localStorage.setItem('to_go', to_go);
+    localStorage.setItem('completed', completed);
+    localStorage.setItem('discount', discount);
+  };
+
   return (
       <div className="pop-product">
-        <Link to='/product' className='link-area'>
+        <Link to='/product' className='link-area' onClick={handleClick}>
           <img src={imageSrc} alt="Product-Image"/>
           <div className="details">
             <div className='title-card'>{title}</div>
