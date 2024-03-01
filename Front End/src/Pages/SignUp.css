@@ -1,3 +1,13 @@
+.body {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .signUpContainer {
   align-items: center;
   justify-content: center;
@@ -144,4 +154,12 @@
 .formeAline {
   width: 110%;
   position: relative;
+}
+
+.closeButton {
+  background-color: transparent;
+  border-style: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }

@@ -3,7 +3,7 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
-export default function SignUp() {
+export default function SignUp({ close }) {
   const Navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -49,77 +49,84 @@ export default function SignUp() {
   };
 
   return (
-    <div className="signUpContainer">
-      <div className="signUpForm">
-        <h1 className="title">Create Account</h1>
-        <div className="formeAline">
-          <input className="label" type="text" placeholder="Name" />
-          <input
-            className="label"
-            type="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {errors.email && <div className="error">{errors.email}</div>}
-          <input
-            className="label"
-            type={visible ? "text" : "password"}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <div className="see" onClick={() => setVisible(!visible)}>
-            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-          </div>
-          {errors.password && (
-            <div className="passwordError">{errors.password}</div>
-          )}
-
-          <div className="reEntedPassworPosition">
+    <div className="body">
+      <div className="signUpContainer">
+        <div className="signUpForm">
+          <h1 className="title">Create Account</h1>
+          <div className="formeAline">
+            <input className="label" type="text" placeholder="Name" />
             <input
               className="label"
-              type={reEntedPasswordVisible ? "text" : "password"}
-              placeholder="Confirm Password"
-              onChange={(e) => setReEntedPassword(e.target.value)}
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && <div className="error">{errors.email}</div>}
+            <input
+              className="label"
+              type={visible ? "text" : "password"}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="see" onClick={() => setVisible(!visible)}>
+              {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+            </div>
+            {errors.password && (
+              <div className="passwordError">{errors.password}</div>
+            )}
 
-            <div
-              className="seeReEnted"
-              onClick={() => setReEntedPasswordVisible(!reEntedPasswordVisible)}
-            >
-              {reEntedPasswordVisible ? (
-                <EyeOutlined />
-              ) : (
-                <EyeInvisibleOutlined />
+            <div className="reEntedPassworPosition">
+              <input
+                className="label"
+                type={reEntedPasswordVisible ? "text" : "password"}
+                placeholder="Confirm Password"
+                onChange={(e) => setReEntedPassword(e.target.value)}
+              />
+
+              <div
+                className="seeReEnted"
+                onClick={() =>
+                  setReEntedPasswordVisible(!reEntedPasswordVisible)
+                }
+              >
+                {reEntedPasswordVisible ? (
+                  <EyeOutlined />
+                ) : (
+                  <EyeInvisibleOutlined />
+                )}
+              </div>
+              {errors.reEnted && (
+                <div className="reEntedPasswordError">{errors.reEnted}</div>
               )}
             </div>
-            {errors.reEnted && (
-              <div className="reEntedPasswordError">{errors.reEnted}</div>
-            )}
           </div>
+          <div className="radioButtonPart">
+            <label className="radioButton">
+              <input type="radio" name="account" value="seller" />
+              Seller
+            </label>
+            <label className="radioButton">
+              <input type="radio" name="account" value="buyer" />
+              Buyer
+            </label>
+          </div>
+          <button className="button" onClick={handleSubmit}>
+            Sign Up
+          </button>
         </div>
-        <div className="radioButtonPart">
-          <label className="radioButton">
-            <input type="radio" name="account" value="seller" />
-            Seller
-          </label>
-          <label className="radioButton">
-            <input type="radio" name="account" value="buyer" />
-            Buyer
-          </label>
-        </div>
-        <button className="button" onClick={handleSubmit}>
-          Sign Up
-        </button>
-      </div>
 
-      <div className="rightPanel">
-        <h1 className="title">Already a Registered User?</h1>
-        <p className="paragraph">
-          Please enter your Email and Password to Login.
-        </p>
-        <button className="secoundButton" onClick={() => Navigate("/signin")}>
-          Sign In
-        </button>
+        <div className="rightPanel">
+          <button className="closeButton" onClick={() => close(false)}>
+            close
+          </button>
+          <h1 className="title">Already a Registered User?</h1>
+          <p className="paragraph">
+            Please enter your Email and Password to Login.
+          </p>
+          <button className="secoundButton" onClick={() => Navigate("/signin")}>
+            Sign In
+          </button>
+        </div>
       </div>
     </div>
   );
