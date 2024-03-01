@@ -3,9 +3,7 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
-export default function SignUp({ close }) {
-  const Navigate = useNavigate();
-
+export default function SignUp({ close, open }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -116,14 +114,25 @@ export default function SignUp({ close }) {
         </div>
 
         <div className="rightPanel">
-          <button className="closeButton" onClick={() => close(false)}>
+          <button
+            className="closeButton"
+            onClick={() => {
+              close();
+            }}
+          >
             close
           </button>
           <h1 className="title">Already a Registered User?</h1>
           <p className="paragraph">
             Please enter your Email and Password to Login.
           </p>
-          <button className="secoundButton" onClick={() => Navigate("/signin")}>
+          <button
+            className="secoundButton"
+            onClick={() => {
+              close();
+              open();
+            }}
+          >
             Sign In
           </button>
         </div>

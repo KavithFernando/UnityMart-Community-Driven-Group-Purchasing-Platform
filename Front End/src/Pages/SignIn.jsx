@@ -3,9 +3,7 @@ import "./SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 
-export default function SignIn() {
-  const Navigate = useNavigate();
-
+export default function SignIn({ close, open }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -39,44 +37,54 @@ export default function SignIn() {
   };
 
   return (
-    <div className="signInContainer">
-      <div className="leftPanel">
-        <h1 className="title">New to UnityMart?</h1>
+    <div className="body">
+      <div className="signInContainer">
+        <div className="leftPanel">
+          <h1 className="title">New to UnityMart?</h1>
 
-        <p className="paragraph1">Please create an account here to join us.</p>
+          <p className="paragraph1">
+            Please create an account here to join us.
+          </p>
 
-        <button className="secoundButton" onClick={() => Navigate("/signup")}>
-          Sign Up
-        </button>
-      </div>
-
-      <div className="signInForm">
-        <h1 className="title">Sign In</h1>
-
-        <input
-          className="label1"
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        {errors.email && <div className="error">{errors.email}</div>}
-
-        <input
-          className="label1"
-          type={visible ? "text" : "password"}
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="see" onClick={() => setVisible(!visible)}>
-          {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+          <button
+            className="secoundButton"
+            onClick={() => {
+              close();
+              open();
+            }}
+          >
+            Sign Up
+          </button>
         </div>
-        {errors.password && (
-          <div className="passwordError">{errors.password}</div>
-        )}
 
-        <button className="button" onClick={handleSubmit}>
-          Sign In
-        </button>
+        <div className="signInForm">
+          <button className="CloseButton" onClick={() => close()}>
+            close
+          </button>
+          <h1 className="title">Sign In</h1>
+          <input
+            className="label1"
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {errors.email && <div className="error">{errors.email}</div>}
+          <input
+            className="label1"
+            type={visible ? "text" : "password"}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="see" onClick={() => setVisible(!visible)}>
+            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+          </div>
+          {errors.password && (
+            <div className="passwordError">{errors.password}</div>
+          )}
+          <button className="button" onClick={handleSubmit}>
+            Sign In
+          </button>
+        </div>
       </div>
     </div>
   );

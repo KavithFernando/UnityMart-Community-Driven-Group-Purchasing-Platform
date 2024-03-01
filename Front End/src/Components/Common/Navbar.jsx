@@ -6,9 +6,30 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 
 import "./Navbar.css";
 import SignUp from "../../Pages/SignUp";
+import SignIn from "../../Pages/SignIn";
 
 export default function Navbar() {
   const [openModal, setOpenModal] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
+
+  const OpenModal = () => {
+    setOpenModal(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setOpenModal(false);
+    document.body.style.overflow = "auto";
+  };
+
+  const OpenModal2 = () => {
+    setOpenModal2(true);
+    document.body.style.overflow = "hidden";
+  };
+  const closeModal2 = () => {
+    setOpenModal2(false);
+    document.body.style.overflow = "auto";
+  };
 
   return (
     <>
@@ -36,13 +57,21 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/signin">Login</Link>
+            <Link
+              onClick={() => {
+                closeModal();
+                OpenModal2();
+              }}
+            >
+              Login
+            </Link>
           </li>
           |
           <li>
             <Link
               onClick={() => {
-                setOpenModal(true);
+                closeModal2();
+                OpenModal();
               }}
             >
               Sign Up
@@ -50,7 +79,8 @@ export default function Navbar() {
           </li>
         </ul>
       </nav>
-      {openModal && <SignUp close={setOpenModal} />}
+      {openModal && <SignUp close={closeModal} open={OpenModal2} />}
+      {openModal2 && <SignIn close={closeModal2} open={OpenModal} />}
     </>
   );
 }
