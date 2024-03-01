@@ -10,6 +10,17 @@ const OrderForm = () => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = {};
+
+    if (!productName.trim()) {
+      newErrors.productName = 'Product name is required';
+      valid = false;
+    }
+  }  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +63,7 @@ const OrderForm = () => {
             type="text"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
-            required
+           
           />
         </div>
         <div className="form-group">
