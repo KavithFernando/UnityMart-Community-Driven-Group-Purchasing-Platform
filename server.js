@@ -5,12 +5,14 @@ const cors = require("cors");
 const app = express();
 
 //import routes
+const userRoutes = require("./Routes/userRoutes");
 
 //app middleware
 app.use(bodyParser.json());
 app.use(cors());
 
 //route middleware
+app.use(userRoutes);
 
 const Port = 8080;
 const DBurl =
