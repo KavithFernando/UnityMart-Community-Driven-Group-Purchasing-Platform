@@ -16,7 +16,7 @@ const Footer = () => {
                 <div className="dev-team">
                     <div className="dev-member">
                         <h4>Niketh Randil</h4>
-                        <div class="social-links">
+                        <div className="social-links">
                             <Link to="/"><FaLinkedin/></Link>
                             <Link to="/"><FaGithub/></Link>
                             <Link to="/"><FaInstagram/></Link>

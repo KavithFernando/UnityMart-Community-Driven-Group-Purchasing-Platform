@@ -50,7 +50,7 @@ export default function PopularProduct(
                 height={8}
                 bgColor="#ff5900"
                 baseBgColor="#dddddd"
-                padding="2px"
+                // padding="2px"
                 animateOnRender={true}
               />
               <div className="more">{to_go} more to go</div>
