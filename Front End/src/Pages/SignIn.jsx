@@ -15,7 +15,7 @@ export default function SignIn({ close, open }) {
     const errors = validate();
     setErrors(errors);
 
-    logInUser();
+    logInUser(errors);
   };
 
   const validate = () => {
@@ -26,7 +26,7 @@ export default function SignIn({ close, open }) {
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       error.email = "The Email is Invalid";
     } else {
-      error.email = "";
+      error.email = null;
     }
 
     if (!password) {
@@ -34,22 +34,33 @@ export default function SignIn({ close, open }) {
     } else if (password.length < 8) {
       error.password = "Use 8 or more characters for your password.";
     } else {
-      error.password = "";
+      error.password = null;
     }
     return error;
   };
 
-  const logInUser = async () => {
-    const { data } = await axios.post("http://localhost:8080/user/login", {
-      email,
-      password,
-    });
+  const logInUser = async (errors1) => {
+    try {
+      if (errors1.password === null && errors1.email === null) {
+        const { data } = await axios.post("http://localhost:8080/user/login", {
+          email,
+          password,
+        });
+        console.log(data);
+        close();
+      }
+    } catch {
+      console.log("qqq");
+    }
   };
 
   return (
     <div className="body">
       <div className="signInContainer">
         <div className="leftPanel">
+          <button className="CloseButton1" onClick={() => close()}>
+            X
+          </button>
           <h1 className="title">New to UnityMart?</h1>
 
           <p className="paragraph1">
@@ -68,9 +79,6 @@ export default function SignIn({ close, open }) {
         </div>
 
         <div className="signInForm">
-          <button className="CloseButton" onClick={() => close()}>
-            X
-          </button>
           <h1 className="title">Sign In</h1>
           <input
             className="label1"

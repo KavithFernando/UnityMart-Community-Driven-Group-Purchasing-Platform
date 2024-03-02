@@ -137,15 +137,14 @@
   top: -25px;
 }
 
-.CloseButton {
-  display: flex;
+.CloseButton1 {
   background-color: rgba(0, 0, 0, 0.196);
-  padding: 0.8% 1%;
+  padding: 3% 3.7%;
   border-style: none;
   border-radius: 50px;
   position: fixed;
-  top: 162px;
-  right: 318px;
+  top: 10px;
+  right: -490px;
   color: black;
   cursor: pointer;
 }

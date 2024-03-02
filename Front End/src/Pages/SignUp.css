@@ -163,8 +163,8 @@
   padding: 3% 3.7%;
   border-style: none;
   position: fixed;
-  top: 0px;
-  right: 0px;
+  top: 10px;
+  right: 10px;
   border-radius: 50px;
   color: white;
   cursor: pointer;
