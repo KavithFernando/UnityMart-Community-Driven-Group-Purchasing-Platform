@@ -11,13 +11,13 @@ export default function SignUp({ close, open }) {
   const [bORs, set_bORc] = useState("");
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState(false);
+  const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState("");
   const [reEntedPassword, setReEntedPassword] = useState("");
 
   const handleSubmit = () => {
     const errors = validate();
     setErrors(errors);
-    console.log(name, password, email);
+    console.log(name, password, email, bORs);
   };
 
   const validate = () => {
@@ -120,12 +120,12 @@ export default function SignUp({ close, open }) {
             </div>
           </div>
           <div className="radioButtonPart">
-            <label className="radioButton">
-              <input type="radio" name="account" value="seller" />
+            <label className="radioButton" onClick={() => set_bORc(true)}>
+              <input type="radio" name="account" />
               Seller
             </label>
-            <label className="radioButton">
-              <input type="radio" name="account" value="buyer" />
+            <label className="radioButton" onClick={() => set_bORc(true)}>
+              <input type="radio" name="account" />
               Buyer
             </label>
           </div>
