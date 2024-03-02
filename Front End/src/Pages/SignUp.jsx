@@ -62,6 +62,7 @@ export default function SignUp({ close, open }) {
 
   const creatUser = async (errors1) => {
     console.log(errors1);
+
     if (
       errors1.name === null &&
       errors1.password === null &&
