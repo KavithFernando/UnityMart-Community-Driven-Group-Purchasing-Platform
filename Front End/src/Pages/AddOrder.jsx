@@ -41,6 +41,10 @@ const OrderForm = () => {
       newErrors.description = 'Description is required';
       valid = false;
     }
+    if (!photo) {
+      newErrors.photo = 'Photo is required';
+      valid = false;
+    }
 
     
     setErrors(newErrors);
@@ -144,6 +148,7 @@ const OrderForm = () => {
             accept="image/*"
             onChange={handlePhotoChange}
           />
+          {errors.photo  && <p className="error-message">{errors.photo }</p>}
         </div>
         <div className='button'>
           <button type="submit">Submit Order</button>
