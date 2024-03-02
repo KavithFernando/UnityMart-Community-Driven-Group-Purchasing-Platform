@@ -11,24 +11,34 @@ export default function SignUp({ close, open }) {
   const [bORs, set_bORc] = useState("");
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState(false);
+  const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState("");
   const [reEntedPassword, setReEntedPassword] = useState("");
 
   const handleSubmit = () => {
     const errors = validate();
+
+    setTimeout(() => {
+      creatUser(errors);
+    }, 1000);
     setErrors(errors);
-    console.log(name, password, email);
+    //console.log(errors);
+
+    //console.log(name, password, email, bORs);
   };
 
   const validate = () => {
     const error = {};
-
+    if (!name) {
+      error.name = "Name is Required.";
+    } else {
+      error.name = null;
+    }
     if (!email) {
       error.email = "Email is Required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       error.email = "The Email is Invalid.";
     } else {
-      error.email = "";
+      error.email = null;
     }
 
     if (!password) {
@@ -36,7 +46,7 @@ export default function SignUp({ close, open }) {
     } else if (password.length < 8) {
       error.password = "Use 8 or more characters for your password.";
     } else {
-      error.password = "";
+      error.password = null;
     }
 
     if (!reEntedPassword) {
@@ -44,21 +54,30 @@ export default function SignUp({ close, open }) {
     } else if (!(reEntedPassword === password)) {
       error.reEnted = "The passwords did not match. Try again.";
     } else {
-      error.reEnted = "";
+      error.reEnted = null;
     }
 
     return error;
   };
 
-  const creatUser = async () => {
-    try {
-      const { data } = await axios.post("http://localhost:8000/user/add", {
+  const creatUser = async (errors1) => {
+    console.log(errors1);
+    if (
+      errors1.name === null &&
+      errors1.password === null &&
+      errors1.reEnted === null &&
+      errors1.email === null
+    ) {
+      const { data } = await axios.post("http://localhost:8080/user/add", {
         name,
         email,
         password,
+        bORs,
       });
-    } catch {
-      ("");
+      console.log({ data });
+      close();
+    } else {
+      console.log("cant");
     }
   };
 
@@ -74,6 +93,7 @@ export default function SignUp({ close, open }) {
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
             />
+            {errors.name && <div className="error">{errors.name}</div>}
             <input
               className="label"
               type="email"
@@ -120,12 +140,12 @@ export default function SignUp({ close, open }) {
             </div>
           </div>
           <div className="radioButtonPart">
-            <label className="radioButton">
-              <input type="radio" name="account" value="seller" />
+            <label className="radioButton" onClick={() => set_bORc(true)}>
+              <input type="radio" name="account" />
               Seller
             </label>
-            <label className="radioButton">
-              <input type="radio" name="account" value="buyer" />
+            <label className="radioButton" onClick={() => set_bORc(false)}>
+              <input type="radio" name="account" defaultChecked />
               Buyer
             </label>
           </div>
@@ -137,7 +157,9 @@ export default function SignUp({ close, open }) {
         <div className="rightPanel">
           <button
             className="closeButton"
-            onClick={() => {close();}}
+            onClick={() => {
+              close();
+            }}
           >
             X
           </button>

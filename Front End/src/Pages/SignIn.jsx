@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import axios from "axios";
 
 export default function SignIn({ close, open }) {
   const [email, setEmail] = useState("");
@@ -13,6 +14,8 @@ export default function SignIn({ close, open }) {
     event.preventDefault();
     const errors = validate();
     setErrors(errors);
+
+    logInUser();
   };
 
   const validate = () => {
@@ -34,6 +37,13 @@ export default function SignIn({ close, open }) {
       error.password = "";
     }
     return error;
+  };
+
+  const logInUser = async () => {
+    const { data } = await axios.post("http://localhost:8080/user/login", {
+      email,
+      password,
+    });
   };
 
   return (
@@ -58,10 +68,7 @@ export default function SignIn({ close, open }) {
         </div>
 
         <div className="signInForm">
-          <button 
-            className="CloseButton" 
-            onClick={() => close()}
-          >
+          <button className="CloseButton" onClick={() => close()}>
             X
           </button>
           <h1 className="title">Sign In</h1>
