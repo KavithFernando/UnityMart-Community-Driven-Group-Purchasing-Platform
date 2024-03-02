@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import axios from "axios";
 
 export default function SignUp({ close, open }) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [bORs, set_bORc] = useState("");
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
   const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState(false);
@@ -14,6 +17,7 @@ export default function SignUp({ close, open }) {
   const handleSubmit = () => {
     const errors = validate();
     setErrors(errors);
+    console.log(name, password, email);
   };
 
   const validate = () => {
@@ -46,13 +50,30 @@ export default function SignUp({ close, open }) {
     return error;
   };
 
+  const creatUser = async () => {
+    try {
+      const { data } = await axios.post("http://localhost:8000/user/add", {
+        name,
+        email,
+        password,
+      });
+    } catch {
+      ("");
+    }
+  };
+
   return (
     <div className="body">
       <div className="signUpContainer">
         <div className="signUpForm">
           <h1 className="title">Create Account</h1>
           <div className="formeAline">
-            <input className="label" type="text" placeholder="Name" />
+            <input
+              className="label"
+              type="text"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+            />
             <input
               className="label"
               type="email"

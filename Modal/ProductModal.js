@@ -36,7 +36,7 @@ const productModal = new mongoose.Schema({
     required: true,
   },
 
-  Description: {
+  Seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
