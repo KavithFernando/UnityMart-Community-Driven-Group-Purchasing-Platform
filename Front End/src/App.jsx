@@ -1,5 +1,3 @@
-import SignIn from "./Pages/SignIn";
-import SignUp from "./Pages/SignUp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./Components/Common/Footer";
@@ -17,8 +15,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/*<Route path="/signin" element={<SignIn />} />8?}
-          {/*<Route path="/signup" element={<SignUp />} />*/}
           <Route path="/buyer" element={<Buyer />} />
           <Route path="/Seller" element={<Seller />} />
           <Route path="/AboutUsPage" element={<AboutUsPage />} />

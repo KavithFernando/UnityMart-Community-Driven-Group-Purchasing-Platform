@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './Buyerdetails.css';
-import ProgressBar from './ProgressBar';
 import BuyerProduct from './buyerproduct';
 
 export default function Buyerdetails({ props, props2, props3, props4 }) {
