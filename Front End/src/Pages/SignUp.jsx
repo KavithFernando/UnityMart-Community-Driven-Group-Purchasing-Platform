@@ -63,7 +63,6 @@ export default function SignUp({ close, open }) {
   const creatUser = async (errors1) => {
     console.log(errors1);
     if (
-      // Object.values(errors).every((error) => error === null)
       errors1.name === null &&
       errors1.password === null &&
       errors1.reEnted === null &&
@@ -146,7 +145,7 @@ export default function SignUp({ close, open }) {
               Seller
             </label>
             <label className="radioButton" onClick={() => set_bORc(false)}>
-              <input type="radio" name="account" />
+              <input type="radio" name="account" defaultChecked />
               Buyer
             </label>
           </div>
