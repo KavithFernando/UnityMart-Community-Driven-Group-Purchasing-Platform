@@ -17,14 +17,18 @@ export default function SignUp({ close, open }) {
   const handleSubmit = () => {
     const errors = validate();
     setErrors(errors);
+
+    setTimeout(() => {
+      creatUser();
+    }, 10000);
+
     //console.log(name, password, email, bORs);
-    creatUser();
   };
 
   const validate = () => {
     const error = {};
     if (!name) {
-      error.name = "name is Required.";
+      error.name = "Name is Required.";
     } else {
       error.name = null;
     }
@@ -71,11 +75,12 @@ export default function SignUp({ close, open }) {
           bORs,
         });
         console.log({ data });
+        // close();
       } catch {
         ("");
       }
     } else {
-      console.log("ok");
+      console.log("cant");
     }
   };
 
@@ -91,6 +96,7 @@ export default function SignUp({ close, open }) {
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
             />
+            {errors.name && <div className="error">{errors.name}</div>}
             <input
               className="label"
               type="email"
