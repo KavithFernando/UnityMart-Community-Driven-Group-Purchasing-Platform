@@ -37,6 +37,10 @@ const OrderForm = () => {
       newErrors.price = 'Price must be a positive number';
       valid = false;
     }
+    if (!description.trim()) {
+      newErrors.description = 'Description is required';
+      valid = false;
+    }
 
     
     setErrors(newErrors);
@@ -130,8 +134,8 @@ const OrderForm = () => {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-           
           />
+          {errors.description && <p className="error-message">{errors.description}</p>}
         </div>
         <div className="form-group">
           <label>Photo:</label>
