@@ -58,8 +58,11 @@ export default function SignIn({ close, open }) {
         </div>
 
         <div className="signInForm">
-          <button className="CloseButton" onClick={() => close()}>
-            close
+          <button 
+            className="CloseButton" 
+            onClick={() => close()}
+          >
+            X
           </button>
           <h1 className="title">Sign In</h1>
           <input

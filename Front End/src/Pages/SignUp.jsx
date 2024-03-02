@@ -140,11 +140,9 @@ export default function SignUp({ close, open }) {
         <div className="rightPanel">
           <button
             className="closeButton"
-            onClick={() => {
-              close();
-            }}
+            onClick={() => {close();}}
           >
-            close
+            X
           </button>
           <h1 className="title">Already a Registered User?</h1>
           <p className="paragraph">
