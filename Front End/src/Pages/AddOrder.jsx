@@ -10,29 +10,44 @@ const OrderForm = () => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null);
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = {};
+
+    if (!productName.trim()) {
+      newErrors.productName = 'Product name is required';
+      valid = false;
+    }
+    setErrors(newErrors);
+    return valid;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
-    console.log('Order submitted:', {
-      productName,
-      category,
-      brand,
-      quantity,
-      price,
-      description,
-      photo,
-    });
+    if (validateForm()) {
+      console.log('Order submitted:', {
+        productName,
+        category,
+        brand,
+        quantity,
+        price,
+        description,
+        photo,
+      });
 
-    // Reset form fields after submission
-    setProductName('');
-    setCategory('');
-    setBrand('');
-    setQuantity('');
-    setPrice('');
-    setDescription('');
-    setPhoto(null);
+      // Reset form fields after successful submission
+      setProductName('');
+      setCategory('');
+      setBrand('');
+      setQuantity('');
+      setPrice('');
+      setDescription('');
+      setPhoto(null);
+      setErrors({});
+    }
   };
 
   const handlePhotoChange = (e) => {
@@ -52,8 +67,8 @@ const OrderForm = () => {
             type="text"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
-            required
           />
+           {errors.productName && <p className="error-message">{errors.productName}</p>}
         </div>
         <div className="form-group">
           <label>Category:</label>
@@ -61,7 +76,7 @@ const OrderForm = () => {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            required
+           
           />
         </div>
         <div className="form-group">
@@ -70,7 +85,7 @@ const OrderForm = () => {
             type="text"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
-            required
+            
           />
         </div>
         <div className="form-group">
@@ -79,7 +94,7 @@ const OrderForm = () => {
             type="number"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
-            required
+           
           />
         </div>
         <div className="form-group">
@@ -88,7 +103,7 @@ const OrderForm = () => {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            required
+           
           />
         </div>
         <div className="form-group">
@@ -96,7 +111,7 @@ const OrderForm = () => {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
+           
           />
         </div>
         <div className="form-group">
