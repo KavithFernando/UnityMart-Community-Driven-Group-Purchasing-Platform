@@ -23,13 +23,17 @@ export default function SignUp({ close, open }) {
 
   const validate = () => {
     const error = {};
-
+    if (!name) {
+      error.name = "name is Required.";
+    } else {
+      error.name = null;
+    }
     if (!email) {
       error.email = "Email is Required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       error.email = "The Email is Invalid.";
     } else {
-      error.email = "";
+      error.email = null;
     }
 
     if (!password) {
@@ -37,7 +41,7 @@ export default function SignUp({ close, open }) {
     } else if (password.length < 8) {
       error.password = "Use 8 or more characters for your password.";
     } else {
-      error.password = "";
+      error.password = null;
     }
 
     if (!reEntedPassword) {
@@ -45,23 +49,33 @@ export default function SignUp({ close, open }) {
     } else if (!(reEntedPassword === password)) {
       error.reEnted = "The passwords did not match. Try again.";
     } else {
-      error.reEnted = "";
+      error.reEnted = null;
     }
 
     return error;
   };
 
   const creatUser = async () => {
-    try {
-      const { data } = await axios.post("http://localhost:8080/user/add", {
-        name,
-        email,
-        password,
-        bORs,
-      });
-      console.log({ data });
-    } catch {
-      ("");
+    if (
+      Object.values(errors).every((error) => error === null)
+      //errors.name === "" &&
+      //errors.password === "" &&
+      // errors.reEntedPassword === "" &&
+      //errors.email === ""
+    ) {
+      try {
+        const { data } = await axios.post("http://localhost:8080/user/add", {
+          name,
+          email,
+          password,
+          bORs,
+        });
+        console.log({ data });
+      } catch {
+        ("");
+      }
+    } else {
+      console.log("ok");
     }
   };
 
@@ -140,7 +154,9 @@ export default function SignUp({ close, open }) {
         <div className="rightPanel">
           <button
             className="closeButton"
-            onClick={() => {close();}}
+            onClick={() => {
+              close();
+            }}
           >
             X
           </button>
