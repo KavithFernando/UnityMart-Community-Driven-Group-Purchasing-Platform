@@ -35,7 +35,6 @@ export default function Navbar() {
     <>
       {" "}
       <nav>
-        {/* <h1>UnityMart</h1> */}
         <img src="Images\UnityMartLongLogo.png" alt="Logo" />
         <div className="searchDiv">
           <input
