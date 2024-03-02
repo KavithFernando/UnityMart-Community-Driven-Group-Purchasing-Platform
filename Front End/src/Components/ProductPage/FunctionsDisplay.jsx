@@ -17,12 +17,12 @@ export default function FunctionsDisplay(
   const [isJoined, setIsJoined] = useState(false);
 
   const handleInputChange = (e) => {
-    const value = Math.max(1, Math.min(100, parseInt(e.target.value, 10) || 0));
+    const value = Math.max(1, Math.min(to_go, parseInt(e.target.value, 10) || 0));
     setCount(value);
   };
 
   const handleIncrement = () => {
-    if (count < 100) {
+    if (count < to_go) {
       setCount(count + 1);
     }
   };
