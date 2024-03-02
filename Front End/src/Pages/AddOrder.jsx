@@ -25,6 +25,11 @@ const OrderForm = () => {
       newErrors.category = 'Category is required';
       valid = false;
     }
+    if (!brand.trim()) {
+      newErrors.brand = 'Brand is required';
+      valid = false;
+    }
+
 
     
     setErrors(newErrors);
@@ -92,8 +97,8 @@ const OrderForm = () => {
             type="text"
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
-            
           />
+          {errors.brand && <p className="error-message">{errors.brand}</p>}
         </div>
         <div className="form-group">
           <label>Quantity:</label>
