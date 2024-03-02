@@ -33,6 +33,10 @@ const OrderForm = () => {
       newErrors.quantity = 'Quantity must be a positive number';
       valid = false;
     }
+    if (!price.trim() || isNaN(price) || +price <= 0) {
+      newErrors.price = 'Price must be a positive number';
+      valid = false;
+    }
 
     
     setErrors(newErrors);
@@ -117,9 +121,9 @@ const OrderForm = () => {
           <input
             type="number"
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
-           
+            onChange={(e) => setPrice(e.target.value)}           
           />
+          {errors.price && <p className="error-message">{errors.price}</p>}
         </div>
         <div className="form-group">
           <label>Description:</label>
