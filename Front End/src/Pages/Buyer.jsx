@@ -9,7 +9,7 @@ export default function Buyer() {
 
     const name= "pabasara ravindraka"
     const email="pabasara12@gmail.com"
-    const ordername="apple12watch"
+    const ordername="Bluetooth Wireless Headset"
     const orderid="122"
     
    //pass the properties

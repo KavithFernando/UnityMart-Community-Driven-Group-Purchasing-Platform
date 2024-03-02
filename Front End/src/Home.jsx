@@ -1,6 +1,5 @@
 import React from 'react'
 import {  useNavigate } from "react-router-dom";
-import { IoHome } from "react-icons/io5";
 import PopularPanel from './Components/PopularProducts/PopularPanel';
 import RecomHolder from './Components/Recommended/RecomHolder';
 export default function Home() {
