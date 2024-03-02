@@ -16,11 +16,12 @@ export default function SignUp({ close, open }) {
 
   const handleSubmit = () => {
     const errors = validate();
-    setErrors(errors);
 
     setTimeout(() => {
-      creatUser();
-    }, 10000);
+      creatUser(errors);
+    }, 1000);
+    setErrors(errors);
+    //console.log(errors);
 
     //console.log(name, password, email, bORs);
   };
@@ -59,26 +60,23 @@ export default function SignUp({ close, open }) {
     return error;
   };
 
-  const creatUser = async () => {
+  const creatUser = async (errors1) => {
+    console.log(errors1);
     if (
-      Object.values(errors).every((error) => error === null)
-      //errors.name === "" &&
-      //errors.password === "" &&
-      // errors.reEntedPassword === "" &&
-      //errors.email === ""
+      // Object.values(errors).every((error) => error === null)
+      errors1.name === null &&
+      errors1.password === null &&
+      errors1.reEnted === null &&
+      errors1.email === null
     ) {
-      try {
-        const { data } = await axios.post("http://localhost:8080/user/add", {
-          name,
-          email,
-          password,
-          bORs,
-        });
-        console.log({ data });
-        // close();
-      } catch {
-        ("");
-      }
+      const { data } = await axios.post("http://localhost:8080/user/add", {
+        name,
+        email,
+        password,
+        bORs,
+      });
+      console.log({ data });
+      close();
     } else {
       console.log("cant");
     }
