@@ -20,6 +20,13 @@ const OrderForm = () => {
       newErrors.productName = 'Product name is required';
       valid = false;
     }
+
+    if (!category.trim()) {
+      newErrors.category = 'Category is required';
+      valid = false;
+    }
+
+    
     setErrors(newErrors);
     return valid;
   };
@@ -76,8 +83,8 @@ const OrderForm = () => {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-           
           />
+          {errors.category && <p className="error-message">{errors.category}</p>}
         </div>
         <div className="form-group">
           <label>Brand:</label>
