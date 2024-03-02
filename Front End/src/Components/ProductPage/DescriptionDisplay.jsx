@@ -41,7 +41,7 @@ export default function DescriptionDisplay(
         <div className="pricing-details">
             <p className='rs'>Rs</p>
             <p className="price">{price.toFixed(2)}</p>
-            <p className="store-price">Rs {storePrice.toFixed(2)}</p>
+            <p className="store-price">Rs{storePrice.toFixed(2)}</p>
             <p className="discount">-{discount}%</p>
         </div>
         <hr />

@@ -14,6 +14,7 @@ export default function FunctionsDisplay(
 {
 
   const [count, setCount] = useState(1);
+  const [isJoined, setIsJoined] = useState(false);
 
   const handleInputChange = (e) => {
     const value = Math.max(1, Math.min(100, parseInt(e.target.value, 10) || 0));
@@ -31,6 +32,15 @@ export default function FunctionsDisplay(
       setCount(count - 1);
     }
   };
+
+  const handleJoinLeave = () => {
+    // Toggle the join status
+    setIsJoined((prevIsJoined) => !prevIsJoined);
+
+    // Show alert based on join status
+    const alertMessage = isJoined ? "You've Left the Purchase group Successfully" : "You've Joined the Purchase group Successfully";
+    alert(alertMessage);
+  };
   
   const formattedPrice = (count*price).toFixed(2);
 
@@ -43,7 +53,7 @@ export default function FunctionsDisplay(
           height={15}
           bgColor="#ff5900"
           baseBgColor="#dddddd"
-          padding="4px"
+          // padding="4px"
           animateOnRender={true}
         />
         <div className="available">Only <span>{to_go}</span> more items available</div>
@@ -72,7 +82,9 @@ export default function FunctionsDisplay(
         </div>
       </div>
       <div className="join-share">
-        <div className="join">Join Purchase</div>
+        <div className={`join ${isJoined ? 'leave' : 'join'}`} onClick={handleJoinLeave}>
+          {isJoined ? 'Leave Purchase' : 'Join Purchase'}
+        </div>
         <div className="share"><IoShareSocial className='share-icon'/>Share</div>
       </div>
     </div>

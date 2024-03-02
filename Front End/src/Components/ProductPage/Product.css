@@ -30,7 +30,9 @@
   
 .imgdis1:hover {
     opacity: 0.7; 
-  }
+}
+
+
 .description-display {
     width: 100%;
 }
@@ -151,8 +153,7 @@
 
 .fuctions-display .progress .progress-bar {
     width: 90%;
-    margin-left: auto;
-    margin-right: 6%;
+    margin: auto;
     margin-bottom: 5%;
 }
 
@@ -169,7 +170,6 @@
 .fuctions-display .quantity {
     width: 100%;
     text-align: center;
-    /* margin: 20% 0 0 0; */
 }
 
 .fuctions-display .quantity .title {
@@ -270,6 +270,19 @@
     color: white;
 }
 
+.fuctions-display .join-share .join:hover {
+    background-color: #c14300;
+}
+
+.fuctions-display .join-share .leave {
+    background-color: black;
+    color: white;
+}
+
+.fuctions-display .join-share .leave:hover {
+    background-color: rgb(58, 58, 58);
+}
+
 .fuctions-display .join-share .share {
     background-color: #ffe3d4;
     color: #ff5900;
@@ -280,10 +293,6 @@
 .fuctions-display .join-share .share .share-icon {
     margin: 0 5% 0 0;
     font-size: 18px;
-}
-
-.fuctions-display .join-share .join:hover {
-    background-color: #c14300;
 }
 
 .fuctions-display .join-share .share:hover {
