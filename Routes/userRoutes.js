@@ -17,3 +17,20 @@ router.post("/user/add", async (req, res) => {
 });
 
 module.exports = router;
+
+//user log in
+
+router.post("/user/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await users.findOne({ email: email });
+  if (user) {
+    if (user.password === password) {
+      return res.status(200).json({ success: "User login successful", user });
+    } else {
+      return res.status(401).json({ error: "Invalid  password" });
+    }
+  } else {
+    return res.status(401).json({ error: "Invalid  " });
+  }
+});
