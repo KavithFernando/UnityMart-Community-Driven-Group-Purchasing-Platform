@@ -17,7 +17,8 @@ export default function SignUp({ close, open }) {
   const handleSubmit = () => {
     const errors = validate();
     setErrors(errors);
-    console.log(name, password, email, bORs);
+    //console.log(name, password, email, bORs);
+    creatUser();
   };
 
   const validate = () => {
@@ -52,11 +53,13 @@ export default function SignUp({ close, open }) {
 
   const creatUser = async () => {
     try {
-      const { data } = await axios.post("http://localhost:8000/user/add", {
+      const { data } = await axios.post("http://localhost:8080/user/add", {
         name,
         email,
         password,
+        bORs,
       });
+      console.log({ data });
     } catch {
       ("");
     }
@@ -124,7 +127,7 @@ export default function SignUp({ close, open }) {
               <input type="radio" name="account" />
               Seller
             </label>
-            <label className="radioButton" onClick={() => set_bORc(true)}>
+            <label className="radioButton" onClick={() => set_bORc(false)}>
               <input type="radio" name="account" />
               Buyer
             </label>
