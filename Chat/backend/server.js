@@ -11,8 +11,15 @@ const messageRoutes = require("./routes/messageRoutes");
 dotenv.config();
 connectDB();
 const app = express();
+const cors = require("cors");
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Replace with your frontend URL
+    credentials: true, // Enable sending cookies and other credentials
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("API is runings success");
@@ -24,9 +31,9 @@ app.use("/api/message", messageRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
-const PORT = process.env.PORT || 5000;
+const PORT = 8000;
 const server = app.listen(
-  5000,
+  PORT,
   console.log(`server start on port ${process.env.PORT}`.yellow.bold)
 );
 

@@ -21,6 +21,7 @@ export default function SignUp({ close, open }) {
 
     setTimeout(() => {
       creatUser(errors);
+      creatChatUser();
     }, 10);
     setErrors(errors);
     //console.log(errors);
@@ -85,7 +86,7 @@ export default function SignUp({ close, open }) {
         });
 
         setTimeout(() => {
-          close();
+          //close();
         }, 2000);
         //close();
       } else {
@@ -95,6 +96,31 @@ export default function SignUp({ close, open }) {
       toast.error("this user already exists or This password already exists", {
         // position: toast.POSITION.TOP_RIGHT,
       });
+    }
+  };
+
+  const creatChatUser = async () => {
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "http://localhost:8000/api/user",
+        {
+          name,
+          email,
+          password,
+        },
+        config
+      );
+      console.log(data);
+
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      //history.push("/chats");
+    } catch (error) {
+      console.log(error);
     }
   };
 
