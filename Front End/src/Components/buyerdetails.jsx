@@ -4,11 +4,6 @@ import './Buyerdetails.css';
 import BuyerProduct from './buyerproduct';
 
 export default function Buyerdetails({ props, props2, props3, props4 }) {
-    
-    const order = {
-        progress: 80 
-    };
-
 
     return (
         <div className='container'>
@@ -22,27 +17,20 @@ export default function Buyerdetails({ props, props2, props3, props4 }) {
                 <br />
                 <h3 className='h3-1'>{props}</h3>
                 <br />
-                <h3 className='h3-1'>  {props2}</h3>
+                <h3 className='h3-1'>{props2}</h3>
             </div>
             <div className='userprop'>
                 <br/>
                 <br/>
-                <h1 className='h1-1'>You are currently on this queues</h1>
+                <h1 className='h1-1'>You're currently on these Queues</h1>
                 <br />
                 <div className=' buyerprod'>
-                <BuyerProduct orderName={props3} orderId={props4} progress={order.progress} />
-                <br />
-                <BuyerProduct orderName={props3} orderId={props4} progress={order.progress} />
-                <br />
-                <BuyerProduct orderName={props3} orderId={props4} progress={order.progress} />
+                    <BuyerProduct orderName={props3} orderId={props4} />
+                    <BuyerProduct orderName={props3} orderId={props4} />
+                    <BuyerProduct orderName={props3} orderId={props4} />
                 </div>
             </div>
-            <div className='userlast'>
-                <button className='btnul'>Last Orders</button>
-                <button className='btnul1'>Price prediction</button>
 
-
-            </div>
             <div className="chat-bubble">
                 <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
                 Chat

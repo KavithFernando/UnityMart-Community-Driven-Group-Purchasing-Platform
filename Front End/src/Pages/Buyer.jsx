@@ -1,7 +1,7 @@
 import React from 'react';
   
 
-import Buyerdetails from '../Components/buyerdetails';
+import Buyerdetails from '../Components/Buyerdetails';
 
 
 
