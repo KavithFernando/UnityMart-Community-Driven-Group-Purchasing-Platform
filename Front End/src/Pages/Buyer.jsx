@@ -7,7 +7,7 @@ import Buyerdetails from '../Components/Buyerdetails';
 
 export default function Buyer() {
 
-    const name= "pabasara ravindraka"
+    const name= "Pabasara Ravindraka"
     const email="pabasara12@gmail.com"
     const ordername="Bluetooth Wireless Headset"
     const orderid="122"
@@ -18,8 +18,8 @@ export default function Buyer() {
          
         <Buyerdetails
         
-        props= {name}
-        props2={email}
+        name= {name}
+        email={email}
         props3={ordername}
         props4={orderid}
         />
