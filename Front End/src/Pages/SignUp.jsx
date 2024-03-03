@@ -3,6 +3,8 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp({ close, open }) {
   const [name, setName] = useState("");
@@ -19,7 +21,7 @@ export default function SignUp({ close, open }) {
 
     setTimeout(() => {
       creatUser(errors);
-    }, 1000);
+    }, 10);
     setErrors(errors);
     //console.log(errors);
 
@@ -76,13 +78,23 @@ export default function SignUp({ close, open }) {
           password,
           bORs,
         });
-        console.log(data.error());
+        console.log(data);
+
+        toast.success("Registration is successful", {
+          // position: toast.POSITION.TOP_RIGHT,
+        });
+
+        setTimeout(() => {
+          close();
+        }, 2000);
         //close();
       } else {
         console.log("cant");
       }
     } catch {
-      console.log("ok");
+      toast.error("this user already exists or This password already exists", {
+        // position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
 
@@ -157,6 +169,7 @@ export default function SignUp({ close, open }) {
           <button className="button" onClick={handleSubmit}>
             Sign Up
           </button>
+          <ToastContainer />
         </div>
 
         <div className="rightPanel">
