@@ -63,22 +63,26 @@ export default function SignUp({ close, open }) {
   const creatUser = async (errors1) => {
     console.log(errors1);
 
-    if (
-      errors1.name === null &&
-      errors1.password === null &&
-      errors1.reEnted === null &&
-      errors1.email === null
-    ) {
-      const { data } = await axios.post("http://localhost:8080/user/add", {
-        name,
-        email,
-        password,
-        bORs,
-      });
-      console.log({ data });
-      close();
-    } else {
-      console.log("cant");
+    try {
+      if (
+        errors1.name === null &&
+        errors1.password === null &&
+        errors1.reEnted === null &&
+        errors1.email === null
+      ) {
+        const { data } = await axios.post("http://localhost:8080/user/add", {
+          name,
+          email,
+          password,
+          bORs,
+        });
+        console.log(data.error());
+        //close();
+      } else {
+        console.log("cant");
+      }
+    } catch {
+      console.log("ok");
     }
   };
 
