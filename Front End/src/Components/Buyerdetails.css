@@ -5,32 +5,52 @@
 
 .usermain{
     width: 20%;
-    padding: 0 1%;
+    /* border: 1px solid #00000023; */
+}
+
+.image-container {
+    width: 70%;
+    height: auto;
+    margin: 3% auto 2% auto;
+    overflow: hidden;
     border: 1px solid #00000023;
-}
-
-.h3-1 {
-    font-family: Arial, sans-serif; 
-    font-size: 18px;
-    color: black;
-    text-align: center;
-    background-color: #e4dd64;
-}
-
-.h3-1:hover {
-    transform: scale(1.15); 
+    border-radius: 15px;
+    background-color: #fff2eb;
+    padding: 14%;
 }
 
 .img1{
-    border-radius: 50%;
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-    margin-left:30px;
-    opacity: 1;
-    transition: 500ms linear;   
+    border-radius: 500px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .img1:hover {
-    transform: scale(1.15); 
+    transform: scale(1.05); 
+}
+
+.details-container {
+    border: 1px solid #00000023;
+    background-color: #fff2eb;
+    border-radius: 12px;
+}
+
+.details-container h3 {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.details-container h3:hover {
+    color: #ff5900;
+}
+
+.details-container .email {
+    color: #313131;
+    font-weight: normal;
+    font-size: 15px;
+    margin: 2% 0 0 0;
 }
 
 .userprop {

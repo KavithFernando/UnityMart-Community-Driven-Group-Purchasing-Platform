@@ -12,8 +12,8 @@ export default function Buyer() {
   return (
     <div>
       <Buyerdetails
-        props={name}
-        props2={email}
+        name={name}
+        email={email}
         props3={ordername}
         props4={orderid}
       />
