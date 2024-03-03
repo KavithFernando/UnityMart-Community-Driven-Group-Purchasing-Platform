@@ -78,12 +78,15 @@ export default function SignUp({ close, open }) {
           password,
           bORs,
         });
-        toast.success("Success", {
+        console.log(data);
+
+        toast.success("Registration is successful", {
           // position: toast.POSITION.TOP_RIGHT,
         });
+
         setTimeout(() => {
           close();
-        }, 100);
+        }, 2000);
         //close();
       } else {
         console.log("cant");

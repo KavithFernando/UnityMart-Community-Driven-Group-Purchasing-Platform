@@ -3,6 +3,8 @@ import "./SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn({ close, open }) {
   const [email, setEmail] = useState("");
@@ -47,10 +49,19 @@ export default function SignIn({ close, open }) {
           password,
         });
         console.log(data);
-        close();
+
+        toast.success("Login is successful", {
+          // position: toast.POSITION.TOP_RIGHT,
+        });
+
+        setTimeout(() => {
+          close();
+        }, 2000);
       }
     } catch {
-      console.log("qqq");
+      toast.error("This email and password do not match", {
+        // position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
 
@@ -102,6 +113,7 @@ export default function SignIn({ close, open }) {
           <button className="button" onClick={handleSubmit}>
             Sign In
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
