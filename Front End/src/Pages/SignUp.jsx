@@ -21,7 +21,7 @@ export default function SignUp({ close, open }) {
 
     setTimeout(() => {
       creatUser(errors);
-    }, 1000);
+    }, 10);
     setErrors(errors);
     //console.log(errors);
 
@@ -78,13 +78,18 @@ export default function SignUp({ close, open }) {
           password,
           bORs,
         });
-        console.log(data.error());
+        toast.success("Success", {
+          // position: toast.POSITION.TOP_RIGHT,
+        });
+        setTimeout(() => {
+          close();
+        }, 100);
         //close();
       } else {
         console.log("cant");
       }
     } catch {
-      toast.success("Success Notification !", {
+      toast.error("this user already exists or This password already exists", {
         // position: toast.POSITION.TOP_RIGHT,
       });
     }
