@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { AiOutlineStock } from "react-icons/ai";
 import './Buyerdetails.css';
 import BuyerProduct from './buyerproduct';
 
@@ -26,6 +27,10 @@ export default function Buyerdetails({ name, email, props3, props4 }) {
                     <BuyerProduct orderName={props3} orderId={props4} />
                     <BuyerProduct orderName={props3} orderId={props4} />
                 </div>
+            </div>
+
+            <div className="prediction">
+                <AiOutlineStock className='stock'/><span className='price-pred'>&nbsp;&nbsp;Price Prediction</span>
             </div>
 
             <div className="chat-bubble">

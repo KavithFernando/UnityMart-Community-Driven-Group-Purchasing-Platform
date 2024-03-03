@@ -3,7 +3,7 @@ import React from "react";
 import Buyerdetails from "../Components/buyerdetails";
 
 export default function Buyer() {
-  const name = "pabasara ravindraka";
+  const name = "Pabasara Ravindraka";
   const email = "pabasara12@gmail.com";
   const ordername = "Bluetooth Wireless Headset";
   const orderid = "122";
