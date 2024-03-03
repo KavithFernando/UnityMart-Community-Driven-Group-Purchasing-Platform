@@ -18,6 +18,7 @@ export default function SignIn({ close, open }) {
     setErrors(errors);
 
     logInUser(errors);
+    logInChatUser();
   };
 
   const validate = () => {
@@ -55,7 +56,7 @@ export default function SignIn({ close, open }) {
         });
 
         setTimeout(() => {
-          close();
+          // close();
         }, 2000);
       }
     } catch {
@@ -63,6 +64,24 @@ export default function SignIn({ close, open }) {
         // position: toast.POSITION.TOP_RIGHT,
       });
     }
+  };
+
+  const logInChatUser = async () => {
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+
+      const { data } = await axios.post(
+        "http://localhost:8000/api/user/login",
+        { email, password },
+        config
+      );
+      console.log(data);
+      localStorage.setItem("userInfo", JSON.stringify(data));
+    } catch {}
   };
 
   return (
