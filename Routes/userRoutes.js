@@ -6,7 +6,7 @@ const router = express.Router();
 //add user
 
 router.post("/user/add", async (req, res) => {
-  //let newUser = new users(req.body);
+  // let newUser = new users(req.body);
   const { name, email, password, bORs } = req.body;
 
   const userExists = await users.findOne({ email });
@@ -46,4 +46,5 @@ router.post("/user/login", async (req, res) => {
     return res.status(401).json({ error: "Invalid  " });
   }
 });
+
 module.exports = router;
