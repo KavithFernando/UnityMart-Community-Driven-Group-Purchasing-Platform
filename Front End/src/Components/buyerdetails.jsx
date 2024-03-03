@@ -17,19 +17,17 @@ export default function Buyerdetails({ props, props2, props3, props4 }) {
                 <br />
                 <h3 className='h3-1'>{props}</h3>
                 <br />
-                <h3 className='h3-1'>  {props2}</h3>
+                <h3 className='h3-1'>{props2}</h3>
             </div>
             <div className='userprop'>
                 <br/>
                 <br/>
-                <h1 className='h1-1'>You are currently on this queues</h1>
+                <h1 className='h1-1'>You're currently on these Queues</h1>
                 <br />
                 <div className=' buyerprod'>
-                <BuyerProduct orderName={props3} orderId={props4} />
-                <br />
-                <BuyerProduct orderName={props3} orderId={props4} />
-                <br />
-                <BuyerProduct orderName={props3} orderId={props4} />
+                    <BuyerProduct orderName={props3} orderId={props4} />
+                    <BuyerProduct orderName={props3} orderId={props4} />
+                    <BuyerProduct orderName={props3} orderId={props4} />
                 </div>
             </div>
 
