@@ -5,16 +5,34 @@ import './AboutUs.css';
 const AboutUsPage = () => {
   return (
     <div className="about-us-page">
-      <h1>About Us</h1>
+      <br/>
+      <h1 className='pgname'>About Us</h1>
+      <br/>
       {/* Team Members */}
       <div className="team-members">
-        <h1>"Strength lies in unity"</h1>
+      <br/>
+      <div class="box">
+      <div class="inner">
+      <span>"Strength lies in unity"</span>
+      </div>
+      <div class="inner">
+      <span>"Strength lies in unity"</span>
+      </div>
+      </div>
+        
         <br />
+        <br />
+        <br />
+        <div className="white-3d-background">
         <h3>Welcome to Unity Mart, your premier destination for bulk purchasing and selling. At Unity Mart, we specialize in providing a seamless platform for businesses and individuals to engage in large-scale transactions. Our marketplace is designed to unite buyers and sellers, fostering a community built on trust, reliability, and efficiency.</h3>
+        <br />
         <br />
         <h3>Explore an extensive range of products available in bulk quantities, ensuring cost-effectiveness and convenience for your purchasing needs. Whether you're a supplier looking to reach a broader audience or a buyer seeking competitive prices, Unity Mart offers a unified space to facilitate successful transactions.</h3>
         <br />
+        <br />
         <h3>Discover the power of bulk buying and selling as Unity Mart connects businesses, streamlining processes and opening doors to new opportunities. Join us on a journey of unity, where convenience meets commerce, and together, we build a marketplace that empowers success.</h3>
+        </div>
+        <br />
         <br />
         <h2>Our Team</h2>
         <div className="team-member-cards">
