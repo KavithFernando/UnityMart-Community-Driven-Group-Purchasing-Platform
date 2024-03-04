@@ -18,38 +18,46 @@ const AboutUsPage = () => {
         <br />
         <h2>Our Team</h2>
         <div className="team-member-cards">
-         
           <div className="team-member-card">
-            <h3>Niketh Randil Weragala</h3>
-            <p><strong>Role: Devoloper </strong></p>
-            <p>Lorem ipsum dolor sit amet.</p>
-          
+            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <div className="details">
+              <h3>Niketh Randil Weragala</h3>
+              <p><strong>Role: Developer</strong></p>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
           </div>
           <div className="team-member-card">
-            <h3>Kavith Fernando</h3>
-            <p><strong>Role: Devoloper</strong></p>
-            <p>Lorem ipsum dolor sit amet.</p>
-           
+            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <div className="details">
+              <h3>Kavith Fernando</h3>
+              <p><strong>Role: Developer</strong></p>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
           </div>
           <div className="team-member-card">
-            <h3>Pabasara Ravindaka</h3>
-            <p><strong>Role: Devoloper</strong> </p>
-            <p>Lorem ipsum dolor sit amet.</p>
-           
+            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <div className="details">
+              <h3>Pabasara Ravindaka</h3>
+              <p><strong>Role: Developer</strong></p>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
           </div>
           <div className="team-member-card">
-            <h3>Sanjaya Perera</h3>
-            <p><strong>Role:Devoloper</strong> </p>
-            <p>Lorem ipsum dolor sit amet.</p>
-           
+            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <div className="details">
+              <h3>Sanjaya Perera</h3>
+              <p><strong>Role: Developer</strong></p>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
           </div>
           <div className="team-member-card">
-            <h3>Susitha Subhavitha</h3>
-            <p><strong>Role: Devoloper</strong> </p>
-            <p>Lorem ipsum dolor sit amet.</p>
-           
+            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <div className="details">
+              <h3>Susitha Subhavitha</h3>
+              <p><strong>Role: Developer</strong></p>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
           </div>
-         
         </div>
       </div>
     </div>
