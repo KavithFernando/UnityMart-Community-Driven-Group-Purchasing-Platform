@@ -1,7 +1,7 @@
-.body {
+.signInbody {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(128, 128, 128, 0.425);
   position: fixed;
   display: flex;
   justify-content: center;

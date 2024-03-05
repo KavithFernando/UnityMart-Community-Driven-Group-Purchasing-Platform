@@ -85,7 +85,7 @@ export default function SignIn({ close, open }) {
   };
 
   return (
-    <div className="body">
+    <div className="signInbody ">
       <div className="signInContainer">
         <div className="leftPanel">
           <button className="CloseButton1" onClick={() => close()}>

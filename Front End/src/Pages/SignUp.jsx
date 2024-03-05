@@ -125,7 +125,7 @@ export default function SignUp({ close, open }) {
   };
 
   return (
-    <div className="body">
+    <div className="singUpbody ">
       <div className="signUpContainer">
         <div className="signUpForm">
           <h1 className="title">Create Account</h1>
