@@ -26,3 +26,14 @@ router.put("/Order/update/:id", async (req, res) => {
       return res.status(400).json({ error: err });
     }
   });  
+
+
+//delete an order
+router.delete("/Order/delete/:id", async (req, res) => {
+    try {
+      await posts.findByIdAndDelete(req.params.id);
+      return res.status(200).json({ success: "Order  deleted successfully" });
+    } catch (err) {
+      return res.status(400).json({ error: err });
+    }
+  });  
