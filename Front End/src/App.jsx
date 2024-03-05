@@ -7,6 +7,7 @@ import Seller from "./Pages/Seller";
 import AboutUsPage from "./Pages/AboutUs";
 import Product from "./Pages/Product";
 import OrderForm from "./Pages/AddOrder";
+import MyOne from "./MyOne";
 
 function App() {
   return (
@@ -20,8 +21,8 @@ function App() {
           <Route path="/AboutUsPage" element={<AboutUsPage />} />
           <Route path="/product" element={<Product />} />
           <Route path="/AddOrder" element={<OrderForm />} />
+          <Route path="/Chat" element={<MyOne />} />
         </Routes>
-
         <Footer />
       </BrowserRouter>
     </div>

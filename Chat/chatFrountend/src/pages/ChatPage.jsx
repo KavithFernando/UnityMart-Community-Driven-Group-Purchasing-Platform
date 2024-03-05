@@ -8,7 +8,7 @@ import ChatBox from "./Component/ChatBox";
 import { Box } from "@chakra-ui/layout";
 
 const ChatPage = () => {
-  const { user } = ChatState();
+  const user = ChatState();
   const [fetchAgain, setFetchAgain] = useState(false);
 
   return (
