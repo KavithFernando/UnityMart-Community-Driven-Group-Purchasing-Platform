@@ -33,10 +33,7 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 const PORT = 8000;
-const server = app.listen(
-  PORT,
-  console.log(`server start on port ${PORT}`.yellow.bold)
-);
+const server = app.listen(PORT, console.log(`server start on port ${PORT}`));
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,

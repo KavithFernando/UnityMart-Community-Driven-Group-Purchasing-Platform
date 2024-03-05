@@ -8,6 +8,7 @@ import AboutUsPage from "./Pages/AboutUs";
 import Product from "./Pages/Product";
 import OrderForm from "./Pages/AddOrder";
 import MyOne from "./MyOne";
+import ChatWraper from "./ChatWraper";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path="/AboutUsPage" element={<AboutUsPage />} />
           <Route path="/product" element={<Product />} />
           <Route path="/AddOrder" element={<OrderForm />} />
-          <Route path="/Chat" element={<MyOne />} />
+          <Route path="/Chat" element={<ChatWraper />} />
         </Routes>
         <Footer />
       </BrowserRouter>
