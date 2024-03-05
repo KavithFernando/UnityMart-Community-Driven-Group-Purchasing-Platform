@@ -13,7 +13,7 @@ const ChatPage = () => {
 
   return (
     <div className="body">
-      {user && <SideBar />}
+      <Box width="100%">{user && <SideBar />}</Box>
 
       <Box
         display="flex"
