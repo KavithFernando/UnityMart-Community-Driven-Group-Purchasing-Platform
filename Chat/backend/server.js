@@ -1,23 +1,24 @@
 const express = require("express");
-const { chats } = require("./data");
-const { connect } = require("mongoose");
+///const { chats } = require("./data");
+//const { connect } = require("mongoose");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
-const colors = require("colors");
+//const colors = require("colors");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const { notFound, errorHandler } = require("./middleWare/errorMiddleware");
 const messageRoutes = require("./routes/messageRoutes");
 dotenv.config();
 connectDB();
+
 const app = express();
 const cors = require("cors");
 
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with your frontend URL
-    credentials: true, // Enable sending cookies and other credentials
+    origin: "http://localhost:5173",
+    credentials: true,
   })
 );
 
@@ -34,12 +35,12 @@ app.use(errorHandler);
 const PORT = 8000;
 const server = app.listen(
   PORT,
-  console.log(`server start on port ${process.env.PORT}`.yellow.bold)
+  console.log(`server start on port ${PORT}`.yellow.bold)
 );
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
-  cors: { origin: "http://localhost:3000" },
+  cors: { origin: "http://localhost:5173" },
 });
 
 io.on("connection", (socket) => {
