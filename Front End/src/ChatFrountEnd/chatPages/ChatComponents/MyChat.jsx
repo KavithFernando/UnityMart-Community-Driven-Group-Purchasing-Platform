@@ -50,12 +50,10 @@ export default function MyChat({ fetchAgain }) {
     <div>
       <Box
         className="box1"
-        d={{ base: selectedChat ? "none" : "flex", md: "flex" }}
-        flexDir="column"
+        //flexDir="column"
         alignItems="center"
         p={3}
-        bg="white"
-        width={{ base: "100%", md: "120%" }}
+        //width={{ base: "100%", md: "120%" }}
         height={"100%"}
         borderWidth="10px"
         backgroundColor={" #fa7831;"}

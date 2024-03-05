@@ -138,7 +138,7 @@ export default function SideBar() {
               variant="outline"
             >
               <i
-                //class="fa fa-search"
+                class="fa fa-search"
                 aria-hidden="true"
                 style={{ color: "white" }}
               ></i>
