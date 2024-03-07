@@ -16,9 +16,9 @@ router.post("/product/save", async (req, res) => {
 });
 
 //update the order
-router.put("/Order/update/:id", async (req, res) => {
+router.put("/product/update/:id", async (req, res) => {
   try {
-    await posts.findByIdAndUpdate(req.params.id, { $set: req.body });
+    await products.findByIdAndUpdate(req.params.id, { $set: req.body });
     return res.status(200).json({ success: "post update successful" });
   } catch (err) {
     return res.status(400).json({ error: err });
@@ -26,9 +26,9 @@ router.put("/Order/update/:id", async (req, res) => {
 });
 
 //delete an order
-router.delete("/Order/delete/:id", async (req, res) => {
+router.delete("/product/delete/:id", async (req, res) => {
   try {
-    await posts.findByIdAndDelete(req.params.id);
+    await products.findByIdAndDelete(req.params.id);
     return res.status(200).json({ success: "Order  deleted successfully" });
   } catch (err) {
     return res.status(400).json({ error: err });
