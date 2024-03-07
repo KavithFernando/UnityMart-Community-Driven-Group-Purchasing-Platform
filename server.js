@@ -6,6 +6,7 @@ const app = express();
 
 //import routes
 const userRoutes = require("./Routes/userRoutes");
+const productRoutes = require("./Routes/productRoutes");
 
 //app middleware
 app.use(bodyParser.json());
@@ -13,6 +14,7 @@ app.use(cors());
 
 //route middleware
 app.use(userRoutes);
+app.use(productRoutes);
 
 const Port = 8080;
 const DBurl =
