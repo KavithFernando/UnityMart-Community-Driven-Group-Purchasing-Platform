@@ -49,12 +49,10 @@ export default function MyChat({ fetchAgain }) {
   return (
     <div>
       <Box
-        className="box1"
-        //flexDir="column"
+        className="box1234"
+        flexDir="column"
         alignItems="center"
         p={3}
-        //width={{ base: "100%", md: "120%" }}
-        height={"100%"}
         borderWidth="10px"
         backgroundColor={" #fa7831;"}
       >

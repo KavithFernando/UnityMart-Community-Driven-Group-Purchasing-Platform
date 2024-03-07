@@ -238,7 +238,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
               ) : (
                 <></>
               )}
-              <div className="inputBar">
+              <div className="inputBar11">
                 <Input
                   variant="filled"
                   bg="#E0E0E0"

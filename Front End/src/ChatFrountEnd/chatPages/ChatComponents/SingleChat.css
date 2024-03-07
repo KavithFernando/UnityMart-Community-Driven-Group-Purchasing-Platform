@@ -23,8 +23,7 @@
   right: 40px;
 }
 
-.inputBar {
-  width: 75%;
-  position: fixed;
-  top: 1000px;
+.inputBar11 {
+  width: 100%;
+  display: flex;
 }

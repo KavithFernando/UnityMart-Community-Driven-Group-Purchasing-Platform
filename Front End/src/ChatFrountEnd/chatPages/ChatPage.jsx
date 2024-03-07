@@ -12,27 +12,23 @@ const ChatPage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
 
   return (
-    <div className="allbody">
-      <Box>
-        <Box width="100%" paddingTop="10px" position="">
-          {user && <SideBar />}
-        </Box>
+    <div className="allbody" style={{ width: "100%" }}>
+      <Box>{user && <SideBar />}</Box>
 
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          width="100%"
-          height="91.5vh"
-          padding="10px"
-          flexDirection={{ base: "column", md: "row" }}
-        >
-          <>
-            {user && <MyChat fetchAgain={fetchAgain} />}
-            {user && (
-              <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
-            )}
-          </>
-        </Box>
+      <Box
+        display="flex"
+        //justifyContent="space-between"
+        width="100%"
+        height="91.5vh"
+        padding="10px"
+        //flexDirection={{ base: "column", md: "row" }}
+      >
+        <>
+          {user && <MyChat fetchAgain={fetchAgain} />}
+          {user && (
+            <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+          )}
+        </>
       </Box>
     </div>
   );
