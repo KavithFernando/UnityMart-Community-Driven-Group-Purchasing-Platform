@@ -3,12 +3,13 @@ import axios from "axios";
 import Buyerdetails from "../Components/buyerdetails";
 
 export default function Buyer() {
-  const [predictedSales, setPredictedSales] = useState([]);
+  const [predictedSalesImage, setPredictedSalesImage] = useState(null);
 
   const runMachineLearning = async () => {
     try {
-      const response = await axios.get("/run-ml");
-      setPredictedSales(response.data.predicted_sales);
+      const response = await axios.get("/run-ml", { responseType: 'blob' });
+      const imageUrl = URL.createObjectURL(response.data);
+      setPredictedSalesImage(imageUrl);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -21,13 +22,13 @@ export default function Buyer() {
 
   return (
     <div>
-      <button onClick={runMachineLearning}>sales Prediction</button>
+      <button onClick={runMachineLearning}>Sales Prediction</button>
+      {predictedSalesImage && <img src={predictedSalesImage} alt="Predicted Sales" />}
       <Buyerdetails
         name={name}
         email={email}
         props3={ordername}
         props4={orderid}
-        predictedSales={predictedSales} // Pass the predicted sales to the component
       />
     </div>
   );
