@@ -128,7 +128,7 @@ export default function SideBar() {
 
   return (
     <div>
-      <Box className="box" textAlign="center">
+      <Box className="sideBarBox1" textAlign="center">
         <div>
           <Tooltip label="Search Users to chat">
             <Button
@@ -148,9 +148,9 @@ export default function SideBar() {
             </Button>
           </Tooltip>
         </div>
-        <Text className="header">Unity Mart Chat Room</Text>
+        <Text className="sideBarheader">Unity Mart Chat Room</Text>
 
-        <div className="rightPart">
+        <div className="sideBarightPart">
           <Menu>
             <MenuButton>
               <NotificationBadge
@@ -206,7 +206,7 @@ export default function SideBar() {
         <DrawerContent>
           <DrawerHeader backgroundColor={"white"}>Search User</DrawerHeader>
           <DrawerBody>
-            <Box className="box7">
+            <Box className="sideBarbox2">
               <Input
                 className="inputTag"
                 placeholder="Search by name or email"

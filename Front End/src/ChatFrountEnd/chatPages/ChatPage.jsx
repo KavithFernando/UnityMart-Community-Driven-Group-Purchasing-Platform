@@ -12,12 +12,12 @@ const ChatPage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
 
   return (
-    <div className="allbody" style={{ width: "100%" }}>
-      <Box>{user && <SideBar />}</Box>
+    <div className="chatPagebody" style={{ width: "100%" }}>
+      {user && <SideBar />}
 
       <Box
         display="flex"
-        //justifyContent="space-between"
+        justifyContent="space-between"
         width="100%"
         height="91.5vh"
         padding="10px"
