@@ -18,7 +18,7 @@ export default function SignIn({ close, open }) {
     setErrors(errors);
 
     logInUser(errors);
-    logInChatUser();
+    logInChatUser(errors);
   };
 
   const validate = () => {
@@ -56,7 +56,7 @@ export default function SignIn({ close, open }) {
         });
 
         setTimeout(() => {
-          // close();
+          close();
         }, 2000);
       }
     } catch {
@@ -66,21 +66,23 @@ export default function SignIn({ close, open }) {
     }
   };
 
-  const logInChatUser = async () => {
+  const logInChatUser = async (errors1) => {
     try {
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
+      if (errors1.password === null && errors1.email === null) {
+        const config = {
+          headers: {
+            "Content-type": "application/json",
+          },
+        };
 
-      const { data } = await axios.post(
-        "http://localhost:8000/api/user/login",
-        { email, password },
-        config
-      );
-      console.log(data);
-      localStorage.setItem("userInfo", JSON.stringify(data));
+        const { data } = await axios.post(
+          "http://localhost:8000/api/user/login",
+          { email, password },
+          config
+        );
+        console.log(data);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+      }
     } catch {}
   };
 

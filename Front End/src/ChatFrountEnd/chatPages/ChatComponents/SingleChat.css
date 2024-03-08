@@ -9,22 +9,24 @@
   scrollbar-width: none;
 }
 
-.box1 {
-  border-width: 10px;
+.singleChatBox1 {
+  border-width: 20px;
   border-radius: 30px;
 }
 
-.hedPart {
+.singleChathedPart {
   display: flex;
   height: 100px;
 }
 
-.abcd {
+.updateGroup {
   position: fixed;
   right: 40px;
 }
 
-.inputBar11 {
+.messageInputBar {
   width: 100%;
   display: flex;
+  position: relative;
+  top: 100px;
 }

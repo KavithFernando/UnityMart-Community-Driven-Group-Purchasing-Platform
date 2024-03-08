@@ -160,6 +160,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
       {selectedChat ? (
         <>
           <Text
+            //height="20px"
             fontSize={{ base: "28px", md: "30px" }}
             pb={3}
             px={2}
@@ -177,11 +178,11 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             {!selectedChat.isGroupChat ? (
               <b>{getSender(user, selectedChat.users)}</b>
             ) : (
-              <div className="hedPart">
+              <div className="singleChathedPart">
                 <b>{selectedChat.chatName.toUpperCase()}</b>
 
                 {
-                  <div className="abcd">
+                  <div className="updateGroup">
                     <UpdateGroupChat
                       fetchAgain={fetchAgain}
                       setFetchAgain={setFetchAgain}
@@ -193,14 +194,12 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             )}
           </Text>
           <Box
-            className="box1"
-            d="flex"
+            className="singleChatBox1"
             flexDir="column"
             justifyContent="flex-end"
-            p={3}
             bg="#E8E8E8"
             w="100%"
-            h="90%"
+            h="97%"
             overflowY="hidden"
           >
             {loading ? (
@@ -238,7 +237,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
               ) : (
                 <></>
               )}
-              <div className="inputBar11">
+              <div className="messageInputBar">
                 <Input
                   variant="filled"
                   bg="#E0E0E0"
