@@ -1,9 +1,10 @@
 .sideBarBox1 {
+  justify-content: space-around;
   border-top: 5px;
   border-color: aliceblue;
   background-color: #000000;
   padding: 5px 10px 5px 10px;
-  height: 60px;
+  height: 70px;
   display: flex;
 }
 
@@ -24,17 +25,12 @@
   display: inline-block;
   font-size: 180%;
 }
-.profil {
-  padding-left: 10px;
-}
 
 .sideBarightPart {
-  padding-left: 900px;
+  padding: 5px 10px 5px 10px;
 }
 
 .sideBarbox2 {
-  display: flex;
-  padding-bottom: 2px;
 }
 
 .button1:hover {

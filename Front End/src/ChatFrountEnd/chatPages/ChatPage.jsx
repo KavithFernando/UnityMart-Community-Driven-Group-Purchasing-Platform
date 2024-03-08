@@ -13,14 +13,14 @@ const ChatPage = () => {
 
   return (
     <div className="chatPagebody" style={{ width: "100%" }}>
-      {user && <SideBar />}
+      <Box className="chatPageBox1">{user && <SideBar />}</Box>
 
       <Box
         display="flex"
         justifyContent="space-between"
         width="100%"
         height="91.5vh"
-        padding="10px"
+
         //flexDirection={{ base: "column", md: "row" }}
       >
         <>

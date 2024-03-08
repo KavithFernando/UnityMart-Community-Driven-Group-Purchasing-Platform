@@ -1,4 +1,11 @@
 .chatPagebody {
+  justify-content: space-around;
   background-color: white;
   z-index: -1;
+}
+
+.chatPageBox1 {
+  border-top-width: 5px;
+  border-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }

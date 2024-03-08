@@ -128,7 +128,7 @@ export default function SideBar() {
 
   return (
     <div>
-      <Box className="sideBarBox1" textAlign="center">
+      <Box className="sideBarBox1">
         <div>
           <Tooltip label="Search Users to chat">
             <Button
