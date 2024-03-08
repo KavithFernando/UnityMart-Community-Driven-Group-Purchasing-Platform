@@ -1,6 +1,5 @@
 const express = require("express");
 const products = require("../Modal/ProductModal");
-
 const router = express.Router();
 
 //adding the order to the db

@@ -1,14 +1,14 @@
-
-import React, { useState } from 'react';
-import './Add.css';
+import React, { useState } from "react";
+import "./Add.css";
+import axios from "axios";
 
 const OrderForm = () => {
-  const [productName, setProductName] = useState('');
-  const [category, setCategory] = useState('');
-  const [brand, setBrand] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
+  const [productName, setProductName] = useState("");
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
   const [errors, setErrors] = useState({});
 
@@ -17,36 +17,35 @@ const OrderForm = () => {
     const newErrors = {};
 
     if (!productName.trim()) {
-      newErrors.productName = 'Product name is required';
+      newErrors.productName = "Product name is required";
       valid = false;
     }
 
     if (!category.trim()) {
-      newErrors.category = 'Category is required';
+      newErrors.category = "Category is required";
       valid = false;
     }
     if (!brand.trim()) {
-      newErrors.brand = 'Brand is required';
+      newErrors.brand = "Brand is required";
       valid = false;
     }
     if (!quantity.trim() || isNaN(quantity) || +quantity <= 0) {
-      newErrors.quantity = 'Quantity must be a positive number';
+      newErrors.quantity = "Quantity must be a positive number";
       valid = false;
     }
     if (!price.trim() || isNaN(price) || +price <= 0) {
-      newErrors.price = 'Price must be a positive number';
+      newErrors.price = "Price must be a positive number";
       valid = false;
     }
     if (!description.trim()) {
-      newErrors.description = 'Description is required';
+      newErrors.description = "Description is required";
       valid = false;
     }
     if (!photo) {
-      newErrors.photo = 'Photo is required';
+      newErrors.photo = "Photo is required";
       valid = false;
     }
 
-    
     setErrors(newErrors);
     return valid;
   };
@@ -55,7 +54,7 @@ const OrderForm = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log('Order submitted:', {
+      console.log("Order submitted:", {
         productName,
         category,
         brand,
@@ -66,12 +65,12 @@ const OrderForm = () => {
       });
 
       // Reset form fields after successful submission
-      setProductName('');
-      setCategory('');
-      setBrand('');
-      setQuantity('');
-      setPrice('');
-      setDescription('');
+      setProductName("");
+      setCategory("");
+      setBrand("");
+      setQuantity("");
+      setPrice("");
+      setDescription("");
       setPhoto(null);
       setErrors({});
     }
@@ -82,12 +81,28 @@ const OrderForm = () => {
     setPhoto(selectedPhoto);
   };
 
+  const createProduct = async () => {
+    try {
+      const { data } = await axios.post("http://localhost:8080/product/save", {
+        productName,
+        category,
+        brand,
+        quantity,
+        price,
+        description,
+        photo,
+      });
+    } catch (error) {
+      ("");
+    }
+  };
+
   return (
     <div className="order-container">
       <div className="order-header">
         <h2>Sell Your Bulk</h2>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="form-group">
           <label>Product Name:</label>
           <input
@@ -95,7 +110,9 @@ const OrderForm = () => {
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
           />
-           {errors.productName && <p className="error-message">{errors.productName}</p>}
+          {errors.productName && (
+            <p className="error-message">{errors.productName}</p>
+          )}
         </div>
         <div className="form-group">
           <label>Category:</label>
@@ -104,7 +121,9 @@ const OrderForm = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
-          {errors.category && <p className="error-message">{errors.category}</p>}
+          {errors.category && (
+            <p className="error-message">{errors.category}</p>
+          )}
         </div>
         <div className="form-group">
           <label>Brand:</label>
@@ -122,14 +141,16 @@ const OrderForm = () => {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
-           {errors.quantity && <p className="error-message">{errors.quantity}</p>}
+          {errors.quantity && (
+            <p className="error-message">{errors.quantity}</p>
+          )}
         </div>
         <div className="form-group">
           <label>Price per piece:</label>
           <input
             type="number"
             value={price}
-            onChange={(e) => setPrice(e.target.value)}           
+            onChange={(e) => setPrice(e.target.value)}
           />
           {errors.price && <p className="error-message">{errors.price}</p>}
         </div>
@@ -139,19 +160,19 @@ const OrderForm = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          {errors.description && <p className="error-message">{errors.description}</p>}
+          {errors.description && (
+            <p className="error-message">{errors.description}</p>
+          )}
         </div>
         <div className="form-group">
           <label>Photo:</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handlePhotoChange}
-          />
-          {errors.photo  && <p className="error-message">{errors.photo }</p>}
+          <input type="file" accept="image/*" onChange={handlePhotoChange} />
+          {errors.photo && <p className="error-message">{errors.photo}</p>}
         </div>
-        <div className='button'>
-          <button type="submit">Submit Order</button>
+        <div className="button">
+          <button type="submit" onClick={handleSubmit}>
+            Submit Order
+          </button>
         </div>
       </form>
     </div>
