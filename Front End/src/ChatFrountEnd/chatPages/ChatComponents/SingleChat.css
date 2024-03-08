@@ -16,6 +16,7 @@
 
 .hedPart {
   display: flex;
+  height: 100px;
 }
 
 .abcd {

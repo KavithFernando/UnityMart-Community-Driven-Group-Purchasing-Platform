@@ -49,7 +49,7 @@ export default function MyChat({ fetchAgain }) {
   return (
     <div>
       <Box
-        className="box1234"
+        className="myChatBox"
         flexDir="column"
         alignItems="center"
         p={3}

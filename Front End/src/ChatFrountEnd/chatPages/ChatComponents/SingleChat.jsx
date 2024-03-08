@@ -252,7 +252,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
         </>
       ) : (
         <Box d="flex" h="100%">
-          <Text fontSize="3xl" textAlign="center">
+          <Text fontSize="40px" textAlign="center">
             <b>Click on a user to start chatting</b>
           </Text>
         </Box>

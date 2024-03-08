@@ -1,6 +1,7 @@
-.box1234 {
+.myChatBox {
   border-radius: 30px;
   width: 150%;
+  height: 100%;
 }
 
 .box2 {

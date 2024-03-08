@@ -21,7 +21,7 @@ export default function SignUp({ close, open }) {
 
     setTimeout(() => {
       creatUser(errors);
-      creatChatUser();
+      creatChatUser(errors);
     }, 10);
     setErrors(errors);
     //console.log(errors);
@@ -86,7 +86,7 @@ export default function SignUp({ close, open }) {
         });
 
         setTimeout(() => {
-          //close();
+          close();
         }, 2000);
         //close();
       } else {
@@ -99,26 +99,32 @@ export default function SignUp({ close, open }) {
     }
   };
 
-  const creatChatUser = async () => {
+  const creatChatUser = async (errors1) => {
     try {
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-      const { data } = await axios.post(
-        "http://localhost:8000/api/user",
-        {
-          name,
-          email,
-          password,
-        },
-        config
-      );
-      console.log(data);
+      if (
+        errors1.name === null &&
+        errors1.password === null &&
+        errors1.reEnted === null &&
+        errors1.email === null
+      ) {
+        const config = {
+          headers: {
+            "Content-type": "application/json",
+          },
+        };
+        const { data } = await axios.post(
+          "http://localhost:8000/api/user",
+          {
+            name,
+            email,
+            password,
+          },
+          config
+        );
+        console.log(data);
 
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      //history.push("/chats");
+        localStorage.setItem("userInfo", JSON.stringify(data));
+      } else console.log("cant2");
     } catch (error) {
       console.log(error);
     }
