@@ -17,7 +17,7 @@ const ChatPage = () => {
 
       <Box
         display="flex"
-        justifyContent="space-between"
+        padding="2px"
         width="100%"
         height="91.5vh"
 
@@ -25,9 +25,12 @@ const ChatPage = () => {
       >
         <>
           {user && <MyChat fetchAgain={fetchAgain} />}
-          {user && (
-            <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
-          )}
+
+          <Box paddingLeft="200px">
+            {user && (
+              <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+            )}
+          </Box>
         </>
       </Box>
     </div>

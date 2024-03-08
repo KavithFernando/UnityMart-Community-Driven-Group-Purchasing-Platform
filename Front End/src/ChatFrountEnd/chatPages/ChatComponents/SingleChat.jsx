@@ -176,9 +176,13 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
              onClick={() => setselectedChat("")}
       />*/}
             {!selectedChat.isGroupChat ? (
-              <b>{getSender(user, selectedChat.users)}</b>
+              <div className="singleChatpart">
+                <b height="60px">
+                  {getSender(user, selectedChat.users).toUpperCase()}
+                </b>
+              </div>
             ) : (
-              <div className="singleChathedPart">
+              <div className="groupChathedPart">
                 <b>{selectedChat.chatName.toUpperCase()}</b>
 
                 {
@@ -199,7 +203,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             justifyContent="flex-end"
             bg="#E8E8E8"
             w="100%"
-            h="97%"
+            h="92%"
             overflowY="hidden"
           >
             {loading ? (
