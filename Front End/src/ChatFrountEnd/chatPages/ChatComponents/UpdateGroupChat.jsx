@@ -215,6 +215,7 @@ export default function UpdateGroupChat({
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
+            backgroundColor="white"
             fontSize="35px"
             fontFamily="Work sans"
             d="flex"
@@ -258,17 +259,19 @@ export default function UpdateGroupChat({
                 onChange={(e) => handleSearch(e.target.value)}
               />
             </FormControl>
-            {loading ? (
-              <Spinner size="lg" />
-            ) : (
-              searchResult?.map((user) => (
-                <UserListItems
-                  key={user._id}
-                  user={user}
-                  handleFunction={() => handleAddUser(user)}
-                />
-              ))
-            )}
+            <div style={{ width: "400px" }}>
+              {loading ? (
+                <Spinner size="lg" />
+              ) : (
+                searchResult?.map((user) => (
+                  <UserListItems
+                    key={user._id}
+                    user={user}
+                    handleFunction={() => handleAddUser(user)}
+                  />
+                ))
+              )}
+            </div>
           </ModalBody>
 
           <ModalFooter>

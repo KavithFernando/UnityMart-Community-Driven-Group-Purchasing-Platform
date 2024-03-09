@@ -7,7 +7,7 @@
   flex-direction: column;
   overflow-y: scroll;
   scrollbar-width: none;
-  height: 660px;
+  height: 670px;
 }
 
 .singleChatBox1 {
@@ -30,8 +30,10 @@
 }
 
 .updateGroup {
+  display: flex;
+  position: absolute;
   padding-top: 5px;
-  padding-left: 1080px;
+  padding-left: 1170px;
 }
 
 .messageInputBar {
