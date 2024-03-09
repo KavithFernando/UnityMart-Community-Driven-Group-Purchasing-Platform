@@ -243,7 +243,7 @@ export default function UpdateGroupChat({
               />
               <Button
                 variant="solid"
-                colorScheme="teal"
+                backgroundColor="#fa7831"
                 ml={1}
                 isLoading={renameloading}
                 onClick={handleRename}

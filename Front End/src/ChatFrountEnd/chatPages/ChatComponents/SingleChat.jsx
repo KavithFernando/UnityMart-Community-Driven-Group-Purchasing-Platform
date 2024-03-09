@@ -197,6 +197,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
               </div>
             )}
           </Text>
+
           <Box
             className="singleChatBox1"
             flexDir="column"
