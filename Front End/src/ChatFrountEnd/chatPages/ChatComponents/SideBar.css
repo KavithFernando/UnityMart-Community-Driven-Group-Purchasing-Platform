@@ -33,6 +33,13 @@
 .sideBarbox2 {
 }
 
-.button1:hover {
+.sideBarSearchButton {
+}
+
+.sideBarSearchButton:hover {
   color: rgb(255, 255, 255);
+}
+
+.searchBarPlaceChanges {
+  padding-top: 10px;
 }

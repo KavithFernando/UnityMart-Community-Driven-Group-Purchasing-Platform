@@ -129,11 +129,11 @@ export default function SideBar() {
   return (
     <div>
       <Box className="sideBarBox1">
-        <div>
+        <div className="searchBarPlaceChanges">
           <Tooltip label="Search Users to chat">
             <Button
               colorScheme="black"
-              className="button1"
+              className="sideBarSearchButton"
               onClick={onOpen}
               variant="outline"
             >
@@ -184,7 +184,7 @@ export default function SideBar() {
               <Avatar
                 size="sm"
                 cursor="pointer"
-                name={"user.name"}
+                name={user.name}
                 className="avatar"
               />
               <ChevronDownIcon className="chevronDownIcon" />
