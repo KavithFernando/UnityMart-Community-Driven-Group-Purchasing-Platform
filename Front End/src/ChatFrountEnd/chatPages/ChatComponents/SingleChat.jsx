@@ -28,6 +28,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
+  const [saveText, setSaveText] = useState([]);
 
   const defaultOptions = {
     loop: true,
@@ -155,6 +156,30 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
     });
   });
 
+  const chatSave = () => {
+    messages.map((m) =>
+      axios
+        .post("http://localhost:8000/clearFile", { content: "" })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error updating file:", error);
+        })
+    );
+
+    messages.map((m) =>
+      axios
+        .post("http://localhost:8000/updateFile", { content: m.content + " " })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error updating file:", error);
+        })
+    );
+  };
+
   return (
     <>
       {selectedChat ? (
@@ -180,6 +205,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
                 <b height="60px">
                   {getSender(user, selectedChat.users).toUpperCase()}
                 </b>
+                <Button onClick={chatSave}>ok</Button>
               </div>
             ) : (
               <div className="groupChathedPart">
