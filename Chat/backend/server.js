@@ -26,9 +26,12 @@ app.get("/", (req, res) => {
   res.send("API is runings success");
 });
 
+const chatSaveText = require("./routes/chatSaveTextRout");
+
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
+app.use(chatSaveText);
 
 app.use(notFound);
 app.use(errorHandler);
