@@ -11,17 +11,22 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
 
-  brand: {
-    type: String,
-    required: true,
-  },
-
-  quantity: {
+  reach: {
     type: Number,
     required: true,
   },
 
-  price: {
+  current: {
+    type: Number,
+    default: 0,
+  },
+
+  discountPrice: {
+    type: Number,
+    required: true,
+  },
+
+  storePrice: {
     type: Number,
     required: true,
   },

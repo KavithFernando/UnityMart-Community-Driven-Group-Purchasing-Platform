@@ -21,15 +21,15 @@ const DBurl =
   "mongodb+srv://pabasara20222053:pabasara20222053@cluster0.miwn7vr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 app.listen(Port, () => {
-  console.log("Server is start");
+  console.log("Server is Running");
 });
 
 mongoose
   .connect(DBurl)
 
   .then(() => {
-    console.log("DB conected is sucsess full");
+    console.log("DB is connected sucsessfully");
   })
   .catch((err) => {
-    console.log("some error " + err);
+    console.log("Error " + err);
   });
