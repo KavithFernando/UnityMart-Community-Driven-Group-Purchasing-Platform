@@ -5,9 +5,9 @@ import axios from "axios";
 const OrderForm = () => {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
-  const [brand, setBrand] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [storePrice, setStorePrice] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
   const [errors, setErrors] = useState({});
@@ -20,13 +20,8 @@ const OrderForm = () => {
       newErrors.productName = "Product name is required";
       valid = false;
     }
-
     if (!category.trim()) {
       newErrors.category = "Category is required";
-      valid = false;
-    }
-    if (!brand.trim()) {
-      newErrors.brand = "Brand is required";
       valid = false;
     }
     if (!quantity.trim() || isNaN(quantity) || +quantity <= 0) {
@@ -35,6 +30,10 @@ const OrderForm = () => {
     }
     if (!price.trim() || isNaN(price) || +price <= 0) {
       newErrors.price = "Price must be a positive number";
+      valid = false;
+    }
+    if (!storePrice.trim() || isNaN(storePrice) || +storePrice <= 0) {
+      newErrors.storePrice = "Store Price must be a positive number";
       valid = false;
     }
     if (!description.trim()) {
@@ -57,9 +56,9 @@ const OrderForm = () => {
       console.log("Order submitted:", {
         productName,
         category,
-        brand,
         quantity,
         price,
+        storePrice,
         description,
         photo,
       });
@@ -67,9 +66,9 @@ const OrderForm = () => {
       // Reset form fields after successful submission
       setProductName("");
       setCategory("");
-      setBrand("");
       setQuantity("");
       setPrice("");
+      setStorePrice("");
       setDescription("");
       setPhoto(null);
       setErrors({});
@@ -86,9 +85,9 @@ const OrderForm = () => {
       const { data } = await axios.post("http://localhost:8080/product/save", {
         productName,
         category,
-        brand,
         quantity,
         price,
+        storePrice,
         description,
         photo,
       });
@@ -126,15 +125,6 @@ const OrderForm = () => {
           )}
         </div>
         <div className="form-group">
-          <label>Brand:</label>
-          <input
-            type="text"
-            value={brand}
-            onChange={(e) => setBrand(e.target.value)}
-          />
-          {errors.brand && <p className="error-message">{errors.brand}</p>}
-        </div>
-        <div className="form-group">
           <label>Quantity:</label>
           <input
             type="number"
@@ -146,13 +136,22 @@ const OrderForm = () => {
           )}
         </div>
         <div className="form-group">
-          <label>Price per piece:</label>
+          <label>Discounted Price</label>
           <input
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
           {errors.price && <p className="error-message">{errors.price}</p>}
+        </div>
+        <div className="form-group">
+          <label>Normal Price</label>
+          <input
+            type="number"
+            value={storePrice}
+            onChange={(e) => setStorePrice(e.target.value)}
+          />
+          {errors.storePrice && <p className="error-message">{errors.storePrice}</p>}
         </div>
         <div className="form-group">
           <label>Description:</label>

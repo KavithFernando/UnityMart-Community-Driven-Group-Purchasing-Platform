@@ -46,6 +46,11 @@ const productSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+
+  Participants: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  }],
 });
 
 module.exports = mongoose.model("ProductModal", productSchema);
