@@ -18,7 +18,7 @@ const ChatPage = () => {
       <Box
         display="flex"
         padding="2px"
-        width="100%"
+        width="120%"
         height="91.5vh"
 
         //flexDirection={{ base: "column", md: "row" }}
@@ -26,7 +26,7 @@ const ChatPage = () => {
         <>
           {user && <MyChat fetchAgain={fetchAgain} />}
 
-          <Box paddingLeft="200px">
+          <Box paddingLeft="10px">
             {user && (
               <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
             )}
