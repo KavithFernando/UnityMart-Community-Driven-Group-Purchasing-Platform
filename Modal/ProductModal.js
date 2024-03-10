@@ -31,23 +31,23 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
 
-  Description: {
+  description: {
     type: String,
     required: true,
   },
 
-  Photo: {
+  photo: {
     data: Buffer,
     contentType: String,
   },
 
-  Seller: {
+  seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
 
-  Participants: [{
+  participants: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   }],

@@ -34,4 +34,14 @@ router.delete("/product/delete/:id", async (req, res) => {
   }
 });
 
+// get all products
+router.get("/products", async (req, res) => {
+  try {
+    const allProducts = await products.find();
+    return res.status(200).json({ products: allProducts });
+  } catch (err) {
+    return res.status(400).json({ error: err });
+  }
+});
+
 module.exports = router;
