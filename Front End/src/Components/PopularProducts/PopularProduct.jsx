@@ -5,7 +5,8 @@ import "./PopularPanel.css"
 
 export default function PopularProduct(
     {
-      title="Product Title", 
+      title="Product Title",
+      description,
       reach=0, 
       current=0, 
       price=9999.99, 
@@ -28,6 +29,7 @@ export default function PopularProduct(
 
     // Save the product details to local storage
     localStorage.setItem('title', title);
+    localStorage.setItem('description', description)
     localStorage.setItem('reach', reach);
     localStorage.setItem('price', price);
     localStorage.setItem('storePrice', storePrice);
@@ -50,7 +52,6 @@ export default function PopularProduct(
                 height={8}
                 bgColor="#ff5900"
                 baseBgColor="#dddddd"
-                // padding="2px"
                 animateOnRender={true}
               />
               <div className="more">{to_go} more to go</div>

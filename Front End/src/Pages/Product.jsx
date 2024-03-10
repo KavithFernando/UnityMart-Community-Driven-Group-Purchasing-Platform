@@ -22,6 +22,7 @@ export default function Product(
 {
 
   title = localStorage.getItem("title");
+  description = localStorage.getItem("description");
   price = parseFloat(localStorage.getItem("price"));
   storePrice = parseFloat(localStorage.getItem("storePrice"));
   discount = parseInt(localStorage.getItem("discount"));
