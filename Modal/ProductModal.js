@@ -53,4 +53,9 @@ const productSchema = new mongoose.Schema({
   }],
 });
 
+// Virtual field for current/reach ratio
+productSchema.virtual("currentReachRatio").get(function () {
+  return this.current / this.reach;
+});
+
 module.exports = mongoose.model("ProductModal", productSchema);

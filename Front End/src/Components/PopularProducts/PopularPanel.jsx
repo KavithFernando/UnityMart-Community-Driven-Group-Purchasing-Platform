@@ -1,10 +1,13 @@
-import React from 'react'
-import "./PopularPanel.css"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import "./PopularPanel.css";
 import Carousel from 'react-multi-carousel';
 import PopularProduct from './PopularProduct';
 import 'react-multi-carousel/lib/styles.css';
 
 export default function PopularPanel() {
+
+  const [topProducts, setTopProducts] = useState([]);
 
   const responsive = {
     superLargeDesktop: {
@@ -37,6 +40,17 @@ export default function PopularPanel() {
     }
   };
 
+  useEffect(() => {
+    // Make a GET request to fetch top products
+    axios.get('http://localhost:8080/top-products') // Replace with your server endpoint
+      .then(response => {
+        setTopProducts(response.data.topProducts);
+      })
+      .catch(error => {
+        console.error('Error fetching top products:', error);
+      });
+  }, []); // Empty dependency array ensures the effect runs once after the initial render
+
   return (
     <div className='pop-panel'>
       <div className="pop-product-title">Most Popular Deals of this Week</div>
@@ -46,7 +60,18 @@ export default function PopularPanel() {
         infinite={true}
         autoPlay={true}
       >
-        <PopularProduct
+        {topProducts.map(product => (
+          <PopularProduct
+            key={product._id} // Assuming each product has a unique identifier
+            title={product.productName}
+            reach={product.reach}
+            current={product.current}
+            price={product.discountPrice}
+            storePrice={product.storePrice}
+            imageSrc="src/ProductImages/headphones.jpg"
+          />
+        ))}
+        {/* <PopularProduct
           title = "Bluetooth Wireless Headset"
           reach = {150}
           current = {125}
@@ -94,7 +119,6 @@ export default function PopularPanel() {
           storePrice = {17300}
           imageSrc="src/ProductImages/smartWatch.jpeg"
         />
-        <PopularProduct/>
         <PopularProduct
           title = "Xiaomi Air Humidifier"
           reach = {12}
@@ -126,7 +150,7 @@ export default function PopularPanel() {
           price = {1500}
           storePrice = {2700}
           imageSrc="src/ProductImages/classyShoes.jpeg"
-        />
+        /> */}
       </Carousel>
         
     </div>

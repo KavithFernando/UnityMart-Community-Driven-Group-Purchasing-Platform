@@ -44,4 +44,18 @@ router.get("/products", async (req, res) => {
   }
 });
 
+// get top 10 almost complete products
+router.get("/top-products", async (req, res) => {
+  try {
+    const topProducts = await products
+      .find()
+      .sort({ "currentReachRatio": -1 })
+      .limit(10);
+
+    return res.status(200).json({ topProducts });
+  } catch (err) {
+    return res.status(400).json({ error: err });
+  }
+});
+
 module.exports = router;
