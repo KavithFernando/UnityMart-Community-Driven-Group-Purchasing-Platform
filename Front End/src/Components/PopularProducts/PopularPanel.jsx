@@ -41,8 +41,8 @@ export default function PopularPanel() {
   };
 
   useEffect(() => {
-    // Make a GET request to fetch top products
-    axios.get('http://localhost:8080/top-products') // Replace with your server endpoint
+    // GET request to fetch top products
+    axios.get('http://localhost:8080/top-products')
       .then(response => {
         setTopProducts(response.data.topProducts);
       })
@@ -62,7 +62,7 @@ export default function PopularPanel() {
       >
         {topProducts.map(product => (
           <PopularProduct
-            key={product._id} // Assuming each product has a unique identifier
+            key={product._id}
             title={product.productName}
             description={product.description}
             reach={product.reach}
@@ -70,6 +70,7 @@ export default function PopularPanel() {
             price={product.discountPrice}
             storePrice={product.storePrice}
             imageSrc="src/ProductImages/headphones.jpg"
+            sellerId={product.seller}
           />
         ))}
       </Carousel>

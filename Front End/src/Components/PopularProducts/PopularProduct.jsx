@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import ProgressBar from "@ramonak/react-progress-bar";
 import "./PopularPanel.css"
+import axios from 'axios';
 
 export default function PopularProduct(
     {
@@ -11,10 +12,13 @@ export default function PopularProduct(
       current=0, 
       price=9999.99, 
       storePrice=9999.99, 
-      imageSrc="src/ProductImages/MissingImage.jpg"
+      imageSrc="src/ProductImages/MissingImage.jpg",
+      sellerId="hhh"
     }
   ) 
 {
+
+  const [sellerInfo, setSellerInfo] = useState({});
   
   // Use toFixed(2) to format price and storePrice with two decimal places
   const formattedPrice = price.toFixed(2);
@@ -24,6 +28,20 @@ export default function PopularProduct(
   const to_go = reach - current;
   const completed = (current / reach) * 100;
   const discount = Math.round(((storePrice - price) / storePrice) * 100);
+  
+  // Function to fetch seller details
+  const fetchSellerInfo = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/user/${sellerId}`);
+      setSellerInfo(response.data);
+    } catch (error) {
+      console.error('Error fetching seller info00:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSellerInfo();
+  }, [sellerId]);
 
   const handleClick = () => {
 
@@ -36,6 +54,8 @@ export default function PopularProduct(
     localStorage.setItem('to_go', to_go);
     localStorage.setItem('completed', completed);
     localStorage.setItem('discount', discount);
+    localStorage.setItem('sellerName', sellerInfo.name || '');
+    // localStorage.setItem('sellerUsername', sellerInfo.username || ''); 
   };
 
   return (

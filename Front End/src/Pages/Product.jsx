@@ -29,7 +29,8 @@ export default function Product(
   reach = parseInt(localStorage.getItem("reach"));
   completed = parseInt(localStorage.getItem("completed"));
   to_go = parseInt(localStorage.getItem("to_go"));
-
+  name = localStorage.getItem("sellerName");
+  // username = localStorage.getItem("sellerUsername");
 
   return (
     <div className='product-page'>
