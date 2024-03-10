@@ -28,7 +28,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
-  const [saveText, setSaveText] = useState([]);
+  const [saveText, setSaveText] = useState();
 
   const defaultOptions = {
     loop: true,
@@ -180,6 +180,16 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
     );
   };
 
+  const displayAnalize = () => {
+    fetch("http://localhost:5000/sentiment")
+      .then((response) => response.json())
+      .then((data) => {
+        setSaveText(data.sentiment);
+        console.log(saveText);
+      })
+      .catch((error) => console.error("Error fetching sentiment:", error));
+  };
+
   return (
     <>
       {selectedChat ? (
@@ -206,6 +216,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
                   {getSender(user, selectedChat.users).toUpperCase()}
                 </b>
                 <Button onClick={chatSave}>ok</Button>
+                <Button onClick={displayAnalize}>kk</Button>
               </div>
             ) : (
               <div className="groupChathedPart">

@@ -20,6 +20,7 @@ export default function Home() {
         />
         Chat
       </div>
+      <button onClick={() => Navigate("/ContactUs")}>Contact Us</button>
     </div>
   );
 }
