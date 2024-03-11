@@ -6,7 +6,7 @@ router.post("/updateFile", async (req, res) => {
   const { content } = req.body;
 
   // Write updated content to the text file
-  fs.appendFile("data.txt", content, (err) => {
+  fs.appendFile("../ChatAnalize/.venv/text1.txt", content, (err) => {
     if (err) {
       console.error(err);
       res.status(500).send("Error updating file");
@@ -20,7 +20,7 @@ router.post("/clearFile", async (req, res) => {
   const { content } = req.body;
 
   // Write updated content to the text file
-  fs.writeFile("data.txt", content, (err) => {
+  fs.writeFile("../ChatAnalize/.venv/text1.txt", content, (err) => {
     if (err) {
       console.error(err);
       res.status(500).send("Error updating file");

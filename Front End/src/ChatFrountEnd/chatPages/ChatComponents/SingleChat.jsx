@@ -14,6 +14,16 @@ import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import { set } from "mongoose";
 import animationData from "../../Animation/typing.json";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 const ENDPOINT = "http://localhost:8000";
 var socket, selectedChatCompare;
@@ -29,6 +39,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
   const [saveText, setSaveText] = useState();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const defaultOptions = {
     loop: true,
@@ -156,7 +167,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
     });
   });
 
-  const chatSave = () => {
+  useEffect(() => {
     messages.map((m) =>
       axios
         .post("http://localhost:8000/clearFile", { content: "" })
@@ -178,7 +189,9 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
           console.error("Error updating file:", error);
         })
     );
-  };
+
+    displayAnalize();
+  });
 
   const displayAnalize = () => {
     fetch("http://localhost:5000/sentiment")
@@ -215,8 +228,25 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
                 <b height="60px">
                   {getSender(user, selectedChat.users).toUpperCase()}
                 </b>
-                <Button onClick={chatSave}>ok</Button>
-                <Button onClick={displayAnalize}>kk</Button>
+
+                <Button onClick={onOpen}>Chat Analize</Button>
+
+                <Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader>Modal Title</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>{saveText}</ModalBody>
+
+                    <ModalFooter>
+                      <Button colorScheme="blue" mr={3} onClick={onClose}>
+                        Close
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
+
+                <p>{saveText}</p>
               </div>
             ) : (
               <div className="groupChathedPart">

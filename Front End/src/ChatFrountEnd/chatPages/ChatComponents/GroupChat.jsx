@@ -142,19 +142,19 @@ export default function GroupChat({ children }) {
             <FormControl>
               <Input
                 placeholder="Group name"
-                margin={3}
+                marginBottom={4}
                 onChange={(e) => setGroupChatName(e.target.value)}
               />
             </FormControl>
             <FormControl>
               <Input
                 placeholder="Add Users"
-                margin={1}
+                marginBottom={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />
             </FormControl>
 
-            <Box w="100%" d="flex" flexWrap="wrap">
+            <Box w="300px" d="flex" flexWrap="wrap">
               {selectedUsers.map((u) => (
                 <UserBadgeItem
                   key={u._id}
@@ -180,7 +180,7 @@ export default function GroupChat({ children }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" onClick={handleSubmit}>
+            <Button colorScheme="orange" onClick={handleSubmit}>
               Create chat
             </Button>
           </ModalFooter>

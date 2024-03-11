@@ -215,11 +215,12 @@ export default function UpdateGroupChat({
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
-            backgroundColor="white"
+            backgroundColor="#fa7831"
             fontSize="35px"
             fontFamily="Work sans"
             d="flex"
             justifyContent="center"
+            width="100%"
           >
             {selectedChat.chatName}
           </ModalHeader>
