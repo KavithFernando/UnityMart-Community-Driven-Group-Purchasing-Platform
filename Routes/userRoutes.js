@@ -20,7 +20,7 @@ router.post("/user/add", async (req, res) => {
       const newUser = new users({ name, email, userName, password, bORs });
       try {
         await newUser.save();
-        return res.status(200).json({ success: "user save successful" });
+        return res.status(200).json({ success: "user save successful", newUser });
       } catch (err) {
         return res.status(400).json({ error: err });
       }

@@ -7,11 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp({ close, open }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [bORs, set_bORc] = useState();
+  const [bORs, set_bORc] = useState(false);
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
   const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState("");
@@ -89,7 +91,10 @@ export default function SignUp({ close, open }) {
           password,
           bORs,
         });
-        console.log(data);
+
+        const id = data.newUser._id;
+        setIsAuthenticated(true);
+        localStorage.setItem("userId", id)
 
         toast.success("Registration is successful", {
           // position: toast.POSITION.TOP_RIGHT,
