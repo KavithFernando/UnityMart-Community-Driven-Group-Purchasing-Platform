@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn({ close, open }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -49,7 +50,10 @@ export default function SignIn({ close, open }) {
           userName,
           password,
         });
-        console.log(data);
+
+        const id = data.user._id;
+        setIsAuthenticated(true);
+        localStorage.setItem("userId", id)
 
         toast.success("Login is successful", {
           // position: toast.POSITION.TOP_RIGHT,
