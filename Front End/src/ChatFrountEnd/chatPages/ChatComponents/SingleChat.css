@@ -7,7 +7,7 @@
   flex-direction: column;
   overflow-y: scroll;
   scrollbar-width: none;
-  height: 670px;
+  height: 655px;
 }
 
 .singleChatBox1 {
@@ -38,4 +38,12 @@
 
 .messageInputBar {
   width: 100%;
+}
+
+.chatType {
+  display: flex;
+  position: relative;
+  left: 1100px;
+  top: -40px;
+  font-weight: bold;
 }

@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function SignUp({ close, open }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [bORs, set_bORc] = useState();
   const [errors, setErrors] = useState([]);
@@ -36,12 +37,19 @@ export default function SignUp({ close, open }) {
     } else {
       error.name = null;
     }
+
     if (!email) {
       error.email = "Email is Required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       error.email = "The Email is Invalid.";
     } else {
       error.email = null;
+    }
+
+    if (!userName) {
+      error.userName = "User Name is Required.";
+    } else {
+      error.userName = null;
     }
 
     if (!password) {
@@ -71,11 +79,13 @@ export default function SignUp({ close, open }) {
         errors1.name === null &&
         errors1.password === null &&
         errors1.reEnted === null &&
-        errors1.email === null
+        errors1.email === null &&
+        errors1.userName === null
       ) {
         const { data } = await axios.post("http://localhost:8080/user/add", {
           name,
           email,
+          userName,
           password,
           bORs,
         });
@@ -93,7 +103,7 @@ export default function SignUp({ close, open }) {
         console.log("cant");
       }
     } catch {
-      toast.error("this user already exists or This password already exists", {
+      toast.error("this user already exists ", {
         // position: toast.POSITION.TOP_RIGHT,
       });
     }
@@ -105,7 +115,8 @@ export default function SignUp({ close, open }) {
         errors1.name === null &&
         errors1.password === null &&
         errors1.reEnted === null &&
-        errors1.email === null
+        errors1.email === null &&
+        errors1.userName === null
       ) {
         const config = {
           headers: {
@@ -117,13 +128,14 @@ export default function SignUp({ close, open }) {
           {
             name,
             email,
+            userName,
             password,
           },
           config
         );
         console.log(data);
 
-        localStorage.setItem("userInfo", JSON.stringify(data));
+        // localStorage.setItem("userInfo", JSON.stringify(data));
       } else console.log("cant2");
     } catch (error) {
       console.log(error);
@@ -150,6 +162,14 @@ export default function SignUp({ close, open }) {
               onChange={(e) => setEmail(e.target.value)}
             />
             {errors.email && <div className="error">{errors.email}</div>}
+
+            <input
+              className="label"
+              type="text"
+              placeholder="User Name"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            {errors.userName && <div className="error">{errors.userName}</div>}
             <input
               className="label"
               type={visible ? "text" : "password"}

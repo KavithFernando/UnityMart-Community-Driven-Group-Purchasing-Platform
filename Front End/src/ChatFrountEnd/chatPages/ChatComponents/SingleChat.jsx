@@ -229,8 +229,8 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
                   {getSender(user, selectedChat.users).toUpperCase()}
                 </b>
 
+                {/* 
                 <Button onClick={onOpen}>Chat Analize</Button>
-
                 <Modal isOpen={isOpen} onClose={onClose}>
                   <ModalOverlay />
                   <ModalContent>
@@ -244,9 +244,9 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
                       </Button>
                     </ModalFooter>
                   </ModalContent>
-                </Modal>
+            </Modal>*/}
 
-                <p>{saveText}</p>
+                <h3 className="chatType">{saveText}</h3>
               </div>
             ) : (
               <div className="groupChathedPart">
