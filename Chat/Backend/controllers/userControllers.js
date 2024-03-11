@@ -15,26 +15,27 @@ const registerUser = asyncHandler(async (req, res) => {
   if (userExists) {
     res.status(400);
     throw new Error("User already exists");
-  } else {
-    const user = await User.create({
-      name,
-      email,
-      userName,
-      password,
-    });
   }
+  const userExistsemail = await User.findOne({ userName });
 
-  // if (user) {
-  // res.status(201).json({
-  // _id: user._id,
-  //name: user.name,
-  //mail: user.email,
-  //token: generateToken(user._id),
-  //});
-  //} else {
-  //res.status(400);
-  //throw new Error("User not found");
-  //}
+  const user = await User.create({
+    name,
+    email,
+    userName,
+    password,
+  });
+
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      mail: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("User not found");
+  }
 });
 
 const authUser = asyncHandler(async (req, res) => {
@@ -46,9 +47,7 @@ const authUser = asyncHandler(async (req, res) => {
     res.json({
       _id: user._id,
       name: user.name,
-      email: user.email,
       userName: user.userName,
-
       token: generateToken(user._id),
     });
   } else {

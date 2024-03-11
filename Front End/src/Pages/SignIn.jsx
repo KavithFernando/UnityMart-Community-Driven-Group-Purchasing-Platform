@@ -9,7 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 export default function SignIn({ close, open }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
   const [errors, setErrors] = useState([]);
+
   const [visible, setVisible] = useState(true);
 
   const handleSubmit = () => {
@@ -24,12 +26,10 @@ export default function SignIn({ close, open }) {
   const validate = () => {
     const error = {};
 
-    if (!email) {
-      error.email = "Email is Required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      error.email = "The Email is Invalid";
+    if (!userName) {
+      error.userName = "User Name is Required";
     } else {
-      error.email = null;
+      error.userName = null;
     }
 
     if (!password) {
@@ -44,9 +44,9 @@ export default function SignIn({ close, open }) {
 
   const logInUser = async (errors1) => {
     try {
-      if (errors1.password === null && errors1.email === null) {
+      if (errors1.password === null && errors1.userName === null) {
         const { data } = await axios.post("http://localhost:8080/user/login", {
-          email,
+          userName,
           password,
         });
         console.log(data);
@@ -68,7 +68,7 @@ export default function SignIn({ close, open }) {
 
   const logInChatUser = async (errors1) => {
     try {
-      if (errors1.password === null && errors1.email === null) {
+      if (errors1.password === null && errors1.userName === null) {
         const config = {
           headers: {
             "Content-type": "application/json",
@@ -77,7 +77,7 @@ export default function SignIn({ close, open }) {
 
         const { data } = await axios.post(
           "http://localhost:8000/api/user/login",
-          { email, password },
+          { userName, password },
           config
         );
         console.log(data);
@@ -116,7 +116,7 @@ export default function SignIn({ close, open }) {
             className="label1"
             type="email"
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUserName(e.target.value)}
           />
           {errors.email && <div className="error">{errors.email}</div>}
           <input

@@ -135,7 +135,7 @@ export default function SignUp({ close, open }) {
         );
         console.log(data);
 
-        // localStorage.setItem("userInfo", JSON.stringify(data));
+        localStorage.setItem("userInfo", JSON.stringify(data));
       } else console.log("cant2");
     } catch (error) {
       console.log(error);
