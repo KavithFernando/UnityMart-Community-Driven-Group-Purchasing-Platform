@@ -6,7 +6,6 @@ const router = express.Router();
 //add user
 
 router.post("/user/add", async (req, res) => {
-  // let newUser = new users(req.body);
   const { name, email, userName, password, bORs } = req.body;
 
   const userExists = await users.findOne({ userName });
@@ -36,7 +35,7 @@ router.post("/user/login", async (req, res) => {
 
   const user = await users.findOne({ userName: userName });
   if (user) {
-    if (user.password === password) {
+    if (user && (await user.matchPassword(password))) {
       return res.status(200).json({ success: "User login successful", user });
     } else {
       return res.status(401).json({ error: "Invalid  password" });
