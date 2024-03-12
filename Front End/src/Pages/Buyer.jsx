@@ -7,7 +7,7 @@ export default function Buyer() {
 
   const runMachineLearning = async () => {
     try {
-      const response = await axios.get("/run-ml", { responseType: 'blob' });
+      const response = await axios.get("http://localhost:5000/run-ml", { responseType: 'blob' });
       const imageUrl = URL.createObjectURL(response.data);
       setPredictedSalesImage(imageUrl);
     } catch (error) {
