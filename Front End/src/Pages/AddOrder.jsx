@@ -82,6 +82,7 @@ const OrderForm = () => {
   };
 
   const createProduct = async () => {
+    const sellerID = localStorage.getItem("userId");
     const formData = new FormData();
     formData.append("productName", productName);
     formData.append("category", category);
@@ -90,6 +91,7 @@ const OrderForm = () => {
     formData.append("storePrice", storePrice);
     formData.append("description", description);
     formData.append("photo", photo);
+    formData.append("sellerID", sellerID);
 
     try {
       await axios.post("http://localhost:8080/product/save", formData, {

@@ -41,10 +41,10 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
 
-  seller: {
+  sellerID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    //required: true,
+    required: true,
   },
 
   participants: [

@@ -6,7 +6,7 @@ const router = express.Router();
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Specify where to store uploaded files
+    cb(null, "./Front End/src/ProductImages"); // Specify where to store uploaded files
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname); // Specify filename
@@ -24,6 +24,7 @@ router.post("/product/save", upload.single("photo"), async (req, res) => {
     storePrice: req.body.storePrice,
     description: req.body.description,
     photo: req.file.path,
+    sellerID: req.body.sellerID,
   });
   try {
     await newProduct.save();
