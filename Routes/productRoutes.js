@@ -3,9 +3,28 @@ const products = require("../Modal/ProductModal");
 const router = express.Router();
 
 //adding the order to the db
-router.post("/product/save", async (req, res) => {
-  let newProduct = new products(req.body);
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // Specify where to store uploaded files
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname); // Specify filename
+  },
+});
+const upload = multer({ storage });
 
+router.post("/product/save", upload.single("photo"), async (req, res) => {
+  console.log("File uploaded:", req.file);
+  const newProduct = new products({
+    productName: req.body.productName,
+    category: req.body.category,
+    reach: req.body.reach,
+    discountPrice: req.body.discountPrice,
+    storePrice: req.body.storePrice,
+    description: req.body.description,
+    photo: req.file.path,
+  });
   try {
     await newProduct.save();
     return res.status(200).json({ success: "Order saved successfully" });
@@ -49,7 +68,7 @@ router.get("/top-products", async (req, res) => {
   try {
     const topProducts = await products
       .find()
-      .sort({ "currentReachRatio": -1 })
+      .sort({ currentReachRatio: -1 })
       .limit(10);
 
     return res.status(200).json({ topProducts });

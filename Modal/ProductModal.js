@@ -37,20 +37,22 @@ const productSchema = new mongoose.Schema({
   },
 
   photo: {
-    data: Buffer,
-    contentType: String,
+    type: String,
+    required: true,
   },
 
   seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    //required: true,
   },
 
-  participants: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  }],
+  participants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 // Virtual field for current/reach ratio

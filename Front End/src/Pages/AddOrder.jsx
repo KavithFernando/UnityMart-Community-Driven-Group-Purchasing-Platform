@@ -5,9 +5,9 @@ import axios from "axios";
 const OrderForm = () => {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [price, setPrice] = useState("");
+  const [reach, setReach] = useState("");
   const [storePrice, setStorePrice] = useState("");
+  const [discountPrice, setDiscountPrice] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
   const [errors, setErrors] = useState({});
@@ -24,11 +24,11 @@ const OrderForm = () => {
       newErrors.category = "Category is required";
       valid = false;
     }
-    if (!quantity.trim() || isNaN(quantity) || +quantity <= 0) {
+    if (!reach.trim() || isNaN(reach) || +reach <= 0) {
       newErrors.quantity = "Quantity must be a positive number";
       valid = false;
     }
-    if (!price.trim() || isNaN(price) || +price <= 0) {
+    if (!discountPrice.trim() || isNaN(discountPrice) || +discountPrice <= 0) {
       newErrors.price = "Price must be a positive number";
       valid = false;
     }
@@ -56,8 +56,8 @@ const OrderForm = () => {
       console.log("Order submitted:", {
         productName,
         category,
-        quantity,
-        price,
+        reach,
+        discountPrice,
         storePrice,
         description,
         photo,
@@ -66,13 +66,14 @@ const OrderForm = () => {
       // Reset form fields after successful submission
       setProductName("");
       setCategory("");
-      setQuantity("");
-      setPrice("");
+      setReach("");
+      setDiscountPrice("");
       setStorePrice("");
       setDescription("");
       setPhoto(null);
       setErrors({});
     }
+    createProduct();
   };
 
   const handlePhotoChange = (e) => {
@@ -81,15 +82,20 @@ const OrderForm = () => {
   };
 
   const createProduct = async () => {
+    const formData = new FormData();
+    formData.append("productName", productName);
+    formData.append("category", category);
+    formData.append("reach", reach);
+    formData.append("discountPrice", discountPrice);
+    formData.append("storePrice", storePrice);
+    formData.append("description", description);
+    formData.append("photo", photo);
+
     try {
-      const { data } = await axios.post("http://localhost:8080/product/save", {
-        productName,
-        category,
-        quantity,
-        price,
-        storePrice,
-        description,
-        photo,
+      await axios.post("http://localhost:8080/product/save", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
     } catch (error) {
       ("");
@@ -128,8 +134,8 @@ const OrderForm = () => {
           <label>Quantity:</label>
           <input
             type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            value={reach}
+            onChange={(e) => setReach(e.target.value)}
           />
           {errors.quantity && (
             <p className="error-message">{errors.quantity}</p>
@@ -139,8 +145,8 @@ const OrderForm = () => {
           <label>Discounted Price</label>
           <input
             type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            value={discountPrice}
+            onChange={(e) => setDiscountPrice(e.target.value)}
           />
           {errors.price && <p className="error-message">{errors.price}</p>}
         </div>
@@ -151,7 +157,9 @@ const OrderForm = () => {
             value={storePrice}
             onChange={(e) => setStorePrice(e.target.value)}
           />
-          {errors.storePrice && <p className="error-message">{errors.storePrice}</p>}
+          {errors.storePrice && (
+            <p className="error-message">{errors.storePrice}</p>
+          )}
         </div>
         <div className="form-group">
           <label>Description:</label>
