@@ -23,7 +23,7 @@ router.post("/product/save", upload.single("photo"), async (req, res) => {
     discountPrice: req.body.discountPrice,
     storePrice: req.body.storePrice,
     description: req.body.description,
-    photo: req.file.path,
+    photo: req.file.filename,
     sellerID: req.body.sellerID,
   });
   try {
