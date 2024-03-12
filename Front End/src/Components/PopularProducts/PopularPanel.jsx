@@ -69,8 +69,8 @@ export default function PopularPanel() {
             current={product.current}
             price={product.discountPrice}
             storePrice={product.storePrice}
-            imageSrc="src/ProductImages/headphones.jpg"
-            sellerId={product.seller}
+            imageSrc={`src/ProductImages/${product.photo}`}
+            sellerId={product.sellerID}
           />
         ))}
       </Carousel>

@@ -55,7 +55,7 @@ export default function PopularProduct(
     localStorage.setItem('completed', completed);
     localStorage.setItem('discount', discount);
     localStorage.setItem('sellerName', sellerInfo.name || '');
-    // localStorage.setItem('sellerUsername', sellerInfo.username || ''); 
+    localStorage.setItem('sellerUsername', sellerInfo.userName || '');
   };
 
   return (
