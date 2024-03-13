@@ -58,6 +58,8 @@ router.get("/user/:id", async (req, res) => {
     const userData = {
       name: user.name,
       userName: user.userName,
+      email: user.email,
+      bORs: user.bORs
     };
 
     return res.status(200).json(userData);
