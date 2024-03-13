@@ -11,6 +11,7 @@ import SignIn from "../../Pages/SignIn";
 export default function Navbar() {
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
   const OpenModal = () => {
     setOpenModal(true);
@@ -29,6 +30,11 @@ export default function Navbar() {
   const closeModal2 = () => {
     setOpenModal2(false);
     document.body.style.overflow = "auto";
+  };
+
+  const handleProfileClick = () => {
+    const currentUserId = localStorage.getItem("userId");
+    console.log("Current userId:", currentUserId);
   };
 
   return (

@@ -12,18 +12,22 @@ import ChatWraper from "./ChatWraper";
 
 function App() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   useEffect(() => {
     // Check if the user is authenticated on page load
     const id = localStorage.getItem('userId');
-  
-    if (id) {
-      // User is authenticated
-      setIsAuthenticated(true);
-    } else {
-      // User is not authenticated
-      setIsAuthenticated(false);
+    console.log(id);
+
+    // Define the event listener function
+    const beforeUnloadHandler = () => {
+      localStorage.setItem('userId', null);
+    };
+
+    // Add event listener to set userId to null when the window is closed
+    window.addEventListener('beforeunload', beforeUnloadHandler);
+    
+    // Cleanup the event listener when component is unmounted
+    return () => {
+      window.removeEventListener('beforeunload', beforeUnloadHandler);
     }
   }, []); // Empty dependency array ensures this effect runs on mount and when the component re-renders
 

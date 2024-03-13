@@ -53,7 +53,7 @@ export default function SignIn({ close, open }) {
 
         const id = data.user._id;
         setIsAuthenticated(true);
-        localStorage.setItem("userId", id)
+        localStorage.setItem("userId", id);
 
         toast.success("Login is successful", {
           // position: toast.POSITION.TOP_RIGHT,

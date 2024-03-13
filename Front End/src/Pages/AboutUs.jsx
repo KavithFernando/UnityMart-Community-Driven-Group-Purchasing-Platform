@@ -11,11 +11,11 @@ const AboutUsPage = () => {
       {/* Team Members */}
       <div className="team-members">
       <br/>
-      <div class="box">
-      <div class="inner">
+      <div className="box">
+      <div className="inner">
       <span>"Strength lies in unity"</span>
       </div>
-      <div class="inner">
+      <div className="inner">
       <span>"Strength lies in unity"</span>
       </div>
       </div>
