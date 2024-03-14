@@ -34,12 +34,18 @@ export default function FunctionsDisplay(
   };
 
   const handleJoinLeave = () => {
-    // Toggle the join status
-    setIsJoined((prevIsJoined) => !prevIsJoined);
+    
+    if(localStorage.getItem("userId") === "null") {
+      alert("You must sign in to join this pruchase group");
+    } else {
+      // Toggle the join status
+      setIsJoined((prevIsJoined) => !prevIsJoined);
 
-    // Show alert based on join status
-    const alertMessage = isJoined ? "You've Left the Purchase group Successfully" : "You've Joined the Purchase group Successfully";
-    alert(alertMessage);
+      // Show alert based on join status
+      const alertMessage = isJoined ? "You've Left the Purchase group Successfully" : "You've Joined the Purchase group Successfully";
+      alert(alertMessage);
+    }
+    
   };
   
   const formattedPrice = (count*price).toFixed(2);
@@ -85,6 +91,12 @@ export default function FunctionsDisplay(
         <div className={`join ${isJoined ? 'leave' : 'join'}`} onClick={handleJoinLeave}>
           {isJoined ? 'Leave Purchase' : 'Join Purchase'}
         </div>
+        {/* <div 
+          className={`join ${isJoined ? 'leave' : 'join'}`} 
+          onClick={id === 'null' ? null : handleJoinLeave} 
+          style={{ opacity: id === 'null' ? 0.5 : 1, cursor: id === 'null' ? 'not-allowed' : 'pointer', pointerEvents: id === 'null' ? 'none' : 'auto' }}>
+          {isJoined ? 'Leave Purchase' : 'Join Purchase'}
+        </div> */}
         <div className="share"><IoShareSocial className='share-icon'/>Share</div>
       </div>
     </div>
