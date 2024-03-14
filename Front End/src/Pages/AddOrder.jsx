@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Add.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OrderForm = () => {
   const [productName, setProductName] = useState("");
@@ -64,6 +66,7 @@ const OrderForm = () => {
       });
 
       // Reset form fields after successful submission
+      toast.success("Order posted successfully!");
       setProductName("");
       setCategory("");
       setReach("");
