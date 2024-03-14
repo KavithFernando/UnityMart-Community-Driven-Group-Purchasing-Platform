@@ -65,8 +65,9 @@ const OrderForm = () => {
         photo,
       });
 
+      toast.info("Submitting order...");
+
       // Reset form fields after successful submission
-      toast.success("Order posted successfully!");
       setProductName("");
       setCategory("");
       setReach("");
