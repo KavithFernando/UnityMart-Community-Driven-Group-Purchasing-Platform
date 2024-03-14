@@ -7,11 +7,13 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import "./Navbar.css";
 import SignUp from "../../Pages/SignUp";
 import SignIn from "../../Pages/SignIn";
+import axios from "axios";
 
 export default function Navbar() {
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
-  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+  const [userInfo, setUserInfo] = useState({});
+
 
   const OpenModal = () => {
     setOpenModal(true);
@@ -32,9 +34,14 @@ export default function Navbar() {
     document.body.style.overflow = "auto";
   };
 
-  const handleProfileClick = () => {
-    const currentUserId = localStorage.getItem("userId");
-    console.log("Current userId:", currentUserId);
+  const handleProfileClick = async () => {
+    try {
+      const userId = localStorage.getItem("userId");
+      const response = await axios.get(`http://localhost:8080/user/${userId}`);
+      setUserInfo(response.data);
+    } catch (error) {
+      console.error("Error fetching seller info:", error);
+    }
   };
 
   return (
@@ -81,6 +88,9 @@ export default function Navbar() {
             >
               Sign Up
             </Link>
+          </li>
+          <li>
+            <Link to={userInfo.bORs == false ? '/buyer' : '/Seller'} onClick={handleProfileClick}>Profile</Link>
           </li>
         </ul>
       </nav>
