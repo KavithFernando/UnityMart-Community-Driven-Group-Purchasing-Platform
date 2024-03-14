@@ -15,6 +15,7 @@ export default function Navbar() {
   const [userInfo, setUserInfo] = useState({});
 
 
+
   const OpenModal = () => {
     setOpenModal(true);
     document.body.style.overflow = "hidden";
@@ -43,6 +44,21 @@ export default function Navbar() {
       console.error("Error fetching seller info:", error);
     }
   };
+
+  let profileLink = null;
+  if (localStorage.getItem("userId") !== "null") {
+    handleProfileClick();
+    profileLink = (
+      <li>
+        <Link
+          onClick={handleProfileClick}
+          to={userInfo.bORs === false ? "/buyer" : "/Seller"}
+        >
+          Profile
+        </Link>
+      </li>
+    );
+  }
 
   return (
     <>
@@ -89,9 +105,7 @@ export default function Navbar() {
               Sign Up
             </Link>
           </li>
-          <li>
-            <Link to={userInfo.bORs == false ? '/buyer' : '/Seller'} onClick={handleProfileClick}>Profile</Link>
-          </li>
+          {profileLink}
         </ul>
       </nav>
       {openModal && <SignUp close={closeModal} open={OpenModal2} />}

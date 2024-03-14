@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     // Check if the user is authenticated on page load
     const id = localStorage.getItem('userId');
-    console.log(id);
 
     // Define the event listener function
     const beforeUnloadHandler = () => {
