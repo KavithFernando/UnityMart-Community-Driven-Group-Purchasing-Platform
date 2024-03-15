@@ -1,19 +1,30 @@
-// App.js
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Seller.css';
-import {  useNavigate } from "react-router-dom";
-
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Seller() {
-  const [count, setCount] = useState(0);
+  const [userInfo, setUserInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
-  // Dummy user data
-  const user = {
-    name: 'John Doe',
-    rating: 4.5, 
-  };
+  useEffect(() => {
+    const handlename = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        const response = await axios.get(`http://localhost:8080/user/${userId}`);
+        const userName = response.data.userName; // Assuming the username is stored in the 'userName' property of the response data
+        setUserInfo({ name: userName });
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching seller name:", error);
+      }
+    };
+
+    handlename();
+  }, []);
+
+  // Dummy order data
   const orders = [
     { id: 1, details: 'Iphone 14 pro max bulk sale.', progress: 25 },
     { id: 2, details: 'Order 2 details', progress: 50 },
@@ -22,9 +33,6 @@ function Seller() {
   ];
 
   const averageIncome = 1000;
-  const navigate = useNavigate();
-
- 
 
   return (
     <div className="app-wrapper">
@@ -33,8 +41,9 @@ function Seller() {
           <div className="user-container">
             <img src="src\images\man_4140048.png" alt="User Logo" className="user-logo" />
             <div>
-              <h2>Name: {user.name}</h2>
-              <p>Rating: {user.rating}</p>
+              <h2>Name: {userInfo.name}</h2>
+              {/* Assuming user rating is not dynamic */}
+              <p>Rating: {userInfo.rating || 4.5}</p>
             </div>
           </div>
           <div className="income-card">
@@ -50,31 +59,28 @@ function Seller() {
         </section>
       </header>
       <main>
-      <div className="interface">
-        <div className="orders-wrapper">
-          <h1>Your Ongoing Sales</h1>
-
-          {orders.map(order => (
-            <div key={order.id} className={`order-card order${order.id}`}>
-              <div>
-                <h3>Order Details:</h3>
-                <p className="order-details">{order.details}</p>
+        <div className="interface">
+          <div className="orders-wrapper">
+            <h1>Your Ongoing Sales</h1>
+            {orders.map(order => (
+              <div key={order.id} className={`order-card order${order.id}`}>
+                <div>
+                  <h3>Order Details:</h3>
+                  <p className="order-details">{order.details}</p>
+                </div>
+                <div className="order-progress">
+                  <p>Order progress.</p>
+                  <span className="progress-bar" style={{ width: `${order.progress}%` }} />
+                </div>
               </div>
-              <div className="order-progress">
-                <p>Order progress.</p>
-                <span className="progress-bar" style={{ width: `${order.progress}%` }} />
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
         <div className="chat-bubble">
-        <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
+          <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
           Chat
         </div>
       </main>
-
-     
     </div>
   );
 }
