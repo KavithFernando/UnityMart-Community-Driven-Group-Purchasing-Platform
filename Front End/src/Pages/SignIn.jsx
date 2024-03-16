@@ -55,6 +55,13 @@ export default function SignIn({ close, open }) {
         setIsAuthenticated(true);
         localStorage.setItem("userId", id);
 
+        try {
+          const response = await axios.get(`http://localhost:8080/user/${id}`);
+          localStorage.setItem("isSeller", response.data.bORs);
+        } catch (error) {
+          console.error("Error fetching user info:", error);
+        }
+
         toast.success("Login is successful", {
           // position: toast.POSITION.TOP_RIGHT,
         });

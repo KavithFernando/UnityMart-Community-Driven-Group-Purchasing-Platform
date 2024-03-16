@@ -63,6 +63,7 @@ export default function PopularPanel() {
         {topProducts.map(product => (
           <PopularProduct
             key={product._id}
+            productId={product._id}
             title={product.productName}
             description={product.description}
             reach={product.reach}

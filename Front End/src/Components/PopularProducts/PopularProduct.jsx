@@ -6,14 +6,15 @@ import axios from 'axios';
 
 export default function PopularProduct(
     {
-      title="Product Title",
+      productId,
+      title,
       description,
       reach=0, 
       current=0, 
       price=9999.99, 
       storePrice=9999.99, 
       imageSrc="src/ProductImages/MissingImage.jpg",
-      sellerId="hhh"
+      sellerId
     }
   ) 
 {
@@ -46,6 +47,7 @@ export default function PopularProduct(
   const handleClick = () => {
 
     // Save the product details to local storage
+    localStorage.setItem('productId', productId);
     localStorage.setItem('title', title);
     localStorage.setItem('description', description)
     localStorage.setItem('reach', reach);

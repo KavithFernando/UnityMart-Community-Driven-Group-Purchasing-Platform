@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
@@ -12,9 +12,6 @@ import axios from "axios";
 export default function Navbar() {
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
-
-
 
   const OpenModal = () => {
     setOpenModal(true);
@@ -35,30 +32,6 @@ export default function Navbar() {
     document.body.style.overflow = "auto";
   };
 
-  const handleProfileClick = async () => {
-    try {
-      const userId = localStorage.getItem("userId");
-      const response = await axios.get(`http://localhost:8080/user/${userId}`);
-      setUserInfo(response.data);
-    } catch (error) {
-      console.error("Error fetching seller info:", error);
-    }
-  };
-
-  let profileLink = null;
-  if (localStorage.getItem("userId") !== "null") {
-    handleProfileClick();
-    profileLink = (
-      <li>
-        <Link
-          onClick={handleProfileClick}
-          to={userInfo.bORs === false ? "/buyer" : "/Seller"}
-        >
-          Profile
-        </Link>
-      </li>
-    );
-  }
 
   return (
     <>
@@ -105,7 +78,15 @@ export default function Navbar() {
               Sign Up
             </Link>
           </li>
-          {profileLink}
+          {localStorage.getItem("userId") !== "null" && (
+            <li>
+              <Link
+                to={localStorage.getItem("isSeller") === "true" ? "/Seller" : "/buyer"}
+              >
+                Profile
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
       {openModal && <SignUp close={closeModal} open={OpenModal2} />}
