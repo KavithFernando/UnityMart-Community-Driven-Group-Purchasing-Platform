@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ProgressBar from "@ramonak/react-progress-bar";
 import { IoShareSocial } from "react-icons/io5";
+import axios from 'axios';
 
 
 export default function FunctionsDisplay(
@@ -41,11 +42,33 @@ export default function FunctionsDisplay(
       // Toggle the join status
       setIsJoined((prevIsJoined) => !prevIsJoined);
 
+      updateProduct();
+
       // Show alert based on join status
       const alertMessage = isJoined ? "You've Left the Purchase group Successfully" : "You've Joined the Purchase group Successfully";
       alert(alertMessage);
     }
     
+  };
+
+  const updateProduct = async () => {
+    try {
+      // Calculate updated current value
+      const updatedCurrent = reach - to_go + count;
+      to_go = to_go - count;
+  
+      // Make API request to update product
+      const response = await axios.put(`http://localhost:8080/product/join/${localStorage.getItem("productId")}`, {
+        userId: localStorage.getItem("userId"),
+        current: updatedCurrent,
+      });
+  
+      // Show success message from the server response
+      alert(response.data.success);
+    } catch (error) {
+      console.error("Error updating product:", error);
+      alert("Failed to update product. Please try again later.");
+    }
   };
   
   const formattedPrice = (count*price).toFixed(2);
@@ -59,7 +82,6 @@ export default function FunctionsDisplay(
           height={15}
           bgColor="#ff5900"
           baseBgColor="#dddddd"
-          // padding="4px"
           animateOnRender={true}
         />
         <div className="available">Only <span>{to_go}</span> more items available</div>
@@ -91,12 +113,6 @@ export default function FunctionsDisplay(
         <div className={`join ${isJoined ? 'leave' : 'join'}`} onClick={handleJoinLeave}>
           {isJoined ? 'Leave Purchase' : 'Join Purchase'}
         </div>
-        {/* <div 
-          className={`join ${isJoined ? 'leave' : 'join'}`} 
-          onClick={id === 'null' ? null : handleJoinLeave} 
-          style={{ opacity: id === 'null' ? 0.5 : 1, cursor: id === 'null' ? 'not-allowed' : 'pointer', pointerEvents: id === 'null' ? 'none' : 'auto' }}>
-          {isJoined ? 'Leave Purchase' : 'Join Purchase'}
-        </div> */}
         <div className="share"><IoShareSocial className='share-icon'/>Share</div>
       </div>
     </div>
