@@ -68,4 +68,61 @@ router.get("/user/:id", async (req, res) => {
   }
 });
 
+// Add a product and its count to purchasedProducts map
+router.put("/user/purchase/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const { productId, quantity } = req.body;
+
+    const user = await users.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Update purchasedProducts with the new productId and quantity
+    user.purchasedProducts.set(productId, quantity);
+
+    // Save the updated user
+    await user.save();
+
+    return res.status(200).json({ success: "Purchased products updated successfully" });
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
+});
+
+// Remove a product and its count from purchasedProducts map
+router.put("/user/remove-purchase/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const { productId } = req.body;
+
+    const user = await users.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check if the product exists in purchasedProducts map
+    if (!user.purchasedProducts.has(productId)) {
+      return res.status(400).json({ error: "Product not found in purchased products" });
+    }
+
+    // Get the quantity of the product before removing it
+    const quantity = user.purchasedProducts.get(productId);
+
+    // Remove the product from purchasedProducts map
+    user.purchasedProducts.delete(productId);
+
+    // Save the updated user
+    await user.save();
+
+    return res.status(200).json({ success: "Product removed from purchased products successfully", quantity: quantity });
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
+});
+
+
 module.exports = router;
