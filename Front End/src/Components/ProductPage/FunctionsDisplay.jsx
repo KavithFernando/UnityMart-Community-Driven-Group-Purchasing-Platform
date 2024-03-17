@@ -39,19 +39,19 @@ export default function FunctionsDisplay(
     if(localStorage.getItem("userId") === "null") {
       alert("You must sign in to join this pruchase group");
     } else {
+
+      if(isJoined) {
+        leavePurchase();
+      } else {
+        joinPurchase();
+      }
       // Toggle the join status
       setIsJoined((prevIsJoined) => !prevIsJoined);
-
-      updateProduct();
-
-      // Show alert based on join status
-      const alertMessage = isJoined ? "You've Left the Purchase group Successfully" : "You've Joined the Purchase group Successfully";
-      alert(alertMessage);
     }
     
   };
 
-  const updateProduct = async () => {
+  const joinPurchase = async () => {
     try {
       // Calculate updated current value
       const updatedCurrent = reach - to_go + count;
@@ -62,14 +62,53 @@ export default function FunctionsDisplay(
         userId: localStorage.getItem("userId"),
         current: updatedCurrent,
       });
+
+      // Make API request to update user's purchased products
+      const responseUser = await axios.put(`http://localhost:8080/user/purchase/${localStorage.getItem("userId")}`, {
+        productId: localStorage.getItem("productId"),
+        quantity: count,
+      });
   
       // Show success message from the server response
       alert(response.data.success);
+      alert(responseUser.data.success);
     } catch (error) {
       console.error("Error updating product:", error);
       alert("Failed to update product. Please try again later.");
     }
   };
+
+  const leavePurchase = async () => {
+    try {
+      
+      // Make API request to remove purchased product from user's profile and update current value
+      const responseUser = await axios.put(`http://localhost:8080/user/remove-purchase/${localStorage.getItem("userId")}`, {
+        productId: localStorage.getItem("productId"),
+      });
+
+      // Extract the count returned from the server response
+      const count = responseUser.data.quantity;
+
+      // Make API request to remove user from the purchase group
+      const response = await axios.put(`http://localhost:8080/product/leave/${localStorage.getItem("productId")}`, {
+        userId: localStorage.getItem("userId"),
+        current: reach - to_go - count,
+      });
+
+      to_go = to_go + count;
+  
+      // Show success message from the server response
+      alert(response.data.success);
+      alert(responseUser.data.success);
+  
+      // Toggle the join status
+      setIsJoined(false);
+    } catch (error) {
+      console.error("Error leaving purchase:", error);
+      alert("Failed to leave purchase. Please try again later.");
+    }
+  };
+  
   
   const formattedPrice = (count*price).toFixed(2);
 
