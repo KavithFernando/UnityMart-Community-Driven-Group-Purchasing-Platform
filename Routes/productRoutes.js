@@ -78,7 +78,7 @@ router.get("/top-products", async (req, res) => {
   }
 });
 
-// Route to update participants array and current value
+// Route to join participants to product and update current value
 router.put("/product/join/:id", async (req, res) => {
   try {
     // Extract the product ID from request parameters
@@ -108,6 +108,43 @@ router.put("/product/join/:id", async (req, res) => {
 
     // Return success response
     return res.status(200).json({ success: "You've Joined the Purchase group Successfully" });
+  } catch (err) {
+    // Return error response
+    return res.status(400).json({ error: err.message });
+  }
+});
+
+// Route to remove participants from product and update current value
+router.put("/product/leave/:id", async (req, res) => {
+  try {
+    // Extract the product ID from request parameters
+    const productId = req.params.id;
+
+    // Extract user ID and current value from request body
+    const { userId, current } = req.body;
+
+    // Find the product by ID
+    const product = await products.findById(productId);
+
+    // If product doesn't exist, return error
+    if (!product) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
+    // Remove userId from participants array if included
+    const index = product.participants.indexOf(userId);
+    if (index !== -1) {
+      product.participants.splice(index, 1);
+    }
+
+    // Update the current value
+    product.current = current;
+
+    // Save the updated product
+    await product.save();
+
+    // Return success response
+    return res.status(200).json({ success: "You've Left the Purchase group Successfully" });
   } catch (err) {
     // Return error response
     return res.status(400).json({ error: err.message });
