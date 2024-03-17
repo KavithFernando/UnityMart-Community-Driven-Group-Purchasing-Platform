@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
+  purchasedProducts: {
+    type: Map,
+    of: Number,
+    default: {},
+  },
 });
 
 userSchema.pre("save", async function (next) {
