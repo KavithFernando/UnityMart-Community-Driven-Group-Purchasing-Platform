@@ -37,7 +37,7 @@ const AboutUsPage = () => {
         <h2>Our Team</h2>
         <div className="team-member-cards">
           <div className="team-member-card">
-            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <img className="img1" src="../src/images/Niketh.ipeg" alt="User Profile Picture" />
             <div className="details">
               <h3>Niketh Randil Weragala</h3>
               <p><strong>Role: Developer</strong></p>
@@ -45,7 +45,7 @@ const AboutUsPage = () => {
             </div>
           </div>
           <div className="team-member-card">
-            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <img className="img1" src="../src/images/Kavith.jpeg" alt="User Profile Picture" />
             <div className="details">
               <h3>Kavith Fernando</h3>
               <p><strong>Role: Developer</strong></p>
@@ -53,7 +53,7 @@ const AboutUsPage = () => {
             </div>
           </div>
           <div className="team-member-card">
-            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <img className="img1" src="../src/images/Pabasara.jpeg" alt="User Profile Picture" />
             <div className="details">
               <h3>Pabasara Ravindaka</h3>
               <p><strong>Role: Developer</strong></p>
@@ -61,7 +61,7 @@ const AboutUsPage = () => {
             </div>
           </div>
           <div className="team-member-card">
-            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <img className="img1" src="../src/images/Sanjaya.jpeg" alt="User Profile Picture" />
             <div className="details">
               <h3>Sanjaya Perera</h3>
               <p><strong>Role: Developer</strong></p>
@@ -69,7 +69,7 @@ const AboutUsPage = () => {
             </div>
           </div>
           <div className="team-member-card">
-            <img className="img1" src="../src/images/buyer.png" alt="User Profile Picture" />
+            <img className="img1" src="../src/images/Subhavitha.jpeg" alt="User Profile Picture" />
             <div className="details">
               <h3>Susitha Subhavitha</h3>
               <p><strong>Role: Developer</strong></p>
