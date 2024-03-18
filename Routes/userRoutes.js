@@ -122,32 +122,56 @@ router.put("/user/remove-purchase/:id", async (req, res) => {
     const userId = req.params.id;
     const { productId } = req.body;
 
-    const user = await users.findById(userId);
+    const updatedUser = await users.findByIdAndUpdate(
+      userId,
+      { $unset: { [`purchasedProducts.${productId}`]: 1 } },
+      { new: true }
+    );
 
-    if (!user) {
+    if (!updatedUser) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // Check if the product exists in purchasedProducts map
-    if (!user.purchasedProducts.has(productId)) {
+    // Check if the product was found in purchasedProducts
+    if (!updatedUser.purchasedProducts[productId]) {
       return res
         .status(400)
         .json({ error: "Product not found in purchased products" });
     }
 
-    // Get the quantity of the product before removing it
-    const quantity = user.purchasedProducts.get(productId);
-
-    // Remove the product from purchasedProducts map
-    user.purchasedProducts.delete(productId);
-
-    // Save the updated user
-    await user.save();
+    const quantity = updatedUser.purchasedProducts[productId];
 
     return res.status(200).json({
       success: "Product removed from purchased products successfully",
       quantity: quantity,
     });
+
+    //const user = await users.findById(userId);
+
+    //if (!user) {
+    // return res.status(404).json({ error: "User not found" });
+    //}
+
+    // Check if the product exists in purchasedProducts map
+    //if (!user.purchasedProducts.has(productId)) {
+    // return res
+    //  .status(400)
+    // .json({ error: "Product not found in purchased products" });
+    // }
+
+    // Get the quantity of the product before removing it
+    //const quantity = user.purchasedProducts.get(productId);
+
+    // Remove the product from purchasedProducts map
+    //user.purchasedProducts.delete(productId);
+
+    // Save the updated user
+    //await user.save();
+
+    //return res.status(200).json({
+    // success: "Product removed from purchased products successfully",
+    //quantity: quantity,
+    // });
   } catch (err) {
     return res.status(500).json({ error: err });
   }
