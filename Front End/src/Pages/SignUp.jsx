@@ -94,6 +94,13 @@ export default function SignUp({ close, open }) {
         const id = data.newUser._id;
         localStorage.setItem("userId", id);
 
+        try {
+          const response = await axios.get(`http://localhost:8080/user/${id}`);
+          localStorage.setItem("isSeller", response.data.bORs);
+        } catch (error) {
+          console.error("Error fetching user info:", error);
+        }
+
         toast.success("Registration is successful", {
           // position: toast.POSITION.TOP_RIGHT,
         });
