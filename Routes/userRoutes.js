@@ -153,4 +153,30 @@ router.get("/buyer/:id", async (req, res) => {
   }
 });
 
+router.get("/user/purchasedProduct/:userId/:productId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const productId = req.params.productId;
+
+    // Find the user by ID
+    const user = await users.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check if the product ID exists in purchasedProducts
+    if (user.purchasedProducts.has(productId)) {
+      const quantity = user.purchasedProducts.get(productId);
+      return res.status(200).json(quantity);
+    } else {
+      return res
+        .status(404)
+        .json({ error: "Product not found in purchased products" });
+    }
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;

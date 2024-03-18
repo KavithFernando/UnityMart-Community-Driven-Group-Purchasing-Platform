@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
+import axios from "axios";
 
 export default function BuyerProduct(props) {
+  const [quntity, setQuntity] = useState("");
   const progress = Math.round((props.current / props.reach) * 100);
+
+  const getProductQuntaty = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/user/purchasedProduct/${localStorage.getItem(
+          "userId"
+        )}/${props.id}`
+      );
+      console.log(data);
+      setQuntity(data);
+      console.log(quntity);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getProductQuntaty();
+  }, []);
 
   return (
     <div className="product-card">
@@ -24,6 +44,8 @@ export default function BuyerProduct(props) {
             baseBgColor="#dddddd"
             animateOnRender={true}
           />
+
+          <p> Quntaty: {quntity}</p>
         </div>
 
         <p className="product-card-more">

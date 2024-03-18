@@ -16,14 +16,14 @@ export default function Buyerdetails() {
       const { data } = await axios.get(
         `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
       );
-      console.log(data.key);
+      //console.log(data.key);
       setname(data.data.name);
       setEmail(data.data.email);
 
       localStorage.setItem("Cart", data.key);
-      console.log(localStorage.getItem("Cart"));
+      //console.log(localStorage.getItem("Cart"));
 
-      console.log(array);
+      //console.log(array);
     } catch (err) {
       console.log(err);
     }
@@ -37,9 +37,9 @@ export default function Buyerdetails() {
         }
       );
 
-      console.log(data.product);
+      //console.log(data.product);
       setBuyProduct(data.product);
-      console.log(buyerProduct);
+      //console.log(buyerProduct);
     } catch (error) {
       console.error(error);
     }
