@@ -13,8 +13,8 @@ function Seller() {
       try {
         const userId = localStorage.getItem("userId");
         const response = await axios.get(`http://localhost:8080/user/${userId}`);
-        const userName = response.data.userName; // Assuming the username is stored in the 'userName' property of the response data
-        setUserInfo({ name: userName });
+        const userName = response.data.userName; //  username is stored in the 'userName' property of the response data
+        setUserInfo({ name: userName });//name is retrieved
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching seller name:", error);
@@ -42,7 +42,6 @@ function Seller() {
             <img src="src\images\man_4140048.png" alt="User Logo" className="user-logo" />
             <div>
               <h2>Name: {userInfo.name}</h2>
-              {/* Assuming user rating is not dynamic */}
               <p>Rating: {userInfo.rating || 4.5}</p>
             </div>
           </div>
@@ -51,7 +50,7 @@ function Seller() {
             <p>${averageIncome}</p>
           </div>
           <div className="add-card">
-            <button onClick={() => navigate("/AddOrder")}>Add Order</button>
+            <button onClick={() => navigate("/AddOrder")}>Add Order</button> {/* Add order button */}
           </div>
           <div className="income-card">
             <h2>Sales Prediction</h2>
@@ -60,7 +59,7 @@ function Seller() {
       </header>
       <main>
         <div className="interface">
-          <div className="orders-wrapper">
+          <div className="orders-wrapper"> {/* Ongoing sales*/}
             <h1>Your Ongoing Sales</h1>
             {orders.map(order => (
               <div key={order.id} className={`order-card order${order.id}`}>
