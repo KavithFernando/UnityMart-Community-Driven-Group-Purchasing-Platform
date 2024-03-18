@@ -76,24 +76,44 @@ router.put("/user/purchase/:id", async (req, res) => {
     const userId = req.params.id;
     const { productId, quantity } = req.body;
 
-    const user = await users.findById(userId);
+    const updatedUser = await users.findByIdAndUpdate(
+      userId,
+      { $set: { [`purchasedProducts.${productId}`]: quantity } },
+      { new: true }
+    );
 
-    if (!user) {
+    if (!updatedUser) {
       return res.status(404).json({ error: "User not found" });
     }
-
-    // Update purchasedProducts with the new productId and quantity
-    user.purchasedProducts.set(productId, quantity);
-
-    // Save the updated user
-    await user.save();
 
     return res
       .status(200)
       .json({ success: "Purchased products updated successfully" });
   } catch (err) {
-    return res.status(500).json({ error: err });
+    return res.status(500).json({ error: err.message });
   }
+
+  //const user = await users.findById(userId);
+
+  //if (!user) {
+  // return res.status(404).json({ error: "User not found" });
+  // }
+
+  // Update purchasedProducts with the new productId and quantity
+  //user.purchasedProducts.set(productId, quantity);
+
+  // Save the updated user
+  //await User.findByIdAndUpdate(userId, {
+  // purchasedProducts: user.purchasedProducts,
+  //});
+  //await user.save();
+
+  // return res
+  // .status(200)
+  // .json({ success: "Purchased products updated successfully" });
+  // } catch (err) {
+  // return res.status(500).json({ error: err });
+  // }
 });
 
 // Remove a product and its count from purchasedProducts map
