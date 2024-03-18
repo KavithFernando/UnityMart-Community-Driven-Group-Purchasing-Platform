@@ -75,20 +75,26 @@ router.put("/user/purchase/:id", async (req, res) => {
   try {
     const userId = req.params.id;
     const { productId, quantity } = req.body;
+    const user = await users.findById(userId);
 
-    const updatedUser = await users.findByIdAndUpdate(
-      userId,
-      { $set: { [`purchasedProducts.${productId}`]: quantity } },
-      { new: true }
-    );
-
-    if (!updatedUser) {
+    if (user) {
+      if (user.purchasedProducts.has(productId)) {
+        return res
+          .status(400)
+          .json({ error: "Product already exists in purchased products" });
+      } else {
+        const updatedUser = await users.findByIdAndUpdate(
+          userId,
+          { $set: { [`purchasedProducts.${productId}`]: quantity } },
+          { new: true }
+        );
+        return res
+          .status(200)
+          .json({ success: "Purchased products updated successfully" });
+      }
+    } else {
       return res.status(404).json({ error: "User not found" });
     }
-
-    return res
-      .status(200)
-      .json({ success: "Purchased products updated successfully" });
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
@@ -122,24 +128,27 @@ router.put("/user/remove-purchase/:id", async (req, res) => {
     const userId = req.params.id;
     const { productId } = req.body;
 
+    const user = await users.findById(userId);
+    const quantity = user.purchasedProducts.get(productId);
+
     const updatedUser = await users.findByIdAndUpdate(
       userId,
       { $unset: { [`purchasedProducts.${productId}`]: 1 } },
       { new: true }
     );
 
-    if (!updatedUser) {
-      return res.status(404).json({ error: "User not found" });
-    }
+    //if (!updatedUser) {
+    // return res.status(404).json({ error: "User not found" });
+    //}
 
     // Check if the product was found in purchasedProducts
-    if (!updatedUser.purchasedProducts[productId]) {
-      return res
-        .status(400)
-        .json({ error: "Product not found in purchased products" });
-    }
+    //if (!updatedUser.purchasedProducts[productId]) {
+    // return res
+    //.status(400)
+    //.json({ error: "Product not found in purchased products" });
+    // }
 
-    const quantity = updatedUser.purchasedProducts[productId];
+    //const quantity = updatedUser.purchasedProducts[productId];
 
     return res.status(200).json({
       success: "Product removed from purchased products successfully",

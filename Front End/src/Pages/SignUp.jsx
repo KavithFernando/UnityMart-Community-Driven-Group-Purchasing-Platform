@@ -107,6 +107,7 @@ export default function SignUp({ close, open }) {
 
         setTimeout(() => {
           close();
+          
         }, 2000);
         //close();
       } else {
