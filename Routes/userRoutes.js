@@ -20,7 +20,9 @@ router.post("/user/add", async (req, res) => {
       const newUser = new users({ name, email, userName, password, bORs });
       try {
         await newUser.save();
-        return res.status(200).json({ success: "user save successful", newUser });
+        return res
+          .status(200)
+          .json({ success: "user save successful", newUser });
       } catch (err) {
         return res.status(400).json({ error: err });
       }
@@ -59,7 +61,7 @@ router.get("/user/:id", async (req, res) => {
       name: user.name,
       userName: user.userName,
       email: user.email,
-      bORs: user.bORs
+      bORs: user.bORs,
     };
 
     return res.status(200).json(userData);
@@ -86,7 +88,9 @@ router.put("/user/purchase/:id", async (req, res) => {
     // Save the updated user
     await user.save();
 
-    return res.status(200).json({ success: "Purchased products updated successfully" });
+    return res
+      .status(200)
+      .json({ success: "Purchased products updated successfully" });
   } catch (err) {
     return res.status(500).json({ error: err });
   }
@@ -106,7 +110,9 @@ router.put("/user/remove-purchase/:id", async (req, res) => {
 
     // Check if the product exists in purchasedProducts map
     if (!user.purchasedProducts.has(productId)) {
-      return res.status(400).json({ error: "Product not found in purchased products" });
+      return res
+        .status(400)
+        .json({ error: "Product not found in purchased products" });
     }
 
     // Get the quantity of the product before removing it
@@ -118,11 +124,32 @@ router.put("/user/remove-purchase/:id", async (req, res) => {
     // Save the updated user
     await user.save();
 
-    return res.status(200).json({ success: "Product removed from purchased products successfully", quantity: quantity });
+    return res.status(200).json({
+      success: "Product removed from purchased products successfully",
+      quantity: quantity,
+    });
   } catch (err) {
     return res.status(500).json({ error: err });
   }
 });
 
+//get buyer details
+router.get("/buyer/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await users.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    } else {
+      if (user.bORs === false) {
+        return res.status(200).json(user);
+      } else {
+        return res.status(404).json({ error: "thi is seller" });
+      }
+    }
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
+});
 
 module.exports = router;
