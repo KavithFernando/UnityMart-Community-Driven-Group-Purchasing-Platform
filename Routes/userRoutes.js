@@ -133,7 +133,7 @@ router.put("/user/remove-purchase/:id", async (req, res) => {
   }
 });
 
-//get buyer details
+//get buyer details and que
 router.get("/buyer/:id", async (req, res) => {
   try {
     const userId = req.params.id;
@@ -142,7 +142,8 @@ router.get("/buyer/:id", async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     } else {
       if (user.bORs === false) {
-        return res.status(200).json(user);
+        const productKeys = Array.from(user.purchasedProducts.keys());
+        return res.status(200).json({ key: productKeys, data: user });
       } else {
         return res.status(404).json({ error: "thi is seller" });
       }

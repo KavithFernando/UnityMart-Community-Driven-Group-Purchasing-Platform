@@ -107,7 +107,9 @@ router.put("/product/join/:id", async (req, res) => {
     await product.save();
 
     // Return success response
-    return res.status(200).json({ success: "You've Joined the Purchase group Successfully" });
+    return res
+      .status(200)
+      .json({ success: "You've Joined the Purchase group Successfully" });
   } catch (err) {
     // Return error response
     return res.status(400).json({ error: err.message });
@@ -144,12 +146,26 @@ router.put("/product/leave/:id", async (req, res) => {
     await product.save();
 
     // Return success response
-    return res.status(200).json({ success: "You've Left the Purchase group Successfully" });
+    return res
+      .status(200)
+      .json({ success: "You've Left the Purchase group Successfully" });
   } catch (err) {
     // Return error response
     return res.status(400).json({ error: err.message });
   }
 });
 
+//get product using id
+router.post("/get/queProducts", async (req, res) => {
+  try {
+    const { ids } = req.body; // Assuming IDs are sent in the request body as an array
+
+    const product = await products.find({ _id: { $in: ids } });
+
+    return res.status(200).json({ success: true, product });
+  } catch (err) {
+    res.status(400).json({ error: err });
+  }
+});
 
 module.exports = router;
