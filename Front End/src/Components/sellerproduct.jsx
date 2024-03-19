@@ -1,9 +1,15 @@
 import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
+import { Link } from "react-router-dom";
 
 export default function Sellerproduct(props) {
   const progress = Math.round((props.current / props.reach) * 100);
   const more = props.reach - props.current;
+
+  const getEditProductId = () => {
+    localStorage.setItem("editItems", props.id);
+  };
+
   return (
     <div className="product-card">
       <div className="image-div">
@@ -30,7 +36,9 @@ export default function Sellerproduct(props) {
           <span>{more}</span> more to go
         </p>
         <div className="buttoncontainer">
-          <div className="product-card-edit">Edit order</div>
+          <div className="product-card-edit" onClick={getEditProductId}>
+            <Link to={"/Edit"}>Edit order</Link>
+          </div>
 
           <div className="product-card-delete">Delete order</div>
         </div>

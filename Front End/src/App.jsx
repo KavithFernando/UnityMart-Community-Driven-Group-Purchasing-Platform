@@ -9,6 +9,7 @@ import AboutUsPage from "./Pages/AboutUs";
 import Product from "./Pages/Product";
 import OrderForm from "./Pages/AddOrder";
 import ChatWraper from "./ChatWraper";
+import ProductEdit from "./Pages/ProductEdit";
 
 function App() {
   {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="/AddOrder" element={<OrderForm />} />
           <Route path="/Chat" element={<ChatWraper />} />
+          <Route path="/Edit" element={<ProductEdit />} />
         </Routes>
         <Footer />
       </BrowserRouter>
