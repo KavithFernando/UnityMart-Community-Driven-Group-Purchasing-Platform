@@ -232,4 +232,22 @@ router.get("/user/purchasedProduct/:userId/:productId", async (req, res) => {
   }
 });
 
+router.get("/seller/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await users.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    } else {
+      if (user.bORs === true) {
+        return res.status(200).json({ data: user });
+      } else {
+        return res.status(404).json({ error: "thi is buyer" });
+      }
+    }
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
+});
+
 module.exports = router;
