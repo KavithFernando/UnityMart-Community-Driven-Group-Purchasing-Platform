@@ -3,10 +3,12 @@ import { AiOutlineStock } from "react-icons/ai";
 import "./Sellerdetails.css";
 import Sellerproduct from "./sellerproduct";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Sellerdetails() {
   const [sellerName, setsellerName] = useState("");
   const [sellerEmail, setSellerEmail] = useState("");
+  const [sellingProduct, setsellingProduct] = useState([]);
 
   const loadSellerData = async () => {
     try {
@@ -20,8 +22,21 @@ export default function Sellerdetails() {
       console.log(err);
     }
   };
+
+  const loadSellersProduct = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/products/${localStorage.getItem("userId")}`
+      );
+      console.log(data);
+      setsellingProduct(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
     loadSellerData();
+    loadSellersProduct();
   });
 
   return (
@@ -37,6 +52,7 @@ export default function Sellerdetails() {
         <div className="details-container">
           <h3 className="name">{sellerName}</h3>
           <h3 className="email">{sellerEmail}</h3>
+          <Link to={"/AddOrder"}>go</Link>
         </div>
       </div>
       <div className="userprop">
@@ -46,10 +62,17 @@ export default function Sellerdetails() {
 
         <br />
         <div className=" sellerprod">
-          <Sellerproduct />
-          <Sellerproduct />
-          <Sellerproduct />
-          <Sellerproduct />
+          {sellingProduct.map((product, index) => (
+            <Sellerproduct
+              key={index}
+              name={product.productName}
+              id={product._id}
+              desc={product.description}
+              img={product.photo}
+              reach={product.reach}
+              current={product.current}
+            />
+          ))}
         </div>
       </div>
 
