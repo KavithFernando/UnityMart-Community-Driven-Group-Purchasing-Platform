@@ -28,7 +28,7 @@ export default function Sellerdetails() {
       const { data } = await axios.get(
         `http://localhost:8080/products/${localStorage.getItem("userId")}`
       );
-      console.log(data);
+      // console.log(data);
       setsellingProduct(data);
     } catch (err) {
       console.log(err);

@@ -6,69 +6,69 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ProductEdit = () => {
   const [productName, setProductName] = useState("");
+
   const [category, setCategory] = useState("");
   const [reach, setReach] = useState("");
   const [storePrice, setStorePrice] = useState("");
   const [discountPrice, setDiscountPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    getValue();
+    console.log("dsfdds");
+  }, []);
 
   const validateForm = () => {
-    let valid = true;
     const newErrors = {};
 
-    if (!productName.trim()) {
+    if (!productName) {
       newErrors.productName = "Product name is required";
-      valid = false;
+    } else {
+      newErrors.productName = null;
     }
-    if (!category.trim()) {
+    if (!category) {
       newErrors.category = "Category is required";
-      valid = false;
+    } else {
+      newErrors.category = null;
     }
-    if (!reach.trim() || isNaN(reach) || +reach <= 0) {
+    if (!reach || +reach <= 0) {
       newErrors.quantity = "Quantity must be a positive number";
-      valid = false;
+    } else {
+      newErrors.quantity = null;
     }
-    if (!discountPrice.trim() || isNaN(discountPrice) || +discountPrice <= 0) {
+    if (!discountPrice || +discountPrice <= 0) {
       newErrors.price = "Price must be a positive number";
-      valid = false;
+    } else {
+      newErrors.price = null;
     }
-    if (!storePrice.trim() || isNaN(storePrice) || +storePrice <= 0) {
+    if (!storePrice || +storePrice <= 0) {
       newErrors.storePrice = "Store Price must be a positive number";
-      valid = false;
+    } else {
+      newErrors.storePrice = null;
     }
-    if (!description.trim()) {
+    if (!description) {
       newErrors.description = "Description is required";
-      valid = false;
+    } else {
+      newErrors.description = null;
     }
-    setErrors(newErrors);
-    return valid;
+    return newErrors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    const errors = validateForm();
+    setErrors(errors);
 
-    if (validateForm()) {
-      console.log("Order submitted:", {
-        productName,
-        category,
-        reach,
-        discountPrice,
-        storePrice,
-        description,
-      });
-
-      toast.info("Submitting order...");
-
-      // Reset form fields after successful submission
-      setProductName("");
-      setCategory("");
-      setReach("");
-      setDiscountPrice("");
-      setStorePrice("");
-      setDescription("");
-      setErrors({});
-    }
+    //if (
+    //errors.productName === null &&
+    //errors.category === null &&
+    //errors.reach === null &&
+    //errors.discountPrice === null &&
+    // errors.storePrice === null &&
+    //errors.description === null
+    //) {
+    editProduct();
+    //}
   };
 
   const getValue = async () => {
@@ -79,7 +79,6 @@ const ProductEdit = () => {
         )}`
       );
 
-      console.log(data);
       setProductName(data.productName);
       setDescription(data.description);
       setCategory(data.category);
@@ -91,20 +90,37 @@ const ProductEdit = () => {
     }
   };
 
-  useEffect(() => {
-    getValue();
-  }, []);
+  const editProduct = async () => {
+    try {
+      const { data } = await axios.put(
+        `http://localhost:8080/product/update/${localStorage.getItem(
+          "editItems"
+        )}`,
+        {
+          productName: productName,
+          category: category,
+          reach: reach,
+          discountPrice: discountPrice,
+          storePrice: storePrice,
+          description: description,
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="edit-container">
       <div className="edit-header">
         <h2>Sell Your Bulk</h2>
       </div>
-      <form>
+      <div>
         <div className="editform-group">
           <label>Product Name:</label>
           <input
             type="text"
-            value={productName}
+            defaultValue={productName}
             onChange={(e) => setProductName(e.target.value)}
           />
           {errors.productName && (
@@ -115,7 +131,7 @@ const ProductEdit = () => {
           <label>Category:</label>
           <input
             type="text"
-            value={category}
+            defaultValue={category}
             onChange={(e) => setCategory(e.target.value)}
           />
           {errors.category && (
@@ -126,7 +142,7 @@ const ProductEdit = () => {
           <label>Quantity:</label>
           <input
             type="number"
-            value={reach}
+            defaultValue={reach}
             onChange={(e) => setReach(e.target.value)}
           />
           {errors.quantity && (
@@ -137,7 +153,7 @@ const ProductEdit = () => {
           <label>Discounted Price</label>
           <input
             type="number"
-            value={discountPrice}
+            defaultValue={discountPrice}
             onChange={(e) => setDiscountPrice(e.target.value)}
           />
           {errors.price && <p className="editerror-message">{errors.price}</p>}
@@ -146,7 +162,7 @@ const ProductEdit = () => {
           <label>Normal Price</label>
           <input
             type="number"
-            value={storePrice}
+            defaultValue={storePrice}
             onChange={(e) => setStorePrice(e.target.value)}
           />
           {errors.storePrice && (
@@ -156,7 +172,7 @@ const ProductEdit = () => {
         <div className="editform-group">
           <label>Description:</label>
           <textarea
-            value={description}
+            defaultValue={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           {errors.description && (
@@ -169,7 +185,7 @@ const ProductEdit = () => {
             Submit Order
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
