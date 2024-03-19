@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductEdit.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ProductEdit = (props) => {
+const ProductEdit = () => {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
   const [reach, setReach] = useState("");
@@ -78,11 +78,22 @@ const ProductEdit = (props) => {
           "editItems"
         )}`
       );
+
+      console.log(data);
+      setProductName(data.productName);
+      setDescription(data.description);
+      setCategory(data.category);
+      setReach(data.reach);
+      setDiscountPrice(data.discountPrice);
+      setStorePrice(data.storePrice);
     } catch (err) {
       console.log(err);
     }
   };
 
+  useEffect(() => {
+    getValue();
+  }, []);
   return (
     <div className="edit-container">
       <div className="edit-header">
