@@ -1,5 +1,6 @@
 import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Sellerproduct(props) {
@@ -8,6 +9,17 @@ export default function Sellerproduct(props) {
 
   const getEditProductId = () => {
     localStorage.setItem("editItems", props.id);
+  };
+
+  const deleteProduct = async () => {
+    try {
+      const { data } = await axios.delete(
+        `http://localhost:8080/product/delete/${props.id}`
+      );
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -40,7 +52,9 @@ export default function Sellerproduct(props) {
             <Link to={"/Edit"}>Edit order</Link>
           </div>
 
-          <div className="product-card-delete">Delete order</div>
+          <div className="product-card-delete" onClick={deleteProduct}>
+            Delete order
+          </div>
         </div>
       </div>
     </div>
