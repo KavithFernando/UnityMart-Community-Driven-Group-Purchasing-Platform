@@ -179,4 +179,18 @@ router.get("/products/:sellerId", async (req, res) => {
   }
 });
 
+// Route to get a single product by its ID
+router.get("/product/getOneProductDetailds/:productId", async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const Products = await products.findById(productId);
+    if (!Products) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(Products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;
