@@ -202,7 +202,7 @@ router.get("/recent-products", async (req, res) => {
       .limit(10);
     return res.status(200).json({ recentProducts });
   } catch (err) {
-    return res.status(400).json({ error: err });
+    return res.status(400).json({ error: err });
   }
 });
 
