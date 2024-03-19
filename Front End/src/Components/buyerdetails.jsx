@@ -10,7 +10,6 @@ export default function Buyerdetails() {
   const [buyerProduct, setBuyProduct] = useState([]);
 
   const cartProduct = localStorage.getItem("Cart");
-  const array = cartProduct.split(",");
 
   const loadBuyerData = async () => {
     try {
@@ -21,13 +20,14 @@ export default function Buyerdetails() {
       setname(data.data.name);
       setEmail(data.data.email);
 
-      //localStorage.setItem("Cart", data.key);
-      //console.log(localStorage.getItem("Cart"));
+      localStorage.setItem("Cart", data.key);
+      console.log(localStorage.getItem("Cart"));
     } catch (err) {
       console.log(err);
     }
   };
   const userCartProduct = async () => {
+    const array = cartProduct.split(",");
     try {
       const { data } = await axios.post(
         "http://localhost:8080/get/queProducts",

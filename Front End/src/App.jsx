@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./Components/Common/Footer";
@@ -11,24 +11,25 @@ import OrderForm from "./Pages/AddOrder";
 import ChatWraper from "./ChatWraper";
 
 function App() {
+  {
+    useEffect(() => {
+      // Check if the user is authenticated on page load
+      const id = localStorage.getItem("userId");
 
-  useEffect(() => {
-    // Check if the user is authenticated on page load
-    const id = localStorage.getItem('userId');
+      // Define the event listener function
+      const beforeUnloadHandler = () => {
+        localStorage.setItem("userId", null);
+      };
 
-    // Define the event listener function
-    const beforeUnloadHandler = () => {
-      localStorage.setItem('userId', null);
-    };
+      // Add event listener to set userId to null when the window is closed
+      window.addEventListener("beforeunload", beforeUnloadHandler);
 
-    // Add event listener to set userId to null when the window is closed
-    window.addEventListener('beforeunload', beforeUnloadHandler);
-    
-    // Cleanup the event listener when component is unmounted
-    return () => {
-      window.removeEventListener('beforeunload', beforeUnloadHandler);
-    }
-  }, []); // Empty dependency array ensures this effect runs on mount and when the component re-renders
+      // Cleanup the event listener when component is unmounted
+      return () => {
+        window.removeEventListener("beforeunload", beforeUnloadHandler);
+      };
+    }, []);
+  } // Empty dependency array ensures this effect runs on mount and when the component re-renders
 
   return (
     <div>
