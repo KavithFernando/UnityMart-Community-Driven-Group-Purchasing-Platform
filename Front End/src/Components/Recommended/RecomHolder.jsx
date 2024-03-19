@@ -1,35 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import RecomProduct from './RecomProduct'
 import "./RecomHolder.css"
+import axios from 'axios';
 
 export default function RecomHolder() {
-  return (
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+		  try {
+			const response = await axios.get('http://localhost:8080/recent-products');
+			setProducts(response.data.recentProducts);
+		  } catch (error) {
+			console.error('Error fetching recent products:', error);
+		  }
+		};
+	
+		fetchData();
+		}, []);
+
+  	return (
 		<>
 			<section className='recomSection'>
 				<h2 className='forYou'>More For You</h2>
 				<div className="recom-product-holder">
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
-					<RecomProduct/>
+					{products.map((product) => (
+						<RecomProduct
+						key={product._id}
+						// productName={product.productName}
+						// category={product.category}
+						// reach={product.reach}
+						// discountPrice={product.discountPrice}
+						// storePrice={product.storePrice}
+						// description={product.description}
+						// photo={product.photo}
+						// sellerID={product.sellerID}
+						/>
+					))}
 				</div>
 			</section>
 		</>
-  )
+  	)
 }
