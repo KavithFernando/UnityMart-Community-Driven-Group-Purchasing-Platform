@@ -11,6 +11,7 @@ export default function Buyerdetails() {
 
   const cartProduct = localStorage.getItem("Cart");
   const array = cartProduct.split(",");
+
   const loadBuyerData = async () => {
     try {
       const { data } = await axios.get(
@@ -20,10 +21,8 @@ export default function Buyerdetails() {
       setname(data.data.name);
       setEmail(data.data.email);
 
-      localStorage.setItem("Cart", data.key);
+      //localStorage.setItem("Cart", data.key);
       //console.log(localStorage.getItem("Cart"));
-
-      //console.log(array);
     } catch (err) {
       console.log(err);
     }

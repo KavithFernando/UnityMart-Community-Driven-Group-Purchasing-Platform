@@ -32,6 +32,21 @@ export default function Navbar() {
     document.body.style.overflow = "auto";
   };
 
+  const loadBuyerData = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
+      );
+      //console.log(data.key);
+
+      localStorage.setItem("Cart", data.key);
+      //console.log(localStorage.getItem("Cart"));
+
+      //console.log(array);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -81,7 +96,12 @@ export default function Navbar() {
           {localStorage.getItem("userId") !== "null" && (
             <li>
               <Link
-                to={localStorage.getItem("isSeller") === "true" ? "/Seller" : "/buyer"}
+                to={
+                  localStorage.getItem("isSeller") === "true"
+                    ? "/Seller"
+                    : "/buyer"
+                }
+                onClick={loadBuyerData}
               >
                 Profile
               </Link>

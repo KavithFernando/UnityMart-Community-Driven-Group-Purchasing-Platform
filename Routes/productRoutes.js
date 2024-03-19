@@ -168,4 +168,29 @@ router.post("/get/queProducts", async (req, res) => {
   }
 });
 
+//Route to get products by seller ID
+router.get("/products/:sellerId", async (req, res) => {
+  try {
+    const sellerId = req.params.sellerId;
+    const Products = await products.find({ sellerID: sellerId });
+    res.json(Products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Route to get a single product by its ID
+router.get("/product/getOneProductDetailds/:productId", async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const Products = await products.findById(productId);
+    if (!Products) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(Products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;
