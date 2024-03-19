@@ -27,7 +27,13 @@ export default function sellerproduct() {
         <p className="product-card-more">
           <span>20</span> more to go
         </p>
-        <div className="product-card-fullview">View Details</div>
+        <div className= "buttoncontainer">
+        
+        <div className="product-card-edit">Edit order</div>
+        
+        <div className="product-card-delete">Delete order</div>
+        
+        </div>
       </div>
     </div>
   )
