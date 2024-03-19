@@ -193,16 +193,17 @@ router.get("/product/getOneProductDetailds/:productId", async (req, res) => {
   }
 });
 
-// Define route to get the last 20 products
-router.get('/products/newest', async (req, res) => {
+// Route to get the last 10 products uploaded to the database
+router.get("/recent-products", async (req, res) => {
   try {
-   
-    const last5Products = await ProductModal.find().sort({_id: -1}).limit(20);
-    res.json(last5Products);
-  } catch (error) {
-    console.error("Error retrieving last 20 products:", error);
-    res.status(500).json({ error: 'Internal server error' }); // Send 500 status code and error message
-  }
+    const recentProducts = await products
+      .find()
+      .sort({ createdAt: -1 }) 
+      .limit(10);
+    return res.status(200).json({ recentProducts });
+  } catch (err) {
+    return res.status(400).json({ error: err });
+  }
 });
 
 
