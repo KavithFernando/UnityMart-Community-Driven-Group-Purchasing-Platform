@@ -164,7 +164,7 @@
     display: block;
 }
 
-.buyerprod{
+.sellerprod{
     justify-content: center;
     margin: 0 4% 0 4%;
 }    
@@ -191,7 +191,7 @@
     right: 20px;
 }
 
-.price-pred {
+.sales-pred {
     display: none;
     font-weight: bold;
 }
@@ -204,7 +204,7 @@
     border-radius: 10px;
 }
 
-.prediction:hover .price-pred {
+.prediction:hover .sales-pred {
     display: inline;
 }
 

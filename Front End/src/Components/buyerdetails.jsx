@@ -68,7 +68,7 @@ export default function Buyerdetails() {
       <div className="userprop">
         <br />
         <br />
-        <h1 className="h1-1"> Youre currently on these Queues</h1>
+        <h1 className="h1-1">You're currently on these Purchases</h1>
         <br />
         <div className=" buyerprod">
           {buyerProduct.map((product, index) => (
