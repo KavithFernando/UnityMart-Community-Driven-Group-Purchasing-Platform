@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import Sellerdetails from '../Components/sellerdetails';
 import './Seller.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 
 function Seller() {
   const [userInfo, setUserInfo] = useState({});
@@ -35,52 +37,7 @@ function Seller() {
   const averageIncome = 1000;
 
   return (
-    <div className="app-wrapper">
-      <header>
-        <section>
-          <div className="user-container">
-            <img src="src\images\man_4140048.png" alt="User Logo" className="user-logo" />
-            <div>
-              <h2>Name: {userInfo.name}</h2>
-              <p>Rating: {userInfo.rating || 4.5}</p>
-            </div>
-          </div>
-          <div className="income-card">
-            <h2>Average Income</h2>
-            <p>${averageIncome}</p>
-          </div>
-          <div className="add-card">
-            <button onClick={() => navigate("/AddOrder")}>Add Order</button> {/* Add order button */}
-          </div>
-          <div className="income-card">
-            <h2>Sales Prediction</h2>
-          </div>
-        </section>
-      </header>
-      <main>
-        <div className="interface">
-          <div className="orders-wrapper"> {/* Ongoing sales*/}
-            <h1>Your Ongoing Sales</h1>
-            {orders.map(order => (
-              <div key={order.id} className={`order-card order${order.id}`}>
-                <div>
-                  <h3>Order Details:</h3>
-                  <p className="order-details">{order.details}</p>
-                </div>
-                <div className="order-progress">
-                  <p>Order progress.</p>
-                  <span className="progress-bar" style={{ width: `${order.progress}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="chat-bubble">
-          <img src="src\images\speec.png" alt="Chat Icon" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
-          Chat
-        </div>
-      </main>
-    </div>
+    <Sellerdetails/>
   );
 }
 
