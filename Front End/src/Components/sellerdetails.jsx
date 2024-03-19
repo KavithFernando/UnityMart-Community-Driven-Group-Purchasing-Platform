@@ -1,10 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineStock } from "react-icons/ai";
 import "./Sellerdetails.css";
 import Sellerproduct from "./sellerproduct";
 import axios from "axios";
 
-export default function sellerdetails() {
+export default function Sellerdetails() {
+  const [sellerName, setsellerName] = useState("");
+  const [sellerEmail, setSellerEmail] = useState("");
+
+  const loadSellerData = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/seller/${localStorage.getItem("userId")}`
+      );
+
+      setsellerName(data.data.name);
+      setSellerEmail(data.data.email);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    loadSellerData();
+  });
+
   return (
     <div className="container">
       <div className="usermain">
@@ -16,20 +35,21 @@ export default function sellerdetails() {
           />
         </div>
         <div className="details-container">
-          <h3 className="name">ggg</h3>
-          <h3 className="email">ggg</h3>
+          <h3 className="name">{sellerName}</h3>
+          <h3 className="email">{sellerEmail}</h3>
         </div>
       </div>
       <div className="userprop">
         <br />
         <br />
         <h1 className="h1-1">Your pending Bulk Orders</h1>
+
         <br />
         <div className=" sellerprod">
-          <Sellerproduct/>
-          <Sellerproduct/>
-          <Sellerproduct/>
-          <Sellerproduct/>
+          <Sellerproduct />
+          <Sellerproduct />
+          <Sellerproduct />
+          <Sellerproduct />
         </div>
       </div>
 
@@ -47,5 +67,5 @@ export default function sellerdetails() {
         Chat
       </div>
     </div>
-  )
+  );
 }
