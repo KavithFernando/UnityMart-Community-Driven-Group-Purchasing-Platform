@@ -5,15 +5,15 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import "./RecomHolder.css"
 
 
-export default function RecomProduct({ path }) {
+export default function RecomProduct({productName,reach, discountPrice, storePrice,photo,sellerID}) {
   return (
     <div className='recomProduct-card'>
 			<Link to="/Product" className='link-area'>
-				<img src="src\ProductImages\shoes.jpeg" alt="Product-Image" />
+				<img src={`src/ProductImages/${photo}`} alt="Product-Image" />
 				<div className="details">
-					<div className='title-card'>Walking Sneakers for Women 2024 Spring New Ladies Thick-soled Sneakers Casual Height-increasing Women's Shoes Free Shipping</div>
+					<div className='title-card'>{productName}</div>
 					<div className="progress">
-              		<div className="reach">Reach 150</div>
+              		<div className="reach">Reach {reach}</div>
 						<ProgressBar className='progress-bar'
 							completed={60}
 							isLabelVisible={false}
@@ -25,7 +25,7 @@ export default function RecomProduct({ path }) {
 						/>
 						<div className="more">60 more to go</div>
 					</div>
-					<b>Rs</b><span className='price-tag'>1500.00</span>&nbsp;&nbsp;<span className='market-price'>Rs 2100.00</span>
+					<b>Rs</b><span className='price-tag'>{discountPrice}</span>&nbsp;&nbsp;<span className='market-price'>Rs {storePrice}</span>
 				</div>
 				<div className="buttons">
 					<div className='button-join'>Join Purchase</div>

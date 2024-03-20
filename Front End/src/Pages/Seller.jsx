@@ -26,13 +26,6 @@ function Seller() {
     handlename();
   }, []);
 
-  // Dummy order data
-  const orders = [
-    { id: 1, details: 'Iphone 14 pro max bulk sale.', progress: 25 },
-    { id: 2, details: 'Order 2 details', progress: 50 },
-    { id: 3, details: 'Order 3 details', progress: 75 },
-    { id: 4, details: 'Order 4 details', progress: 100 },
-  ];
 
   const averageIncome = 1000;
 

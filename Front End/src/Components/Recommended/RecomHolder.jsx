@@ -27,14 +27,14 @@ export default function RecomHolder() {
 					{products.map((product) => (
 						<RecomProduct
 						key={product._id}
-						// productName={product.productName}
-						// category={product.category}
-						// reach={product.reach}
-						// discountPrice={product.discountPrice}
-						// storePrice={product.storePrice}
-						// description={product.description}
-						// photo={product.photo}
-						// sellerID={product.sellerID}
+						productName={product.productName}
+						category={product.category}
+						reach={product.reach}
+						discountPrice={product.discountPrice}
+						storePrice={product.storePrice}
+						description={product.description}
+						photo={product.photo}
+						sellerID={product.sellerID}
 						/>
 					))}
 				</div>
