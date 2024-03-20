@@ -8,7 +8,7 @@
 }
 
 .image-container {
-    width: 70%;
+    width: 50%;
     height: auto;
     margin: 3% auto 2% auto;
     overflow: hidden;
@@ -32,6 +32,7 @@
     border: 1px solid #00000023;
     background-color: #fff2eb;
     border-radius: 12px;
+    margin-bottom: 5px;
 }
 
 .details-container h3 {

@@ -93,6 +93,8 @@ router.put("/product/join/:id", async (req, res) => {
     // If product doesn't exist, return error
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
+    } else if (product.current == product.reach) {
+      return res.status(404).json({ error: "The Order is full" });
     }
 
     // Add userId to participants array if not already included
@@ -158,7 +160,7 @@ router.put("/product/leave/:id", async (req, res) => {
 //get product using id
 router.post("/get/queProducts", async (req, res) => {
   try {
-    const { ids } = req.body; // Assuming IDs are sent in the request body as an array
+    const { ids } = req.body; 
 
     const product = await products.find({ _id: { $in: ids } });
 
@@ -205,6 +207,32 @@ router.get("/recent-products", async (req, res) => {
     return res.status(400).json({ error: err });
   }
 });
+
+// Route to check if a user is a participant in a product
+router.get("/product/check-participant/:productId/:userId", async (req, res) => {
+  try {
+    // Extract the product ID and user ID from request parameters
+    const { productId, userId } = req.params;
+
+    // Find the product by ID
+    const product = await products.findById(productId);
+
+    // If product doesn't exist, return error
+    if (!product) {
+      return res.status(404).json({ error: "Product not found" });
+    }
+
+    // Check if the user ID exists in the participants array of the product
+    const isParticipant = product.participants.includes(userId);
+
+    // Return response indicating whether the user is a participant or not
+    return res.status(200).json({ isParticipant });
+  } catch (err) {
+    // Return error response
+    return res.status(400).json({ error: err.message });
+  }
+});
+
 
 
 module.exports = router;
