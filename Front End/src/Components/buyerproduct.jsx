@@ -13,9 +13,9 @@ export default function BuyerProduct(props) {
           "userId"
         )}/${props.id}`
       );
-      // console.log(data);
+      console.log(data);
       setQuntity(data);
-      // console.log(quntity);
+      console.log(quntity);
     } catch (err) {
       console.log(err);
     }
@@ -34,7 +34,7 @@ export default function BuyerProduct(props) {
         <p className="product-card-id">Order ID:{props.id} </p>
         <p className="product-card-description">{props.det}</p>
         <div className="product-card-progress">
-          <p className="product-card-reach">Reach </p>
+          <p className="product-card-reach">Reach {props.reach}</p>
           <ProgressBar
             className="product-card-bar"
             completed={progress}
@@ -49,7 +49,7 @@ export default function BuyerProduct(props) {
         </div>
 
         <p className="product-card-more">
-          <span></span> more to go
+          <span>{props.reach - props.current}</span> more to go
         </p>
         <div className="product-card-fullview">View Details</div>
       </div>

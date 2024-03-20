@@ -37,7 +37,7 @@ export default function Sellerdetails() {
   useEffect(() => {
     loadSellerData();
     loadSellersProduct();
-  }, []);
+  });
 
   return (
     <div className="container">
