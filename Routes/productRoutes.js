@@ -158,7 +158,7 @@ router.put("/product/leave/:id", async (req, res) => {
 //get product using id
 router.post("/get/queProducts", async (req, res) => {
   try {
-    const { ids } = req.body; // Assuming IDs are sent in the request body as an array
+    const { ids } = req.body; 
 
     const product = await products.find({ _id: { $in: ids } });
 
