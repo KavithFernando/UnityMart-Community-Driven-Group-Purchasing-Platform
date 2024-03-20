@@ -47,7 +47,7 @@ export default function Buyerdetails() {
   useEffect(() => {
     loadBuyerData();
     userCartProduct();
-  });
+  }, []);
 
   return (
     <div className="container">
