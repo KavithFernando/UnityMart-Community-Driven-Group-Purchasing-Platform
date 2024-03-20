@@ -13,9 +13,9 @@ export default function BuyerProduct(props) {
           "userId"
         )}/${props.id}`
       );
-      console.log(data);
+      // console.log(data);
       setQuntity(data);
-      console.log(quntity);
+      // console.log(quntity);
     } catch (err) {
       console.log(err);
     }

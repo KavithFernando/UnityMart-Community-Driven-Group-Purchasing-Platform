@@ -93,7 +93,7 @@ router.put("/product/join/:id", async (req, res) => {
     // If product doesn't exist, return error
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
-    } else if (product.current == product.reach) {
+    } else if (product.current >= product.reach) {
       return res.status(404).json({ error: "The Order is full" });
     }
 

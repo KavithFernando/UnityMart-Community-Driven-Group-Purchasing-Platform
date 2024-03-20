@@ -20,7 +20,6 @@ export default function FunctionsDisplay(
   useEffect(() => {
     if(localStorage.getItem("userId") !== "null") {
       // Function to check if the current user is in the product
-      console.log("ran");
       const checkIfJoined = async () => {
         try {
           // Make API request to check if the user is a participant in the product
@@ -28,7 +27,6 @@ export default function FunctionsDisplay(
 
           // Update isJoined state based on the response
           setIsJoined(response.data.isParticipant);
-          console.log(response.data.isParticipant);
         } catch (error) {
           console.error("Error checking if user joined:", error);
         }
@@ -66,8 +64,6 @@ export default function FunctionsDisplay(
       } else {
         joinPurchase();
       }
-      // Toggle the join status
-      setIsJoined((prevIsJoined) => !prevIsJoined);
     }
     
   };
@@ -77,7 +73,7 @@ export default function FunctionsDisplay(
       // Calculate updated current value
       const updatedCurrent = reach - to_go + count;
       to_go = to_go - count;
-  
+
       // Make API request to update product
       const response = await axios.put(`http://localhost:8080/product/join/${localStorage.getItem("productId")}`, {
         userId: localStorage.getItem("userId"),
@@ -92,10 +88,12 @@ export default function FunctionsDisplay(
   
       // Show success message from the server response
       alert(response.data.success);
-      alert(responseUser.data.success);
+      // alert(responseUser.data.success);
+
+      setIsJoined(true);
     } catch (error) {
       console.error("Error updating product:", error);
-      alert("Failed to update product. Please try again later.");
+      alert("The purchase you tried to join was already completed.");
     }
   };
 
@@ -120,7 +118,7 @@ export default function FunctionsDisplay(
   
       // Show success message from the server response
       alert(response.data.success);
-      alert(responseUser.data.success);
+      // alert(responseUser.data.success);
   
       // Toggle the join status
       setIsJoined(false);

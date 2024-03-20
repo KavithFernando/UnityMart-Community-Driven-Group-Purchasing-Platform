@@ -21,7 +21,7 @@ export default function Buyerdetails() {
       setEmail(data.data.email);
 
       localStorage.setItem("Cart", data.key);
-      console.log(localStorage.getItem("Cart"));
+      // console.log(localStorage.getItem("Cart"));
     } catch (err) {
       console.log(err);
     }
