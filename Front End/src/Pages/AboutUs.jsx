@@ -37,7 +37,7 @@ const AboutUsPage = () => {
         <h2>Our Team</h2>
         <div className="team-member-cards">
           <div className="team-member-card">
-            <img className="img1" src="../src/images/Niketh.ipeg" alt="User Profile Picture" />
+            <img className="img1" src="../src/images/Niketh.jpeg" alt="User Profile Picture" />
             <div className="details">
               <h3>Niketh Randil Weragala</h3>
               <p><strong>Role: Developer</strong></p>
