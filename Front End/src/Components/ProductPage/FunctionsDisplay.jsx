@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ProgressBar from "@ramonak/react-progress-bar";
 import { IoShareSocial } from "react-icons/io5";
 import axios from 'axios';
@@ -16,6 +16,27 @@ export default function FunctionsDisplay(
 
   const [count, setCount] = useState(1);
   const [isJoined, setIsJoined] = useState(false);
+
+  useEffect(() => {
+    if(localStorage.getItem("userId") !== "null") {
+      // Function to check if the current user is in the product
+      console.log("ran");
+      const checkIfJoined = async () => {
+        try {
+          // Make API request to check if the user is a participant in the product
+          const response = await axios.get(`http://localhost:8080/product/check-participant/${localStorage.getItem("productId")}/${localStorage.getItem("userId")}`);
+
+          // Update isJoined state based on the response
+          setIsJoined(response.data.isParticipant);
+          console.log(response.data.isParticipant);
+        } catch (error) {
+          console.error("Error checking if user joined:", error);
+        }
+      };
+      // Call the function to check if the user is in the product
+      checkIfJoined();
+    }
+  }, []); // Empty dependency array to run the effect only once on component mount
 
   const handleInputChange = (e) => {
     const value = Math.max(1, Math.min(to_go, parseInt(e.target.value, 10) || 0));
