@@ -50,9 +50,15 @@ export default function Sellerdetails() {
           />
         </div>
         <div className="details-container">
-          <h3 className="name">{sellerName}</h3>
-          <h3 className="email">{sellerEmail}</h3>
-          <Link to={"/AddOrder"}>go</Link>
+          <h3 className="name">Your Details:</h3>
+        </div>
+        <div className="details-container">
+        <img
+          src="src\images\add icon.png"
+          alt="Chat Icon"
+          style={{ width: "20px", height: "20px", marginRight: "12px", marginLeft: "100px" }}
+        />
+          <Link to={"/AddOrder"}>Add Your Order</Link>
         </div>
       </div>
       <div className="userprop">
