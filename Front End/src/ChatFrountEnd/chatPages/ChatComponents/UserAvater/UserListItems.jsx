@@ -10,21 +10,29 @@ function UserListItems({ user, handleFunction }) {
       cursor="pointer"
       bg="#E8E8E8"
       _hover={{
-        background: "#38B2AC",
+        background: "#fa7831",
         color: "white",
       }}
       w="100%"
       d="flex"
       alignItems="center"
       color="black"
-      px={3}
+      px={8}
       py={2}
-      mb={2}
-      borderRadius="lg"
+      mb={10}
+      borderRadius="20px"
     >
-      <Avatar mr={2} size="sm" cursor="pointer" name={user.name} />
       <Box>
-        <Text>{user.name}</Text>
+        <Avatar
+          size="sm"
+          cursor="pointer"
+          name={user.name}
+          className="avatar"
+        />
+        <Text>
+          <b>Name : </b>
+          {user.name}
+        </Text>
         <Text fontSize="xs">
           <b>Email : </b>
           {user.email}

@@ -4,8 +4,6 @@ import { Badge } from "@chakra-ui/layout";
 const UserBadgeItem = ({ user, handleFunction, admin }) => {
   return (
     <Badge
-      px={2}
-      py={1}
       borderRadius="20px"
       m={1}
       mb={2}
@@ -15,6 +13,7 @@ const UserBadgeItem = ({ user, handleFunction, admin }) => {
       cursor="pointer"
       onClick={handleFunction}
       color="black"
+      padding={"10px"}
     >
       <b>
         {user.name}

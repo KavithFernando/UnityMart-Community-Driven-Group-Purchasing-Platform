@@ -3,11 +3,11 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import axios from "axios";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp({ close, open }) {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -101,14 +101,12 @@ export default function SignUp({ close, open }) {
           console.error("Error fetching user info:", error);
         }
 
-        toast.success("Registration is successful", {
-          // position: toast.POSITION.TOP_RIGHT,
-        });
+        toast.success("Registration is successful", {});
 
         setTimeout(() => {
           close();
-          
         }, 2000);
+
         //close();
       } else {
         console.log("cant");
