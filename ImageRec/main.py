@@ -43,4 +43,7 @@ def detect_labels(path):
             "{}\nFor more info on error messages, check: "
             "https://cloud.google.com/apis/design/errors".format(response.error.message)
         )
+
 print(detect_labels('../images/shoe2.jpg'))
+print(detect_labels('../images/speec.jpg'))
+
