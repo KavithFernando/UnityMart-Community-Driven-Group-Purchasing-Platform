@@ -17,6 +17,7 @@ export default function SignUp({ close, open }) {
   const [visible, setVisible] = useState(false);
   const [reEntedPasswordVisible, setReEntedPasswordVisible] = useState("");
   const [reEntedPassword, setReEntedPassword] = useState("");
+  const Navigate = useNavigate();
 
   const handleSubmit = () => {
     const errors = validate();
@@ -105,6 +106,7 @@ export default function SignUp({ close, open }) {
 
         setTimeout(() => {
           close();
+          Navigate("/");
         }, 2000);
 
         //close();

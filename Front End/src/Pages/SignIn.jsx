@@ -11,6 +11,7 @@ export default function SignIn({ close, open }) {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [errors, setErrors] = useState([]);
+  const Navigate = useNavigate();
 
   const [visible, setVisible] = useState(true);
 
@@ -66,6 +67,7 @@ export default function SignIn({ close, open }) {
 
         setTimeout(() => {
           close();
+          Navigate("/");
         }, 2000);
       }
     } catch {

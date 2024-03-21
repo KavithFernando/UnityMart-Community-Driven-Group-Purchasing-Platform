@@ -10,8 +10,6 @@ export default function Buyerdetails() {
   const [buyerProduct, setBuyProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const cartProduct = localStorage.getItem("Cart");
-
   const loadBuyerData = async () => {
     try {
       const { data } = await axios.get(
@@ -21,7 +19,7 @@ export default function Buyerdetails() {
       setname(data.data.name);
       setEmail(data.data.email);
 
-      localStorage.setItem("Cart", data.key);
+      //localStorage.setItem("Cart", data.key);
       setTimeout(() => {
         setIsLoading(false);
       }, 100);
@@ -30,6 +28,7 @@ export default function Buyerdetails() {
     }
   };
   const userCartProduct = async () => {
+    const cartProduct = localStorage.getItem("Cart");
     const array = cartProduct.split(",");
     try {
       const { data } = await axios.post(
@@ -38,6 +37,7 @@ export default function Buyerdetails() {
           ids: array,
         }
       );
+
       setBuyProduct(data.product);
     } catch (error) {
       console.error(error);

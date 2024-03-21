@@ -44,20 +44,27 @@ export default function Sellerdetails() {
       <div className="usermain">
         <div className="image-container">
           <img
-            className="img1"
+            className="img2"
             src="../src/images/buyer.png"
             alt="User Profile Picture"
           />
         </div>
         <div className="details-container">
           <h3 className="name">Your Details:</h3>
+          <h4>{sellerName}</h4>
+          <h4>{sellerEmail}</h4>
         </div>
         <div className="details-container">
-        <img
-          src="src\images\add icon.png"
-          alt="Chat Icon"
-          style={{ width: "20px", height: "20px", marginRight: "12px", marginLeft: "100px" }}
-        />
+          <img
+            src="src\images\add icon.png"
+            alt="Chat Icon"
+            style={{
+              width: "20px",
+              height: "20px",
+              marginRight: "12px",
+              marginLeft: "100px",
+            }}
+          />
           <Link to={"/AddOrder"}>Add Your Order</Link>
         </div>
       </div>
