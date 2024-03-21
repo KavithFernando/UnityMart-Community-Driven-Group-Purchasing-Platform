@@ -250,4 +250,19 @@ router.get("/seller/:id", async (req, res) => {
   }
 });
 
+//all users deleted
+
+router.delete("/users123", async (req, res) => {
+  try {
+    // Delete all users from the database
+    await users.deleteMany({});
+    res
+      .status(200)
+      .json({ success: true, message: "All users deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+});
+
 module.exports = router;

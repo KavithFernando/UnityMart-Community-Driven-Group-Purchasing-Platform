@@ -123,8 +123,8 @@ export default function SignIn({ close, open }) {
           <h1 className="title">Sign In</h1>
           <input
             className="label1"
-            type="email"
-            placeholder="Email"
+            type="text"
+            placeholder="User Name"
             onChange={(e) => setUserName(e.target.value)}
           />
           {errors.email && <div className="error">{errors.email}</div>}
