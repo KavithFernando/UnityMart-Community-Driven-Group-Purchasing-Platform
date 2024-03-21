@@ -14,7 +14,8 @@ export default function PopularProduct(
       price=9999.99, 
       storePrice=9999.99, 
       imageSrc="src/ProductImages/MissingImage.jpg",
-      sellerId
+      sellerId,
+      photo
     }
   ) 
 {
@@ -58,6 +59,7 @@ export default function PopularProduct(
     localStorage.setItem('discount', discount);
     localStorage.setItem('sellerName', sellerInfo.name || '');
     localStorage.setItem('sellerUsername', sellerInfo.userName || '');
+    localStorage.setItem('photo',photo );
   };
 
   return (
