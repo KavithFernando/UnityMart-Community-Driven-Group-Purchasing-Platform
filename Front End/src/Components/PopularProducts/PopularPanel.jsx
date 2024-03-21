@@ -72,6 +72,7 @@ export default function PopularPanel() {
             storePrice={product.storePrice}
             imageSrc={`src/ProductImages/${product.photo}`}
             sellerId={product.sellerID}
+            photo={product.photo}
           />
         ))}
       </Carousel>

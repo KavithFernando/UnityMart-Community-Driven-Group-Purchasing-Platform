@@ -17,6 +17,7 @@ export default function Product(
       reach=150,
       completed=60,
       to_go=60,
+      photo
     }
   ) 
 {
@@ -31,11 +32,14 @@ export default function Product(
   to_go = parseInt(localStorage.getItem("to_go"));
   name = localStorage.getItem("sellerName");
   username = localStorage.getItem("sellerUsername");
+  photo= localStorage.getItem("photo");
 
   return (
     <div className='product-page'>
         <div className="three-panel-holder">
-            <ImageDisplay/>
+            <ImageDisplay
+              photo={photo}
+            />
             <DescriptionDisplay
               name={name}
               username={username}
