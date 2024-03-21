@@ -18,7 +18,6 @@ export default function Product(
       completed=60,
       to_go=60,
       photo
-      
     }
   ) 
 {

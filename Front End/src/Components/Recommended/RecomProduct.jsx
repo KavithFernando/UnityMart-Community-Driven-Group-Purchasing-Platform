@@ -44,7 +44,7 @@ export default function RecomProduct({productId, productName, reach, current, di
     localStorage.setItem('discount', discount);
     localStorage.setItem('sellerName', sellerInfo.name || '');
     localStorage.setItem('sellerUsername', sellerInfo.userName || '');
-
+    localStorage.setItem('photo', photo);
   };
 
   return (

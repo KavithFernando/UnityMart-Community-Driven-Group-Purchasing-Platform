@@ -18,14 +18,18 @@
   
 .chilimg {
     display: flex;
+    overflow-x: scroll;
     justify-content: space-between;
     margin-top: 10px;
 }
   
 .imgdis1 {
-    width: 30%;
+    width: 100px;
     height: auto;
     cursor: pointer;
+    border-radius: 5px;
+    border: solid rgba(0, 0, 0, 0.126) 1px;
+    margin: 0 0.5% 0 0;
 }
   
 .imgdis1:hover {
