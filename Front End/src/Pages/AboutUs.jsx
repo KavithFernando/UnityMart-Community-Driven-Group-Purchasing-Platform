@@ -78,6 +78,7 @@ const AboutUsPage = () => {
           </div>
         </div>
       </div>
+      <button onClick={() => Navigate("/ContactUs")}>Contact Us</button>
     </div>
   );
 };
