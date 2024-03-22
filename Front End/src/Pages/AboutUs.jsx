@@ -12,12 +12,7 @@ const AboutUsPage = () => {
       <div className="team-members">
       <br/>
       <div className="box">
-      <div className="inner">
-      <span>"Strength lies in unity"</span>
-      </div>
-      <div className="inner">
-      <span>"Strength lies in unity"</span>
-      </div>
+      
       </div>
         
         <br />
