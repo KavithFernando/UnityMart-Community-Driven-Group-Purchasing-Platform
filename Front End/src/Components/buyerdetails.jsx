@@ -80,6 +80,9 @@ export default function Buyerdetails() {
               det={product.description}
               current={product.current}
               reach={product.reach}
+              seller={product.sellerID}
+              discountPrice={product.discountPrice}
+              storePrice={product.storePrice}
             />
           ))}
           {/*<BuyerProduct orderName={props3} orderId={props4} />
