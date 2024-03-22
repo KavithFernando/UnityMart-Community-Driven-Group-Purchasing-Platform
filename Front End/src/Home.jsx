@@ -6,10 +6,6 @@ export default function Home() {
   const Navigate = useNavigate();
   return (
     <div>
-      <button onClick={() => Navigate("/Buyer")}>Buyer</button>
-      <button onClick={() => Navigate("/Seller")}>Seller Page</button>
-      <button onClick={() => Navigate("/AboutUsPage")}>About Us</button>
-      <button onClick={() => Navigate("/Product")}>Product Page</button>
       <PopularPanel />
       <RecomHolder />
       {localStorage.getItem("userId") !== "null" && (

@@ -86,7 +86,7 @@ export default function MyChat({ fetchAgain }) {
           p={3}
           bg="#F8F8F8"
           width="100%"
-          height="92%"
+          height="91%"
           overflowY="hidden"
         >
           {chats ? (

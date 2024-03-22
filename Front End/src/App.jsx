@@ -51,6 +51,7 @@ function App() {
       return <Footer />;
     }
   };
+
   return (
     <div>
       <BrowserRouter>

@@ -208,7 +208,6 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
       {selectedChat ? (
         <>
           <Text
-            //height="20px"
             fontSize={{ base: "28px", md: "30px" }}
             pb={3}
             px={2}
@@ -218,34 +217,11 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             justifyContent={{ base: "space-between" }}
             alignItems="center"
           >
-            {/*<IconButton
-              d={{ base: "flex", md: "none" }}
-              icon={<ArrowBackIcon />}
-             onClick={() => setselectedChat("")}
-      />*/}
             {!selectedChat.isGroupChat ? (
               <div className="singleChatpart">
                 <b height="60px">
                   {getSender(user, selectedChat.users).toUpperCase()}
                 </b>
-
-                {/* 
-                <Button onClick={onOpen}>Chat Analize</Button>
-                <Modal isOpen={isOpen} onClose={onClose}>
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>{saveText}</ModalBody>
-
-                    <ModalFooter>
-                      <Button colorScheme="blue" mr={3} onClick={onClose}>
-                        Close
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-            </Modal>*/}
-
                 <h3 className="chatType">{saveText}</h3>
               </div>
             ) : (
@@ -271,7 +247,7 @@ export default function SingleChat({ fetchAgain, setFetchAgain }) {
             justifyContent="flex-end"
             bg="#E8E8E8"
             w="100%"
-            h="92%"
+            h="91%"
             overflowY="hidden"
           >
             {loading ? (
