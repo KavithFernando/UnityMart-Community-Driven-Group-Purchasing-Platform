@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ProductEdit.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,6 +14,7 @@ const ProductEdit = () => {
   const [discountPrice, setDiscountPrice] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     getValue();
@@ -59,6 +61,8 @@ const ProductEdit = () => {
     const errors = validateForm();
     setErrors(errors);
 
+    editProduct();
+    //}
     //if (
     //errors.productName === null &&
     //errors.category === null &&
@@ -67,8 +71,9 @@ const ProductEdit = () => {
     // errors.storePrice === null &&
     //errors.description === null
     //) {
-    editProduct();
-    //}
+    setTimeout(() => {
+      Navigate("/Seller");
+    }, 200);
   };
 
   const getValue = async () => {

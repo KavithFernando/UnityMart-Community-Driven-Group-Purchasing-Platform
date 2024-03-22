@@ -38,8 +38,10 @@ export default function Navbar() {
         `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
       );
       //console.log(data.key);
+      setTimeout(() => {
+        localStorage.setItem("Cart", data.key);
+      }, 60);
 
-      localStorage.setItem("Cart", data.key);
       //console.log(localStorage.getItem("Cart"));
 
       //console.log(array);

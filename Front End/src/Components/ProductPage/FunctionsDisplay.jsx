@@ -173,6 +173,7 @@ export default function FunctionsDisplay(
         </div>
         <div className="share"><IoShareSocial className='share-icon'/>Share</div>
       </div>
+      
     </div>
   )
 }

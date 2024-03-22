@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./Components/Common/Footer";
 import Navbar from "./Components/Common/Navbar";
@@ -32,10 +32,29 @@ function App() {
     }, []);
   } // Empty dependency array ensures this effect runs on mount and when the component re-renders
 
+  const handleNavigate = () => {
+    const currentPath = window.location.pathname;
+    // Check if the current path is Chat, if yes, don't render Navbar
+    if (currentPath === "/Chat") {
+      return null;
+    } else {
+      return <Navbar />;
+    }
+  };
+
+  const handleFooter = () => {
+    const currentPath = window.location.pathname;
+    // Check if the current path is Chat, if yes, don't render Navbar
+    if (currentPath === "/Chat") {
+      return null;
+    } else {
+      return <Footer />;
+    }
+  };
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        {handleNavigate()}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/buyer" element={<Buyer />} />
@@ -46,7 +65,7 @@ function App() {
           <Route path="/Chat" element={<ChatWraper />} />
           <Route path="/Edit" element={<ProductEdit />} />
         </Routes>
-        <Footer />
+        {handleFooter()}
       </BrowserRouter>
     </div>
   );

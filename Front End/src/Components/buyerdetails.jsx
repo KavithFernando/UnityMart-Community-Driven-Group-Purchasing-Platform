@@ -8,25 +8,27 @@ export default function Buyerdetails() {
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [buyerProduct, setBuyProduct] = useState([]);
-
-  const cartProduct = localStorage.getItem("Cart");
+  const [isLoading, setIsLoading] = useState(true);
 
   const loadBuyerData = async () => {
     try {
       const { data } = await axios.get(
         `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
       );
-      //console.log(data.key);
+
       setname(data.data.name);
       setEmail(data.data.email);
 
-      localStorage.setItem("Cart", data.key);
-      console.log(localStorage.getItem("Cart"));
+      //localStorage.setItem("Cart", data.key);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 100);
     } catch (err) {
       console.log(err);
     }
   };
   const userCartProduct = async () => {
+    const cartProduct = localStorage.getItem("Cart");
     const array = cartProduct.split(",");
     try {
       const { data } = await axios.post(
@@ -36,17 +38,19 @@ export default function Buyerdetails() {
         }
       );
 
-      //console.log(data.product);
       setBuyProduct(data.product);
-      //console.log(buyerProduct);
     } catch (error) {
       console.error(error);
     }
   };
 
+  useEffect(() => {});
+
   useEffect(() => {
     loadBuyerData();
-    userCartProduct();
+    setTimeout(() => {
+      userCartProduct();
+    }, 10);
   });
 
   return (
@@ -54,7 +58,7 @@ export default function Buyerdetails() {
       <div className="usermain">
         <div className="image-container">
           <img
-            className="img1"
+            className="img2"
             src="../src/images/buyer.png"
             alt="User Profile Picture"
           />
@@ -70,21 +74,25 @@ export default function Buyerdetails() {
         <h1 className="h1-1">You're currently on these Purchases</h1>
         <br />
         <div className=" buyerprod">
-          {buyerProduct.map((product, index) => (
-            <BuyerProduct
-              img={product.photo}
-              imgalt={product.name}
-              key={index}
-              name={product.productName}
-              id={product._id}
-              det={product.description}
-              current={product.current}
-              reach={product.reach}
-              seller={product.sellerID}
-              discountPrice={product.discountPrice}
-              storePrice={product.storePrice}
-            />
-          ))}
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            buyerProduct.map((product, index) => (
+              <BuyerProduct
+                img={product.photo}
+                imgalt={product.name}
+                key={index}
+                name={product.productName}
+                id={product._id}
+                det={product.description}
+                current={product.current}
+                reach={product.reach}
+                seller={product.sellerID}
+                discountPrice={product.discountPrice}
+                storePrice={product.storePrice}
+              />
+            ))
+          )}
           {/*<BuyerProduct orderName={props3} orderId={props4} />
           <BuyerProduct orderName={props3} orderId={props4} />
   <BuyerProduct orderName={props3} orderId={props4} />*/}
