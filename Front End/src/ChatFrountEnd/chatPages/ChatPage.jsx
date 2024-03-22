@@ -26,7 +26,7 @@ const ChatPage = () => {
         <>
           {user && <MyChat fetchAgain={fetchAgain} />}
 
-          <Box paddingLeft="10px">
+          <Box paddingLeft="40px">
             {user && (
               <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
             )}

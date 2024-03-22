@@ -63,7 +63,7 @@ export default function MyChat({ fetchAgain }) {
           fontSize={{ base: "28px", md: "30px" }}
           fontFamily="Work sans"
           display="flex"
-          wi="100%"
+          wi="110%"
           justifyContent="space-between"
           alignItems="center"
         >
@@ -71,7 +71,7 @@ export default function MyChat({ fetchAgain }) {
           <GroupChat>
             <Button
               d="flex"
-              fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+              fontSize={{ base: "15px", md: "8px", lg: "15px" }}
               rightIcon={<AddIcon />}
             >
               New Group Chat

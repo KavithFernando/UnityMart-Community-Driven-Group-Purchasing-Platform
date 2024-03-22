@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Home";
 import Footer from "./Components/Common/Footer";
 import Navbar from "./Components/Common/Navbar";
@@ -12,62 +12,55 @@ import ChatWraper from "./ChatWraper";
 import ProductEdit from "./Pages/ProductEdit";
 
 function App() {
-  {
-    useEffect(() => {
-      // Check if the user is authenticated on page load
-      const id = localStorage.getItem("userId");
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
 
-      // Define the event listener function
-      const beforeUnloadHandler = () => {
-        localStorage.setItem("userId", null);
-      };
+function AppContent() {
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState(location.pathname);
 
-      // Add event listener to set userId to null when the window is closed
-      window.addEventListener("beforeunload", beforeUnloadHandler);
+  useEffect(() => {
+    // Check if the user is authenticated on page load
+    const id = localStorage.getItem("userId");
 
-      // Cleanup the event listener when component is unmounted
-      return () => {
-        window.removeEventListener("beforeunload", beforeUnloadHandler);
-      };
-    }, []);
-  } // Empty dependency array ensures this effect runs on mount and when the component re-renders
+    // Define the event listener function
+    const beforeUnloadHandler = () => {
+      localStorage.setItem("userId", null);
+    };
 
-  const handleNavigate = () => {
-    const currentPath = window.location.pathname;
-    // Check if the current path is Chat, if yes, don't render Navbar
-    if (currentPath === "/Chat") {
-      return null;
-    } else {
-      return <Navbar />;
-    }
-  };
+    // Add event listener to set userId to null when the window is closed
+    window.addEventListener("beforeunload", beforeUnloadHandler);
 
-  const handleFooter = () => {
-    const currentPath = window.location.pathname;
-    // Check if the current path is Chat, if yes, don't render Navbar
-    if (currentPath === "/Chat") {
-      return null;
-    } else {
-      return <Footer />;
-    }
-  };
+    // Cleanup the event listener when component is unmounted
+    return () => {
+      window.removeEventListener("beforeunload", beforeUnloadHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location.pathname]);
+
+  const isNotChat = currentPath !== "/Chat";
 
   return (
     <div>
-      <BrowserRouter>
-        {handleNavigate()}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/buyer" element={<Buyer />} />
-          <Route path="/Seller" element={<Seller />} />
-          <Route path="/AboutUsPage" element={<AboutUsPage />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/AddOrder" element={<OrderForm />} />
-          <Route path="/Chat" element={<ChatWraper />} />
-          <Route path="/Edit" element={<ProductEdit />} />
-        </Routes>
-        {handleFooter()}
-      </BrowserRouter>
+      {isNotChat && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/buyer" element={<Buyer />} />
+        <Route path="/Seller" element={<Seller />} />
+        <Route path="/AboutUsPage" element={<AboutUsPage />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/AddOrder" element={<OrderForm />} />
+        <Route path="/Chat" element={<ChatWraper />} />
+        <Route path="/Edit" element={<ProductEdit />} />
+      </Routes>
+      {isNotChat && <Footer />}
     </div>
   );
 }

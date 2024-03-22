@@ -32,12 +32,20 @@ import { Spinner } from "@chakra-ui/spinner";
 import { getSender } from "../../config/ChatLogics";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
+import { IconButton, useColorMode } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 export default function SideBar() {
   const [search, setSearch] = useState("k");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
 
   const {
     user,
@@ -129,6 +137,14 @@ export default function SideBar() {
   return (
     <div>
       <Box className="sideBarBox1">
+        <div className="backArrowButton">
+          <IconButton
+            aria-label="Go back"
+            icon={<ArrowBackIcon />}
+            onClick={goBack}
+          />
+        </div>
+
         <div className="searchBarPlaceChanges">
           <Tooltip label="Search Users to chat">
             <Button

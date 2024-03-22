@@ -1,17 +1,17 @@
 .sideBarBox1 {
-  justify-content: space-around;
   border-top: 5px;
   border-color: aliceblue;
   background-color: #000000;
-  padding: 5px 10px 5px 10px;
   height: 70px;
   display: flex;
+  padding-top: 5px;
 }
 
 .sideBarheader {
   font-size: 40px;
   font-weight: bold;
   color: white;
+  padding-left: 310px;
 }
 
 .bellIcon {
@@ -27,7 +27,8 @@
 }
 
 .sideBarightPart {
-  padding: 5px 10px 5px 10px;
+  padding-left: 375px;
+  padding-top: 10px;
 }
 
 .sideBarSearchButton:hover {
@@ -36,4 +37,10 @@
 
 .searchBarPlaceChanges {
   padding-top: 10px;
+}
+
+.backArrowButton {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
