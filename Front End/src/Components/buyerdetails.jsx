@@ -3,12 +3,14 @@ import { AiOutlineStock } from "react-icons/ai";
 import "./Buyerdetails.css";
 import BuyerProduct from "./buyerproduct";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Buyerdetails() {
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [buyerProduct, setBuyProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const Navigate = useNavigate();
 
   const loadBuyerData = async () => {
     try {
@@ -93,9 +95,6 @@ export default function Buyerdetails() {
               />
             ))
           )}
-          {/*<BuyerProduct orderName={props3} orderId={props4} />
-          <BuyerProduct orderName={props3} orderId={props4} />
-  <BuyerProduct orderName={props3} orderId={props4} />*/}
         </div>
       </div>
 
@@ -104,7 +103,7 @@ export default function Buyerdetails() {
         <span className="price-pred">&nbsp;&nbsp;Price Prediction</span>
       </div>
 
-      <div className="chat-bubble">
+      <div className="chat-bubble" onClick={() => Navigate("/Chat")}>
         <img
           src="src\images\speec.png"
           alt="Chat Icon"

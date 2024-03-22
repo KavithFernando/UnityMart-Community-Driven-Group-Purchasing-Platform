@@ -19,7 +19,6 @@ export default function Buyer() {
 
   return (
     <div>
-      <button onClick={runMachineLearning}>Sales Prediction</button>
       {predictedSalesImage && (
         <img src={predictedSalesImage} alt="Predicted Sales" />
       )}

@@ -4,11 +4,13 @@ import "./Sellerdetails.css";
 import Sellerproduct from "./sellerproduct";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Sellerdetails() {
   const [sellerName, setsellerName] = useState("");
   const [sellerEmail, setSellerEmail] = useState("");
   const [sellingProduct, setsellingProduct] = useState([]);
+  const Navigate = useNavigate();
 
   const loadSellerData = async () => {
     try {
@@ -51,21 +53,16 @@ export default function Sellerdetails() {
         </div>
         <div className="details-container">
           <h3 className="name">Your Details:</h3>
-          <h4>{sellerName}</h4>
-          <h4>{sellerEmail}</h4>
+          <h3 className="name">{sellerName}</h3>
+          <h3 className="email">{sellerEmail}</h3>
         </div>
-        <div className="details-container">
-          <img
-            src="src\images\add icon.png"
-            alt="Chat Icon"
-            style={{
-              width: "20px",
-              height: "20px",
-              marginRight: "12px",
-              marginLeft: "100px",
-            }}
-          />
-          <Link to={"/AddOrder"}>Add Your Order</Link>
+
+        <div className="centerProductAdd">
+          <div className="productAddContener">
+            <Link to={"/AddOrder"} className="oderAddLink">
+              Add Your Order
+            </Link>
+          </div>
         </div>
       </div>
       <div className="userprop">
@@ -94,7 +91,7 @@ export default function Sellerdetails() {
         <span className="sales-pred">&nbsp;&nbsp;Sales Prediction</span>
       </div>
 
-      <div className="chat-bubble">
+      <div className="chat-bubble" onClick={() => Navigate("/Chat")}>
         <img
           src="src\images\speec.png"
           alt="Chat Icon"

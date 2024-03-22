@@ -37,14 +37,9 @@ export default function Navbar() {
       const { data } = await axios.get(
         `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
       );
-      //console.log(data.key);
       setTimeout(() => {
         localStorage.setItem("Cart", data.key);
       }, 60);
-
-      //console.log(localStorage.getItem("Cart"));
-
-      //console.log(array);
     } catch (err) {
       console.log(err);
     }

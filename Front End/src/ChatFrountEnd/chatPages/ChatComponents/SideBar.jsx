@@ -35,6 +35,7 @@ import { Effect } from "react-notification-badge";
 import { IconButton, useColorMode } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SideBar() {
   const [search, setSearch] = useState("k");
@@ -203,10 +204,18 @@ export default function SideBar() {
                 name={user.name}
                 className="avatar"
               />
-              <ChevronDownIcon className="chevronDownIcon" />
+              <ChevronDownIcon className="chevronDownIcon" color="white" />
             </MenuButton>
             <MenuList>
-              <MenuItem>Profil</MenuItem>
+              <Link
+                to={
+                  localStorage.getItem("isSeller") === "true"
+                    ? "/Seller"
+                    : "/buyer"
+                }
+              >
+                <MenuItem>Profil</MenuItem>
+              </Link>
             </MenuList>
           </Menu>
         </div>
