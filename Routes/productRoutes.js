@@ -195,13 +195,13 @@ router.get("/product/getOneProductDetailds/:productId", async (req, res) => {
   }
 });
 
-// Route to get the last 10 products uploaded to the database
+// Route to get the last 20 products uploaded to the database
 router.get("/recent-products", async (req, res) => {
   try {
     const recentProducts = await products
       .find()
       .sort({ createdAt: -1 }) 
-      .limit(10);
+      .limit(20);
     return res.status(200).json({ recentProducts });
   } catch (err) {
     return res.status(400).json({ error: err });
