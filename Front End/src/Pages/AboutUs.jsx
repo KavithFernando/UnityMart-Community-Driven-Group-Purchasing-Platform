@@ -41,7 +41,7 @@ const AboutUsPage = () => {
             <div className="details">
               <h3>Niketh Randil Weragala</h3>
               <p><strong>Role: Developer</strong></p>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>Computer Science undergraduate student at university of westminster.</p>
             </div>
           </div>
           <div className="team-member-card">
@@ -49,7 +49,7 @@ const AboutUsPage = () => {
             <div className="details">
               <h3>Kavith Fernando</h3>
               <p><strong>Role: Developer</strong></p>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>Computer Science undergraduate student at university of westminster.</p>
             </div>
           </div>
           <div className="team-member-card">
@@ -57,7 +57,7 @@ const AboutUsPage = () => {
             <div className="details">
               <h3>Pabasara Ravindaka</h3>
               <p><strong>Role: Developer</strong></p>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>Computer Science undergraduate student at university of westminster.</p>
             </div>
           </div>
           <div className="team-member-card">
@@ -65,7 +65,7 @@ const AboutUsPage = () => {
             <div className="details">
               <h3>Sanjaya Perera</h3>
               <p><strong>Role: Developer</strong></p>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>Computer Science undergraduate student at university of westminster.</p>
             </div>
           </div>
           <div className="team-member-card">
@@ -73,7 +73,7 @@ const AboutUsPage = () => {
             <div className="details">
               <h3>Susitha Subhavitha</h3>
               <p><strong>Role: Developer</strong></p>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>Computer Science undergraduate student at university of westminster.</p>
             </div>
           </div>
         </div>
