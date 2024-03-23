@@ -42,7 +42,7 @@ export default function Sellerdetails() {
   });
 
   return (
-    <div className="">
+    <div className="sellerBody">
       <div className="sellercontainer">
         <div className="sellerusermain">
           <div className="seller-image-container">

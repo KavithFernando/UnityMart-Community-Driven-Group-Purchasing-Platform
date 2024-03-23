@@ -182,8 +182,8 @@ const OrderForm = () => {
           <input type="file" accept="image/*" onChange={handlePhotoChange} />
           {errors.photo && <p className="error-message">{errors.photo}</p>}
         </div>
-        <div className="button">
-          <button type="submit" onClick={handleSubmit}>
+        <div className="ordersubmitbutton">
+          <button type="submit" onClick={handleSubmit} className="orderSubmit">
             Submit Order
           </button>
         </div>

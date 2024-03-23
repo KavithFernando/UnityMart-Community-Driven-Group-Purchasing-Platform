@@ -1,76 +1,93 @@
-
 .order-container {
-    width: 600px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.order-header {
+  background-color: #ff6600;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+}
+
+.order-header h2 {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+/* Style for file input */
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+  width: calc(100% - 22px);
+}
+
+.ordersubmitbutton {
+  text-align: center;
+  padding: 12px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.orderSubmit {
+  border-radius: 20px;
+  padding: 10px;
+  border-color: white;
+  font-weight: bold;
+}
+
+.orderSubmit:hover {
+  background-color: #ff6600;
+  color: white;
+}
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .order-container {
+    width: 300px;
   }
-  
-  .order-header {
-    background-color: #ff6600;
-    padding: 10px;
-    border-radius: 8px 8px 0 0;
+
+  .image-container {
+    width: 50%;
+    padding-top: 50%;
   }
-  
-  .order-header h2 {
-    text-align: center;
-    color: #fff;
-    margin: 0;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  input,
-  textarea {
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 5px;
-  }
-  
-  /* Style for file input */
-  input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 5px;
-    width: calc(100% - 22px);
-  }
-  
-  .button {
-    padding: 12px;
-    background-color: #ff6600;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .button:hover {
-    background-color: #cc5500;
-  }
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  
+}

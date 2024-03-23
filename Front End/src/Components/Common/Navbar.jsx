@@ -59,12 +59,12 @@ export default function Navbar() {
           <FaSearch />
         </div>
         <ul>
-          <li>
+          <li style={{ marginTop: "5px" }}>
             <Link to="/">
               <IoHome />
             </Link>
           </li>
-          <li>
+          <li style={{ marginTop: "5px" }}>
             <Link to="/AboutUsPage">
               <IoMdInformationCircleOutline />
             </Link>

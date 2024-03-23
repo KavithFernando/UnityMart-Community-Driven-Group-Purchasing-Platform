@@ -118,9 +118,9 @@ const ProductEdit = () => {
   return (
     <div className="edit-container">
       <div className="edit-header">
-        <h2>Sell Your Bulk</h2>
+        <h2>Edit Your Bulk</h2>
       </div>
-      <div>
+      <div className="editBody">
         <div className="editform-group">
           <label>Product Name:</label>
           <input
@@ -185,9 +185,9 @@ const ProductEdit = () => {
           )}
         </div>
 
-        <div className="editbutton">
-          <button type="submit" onClick={handleSubmit}>
-            Submit Order
+        <div className="ordersubmitbutton">
+          <button type="submit" onClick={handleSubmit} className="orderSubmit">
+            Edit Order
           </button>
         </div>
       </div>
