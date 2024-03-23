@@ -148,3 +148,38 @@
   color: black;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .signInContainer {
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    position: absolute;
+    top: 20px;
+  }
+
+  .leftPanel {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .signInForm {
+    width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+  }
+
+  .label1 {
+    width: 90%;
+  }
+
+  .see {
+    top: -45px;
+    left: calc(50% - 30px);
+  }
+
+  .CloseButton1 {
+    right: 5px;
+  }
+}
