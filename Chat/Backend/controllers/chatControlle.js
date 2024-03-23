@@ -4,7 +4,6 @@ const User = require("../models/chatModels");
 
 const accessChat = asyncHandler(async (req, res) => {
   const { userId } = req.body;
-
   if (!userId) {
     console.log("UserId param not sent with request");
     return res.sendStatus(400);
@@ -46,6 +45,7 @@ const accessChat = asyncHandler(async (req, res) => {
   }
 });
 
+//fetches chats involving the current user
 const fetchChats = asyncHandler(async (req, res) => {
   try {
     Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
@@ -66,6 +66,8 @@ const fetchChats = asyncHandler(async (req, res) => {
     throw new Error(error.message);
   }
 });
+
+//group chat create
 const createGroupChat = asyncHandler(async (req, res) => {
   if (!req.body.users || !req.body.name) {
     return res.status(400).send({ message: "Please Fill all the feilds" });
@@ -98,6 +100,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
   }
 });
 
+// rename group chat
 const renameGroup = asyncHandler(async (req, res) => {
   const { chatId, chatName } = req.body;
 
@@ -121,6 +124,7 @@ const renameGroup = asyncHandler(async (req, res) => {
   }
 });
 
+//remove user from group chat
 const removeFromGroup = asyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
 
@@ -146,6 +150,7 @@ const removeFromGroup = asyncHandler(async (req, res) => {
   }
 });
 
+// new user add to group chat
 const addToGroup = asyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
 
@@ -170,6 +175,7 @@ const addToGroup = asyncHandler(async (req, res) => {
     res.json(added);
   }
 });
+
 module.exports = {
   accessChat,
   fetchChats,
