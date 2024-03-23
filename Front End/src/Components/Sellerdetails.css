@@ -1,13 +1,13 @@
-.container {
+.sellercontainer {
   display: flex;
   justify-content: center;
 }
 
-.usermain {
+.sellerusermain {
   width: 20%;
 }
 
-.image-container {
+.seller-image-container {
   width: 50%;
   height: auto;
   margin: 3% auto 2% auto;
@@ -18,42 +18,42 @@
   padding: 14%;
 }
 
-.img1 {
+.img3 {
   border-radius: 500px;
   max-width: 100%;
   max-height: 100%;
 }
 
-.img1:hover {
+.img3:hover {
   transform: scale(1.05);
 }
 
-.details-container {
+.seller-details-container {
   border: 1px solid #00000023;
   background-color: #fff2eb;
   border-radius: 12px;
   margin-bottom: 5px;
 }
 
-.details-container h3 {
+.seller-details-container h3 {
   font-size: 20px;
   color: black;
   text-align: center;
   transition: 0.2s;
 }
 
-.details-container h3:hover {
+.seller-details-container h3:hover {
   color: #ff5900;
 }
 
-.details-container .email {
+.seller-details-container .email {
   color: #313131;
   font-weight: normal;
   font-size: 15px;
   margin: 2% 0 0 0;
 }
 
-.userprop {
+.seller-userprop {
   width: 60%;
   background-color: #ffffff;
 }
@@ -179,7 +179,7 @@
   margin: 0 4% 0 4%;
 }
 
-.h1-1 {
+.seller-h1-1 {
   font-family: Arial, sans-serif;
   font-size: 24px;
   font-weight: bold;
@@ -249,4 +249,34 @@
 
 .productAddContener:hover {
   color: #585858;
+}
+
+@media only screen and (max-width: 600px) {
+  .sellercontainer {
+    height: 100%;
+    width: 100%;
+  }
+  .sellerusermain {
+    position: relative;
+    width: 70%;
+    left: 120px;
+  }
+  .seller-h1-1 {
+    font-size: 16px;
+  }
+
+  .seller-userprop {
+    position: relative;
+    top: 320px;
+    right: 190px;
+  }
+
+  .sellerprod {
+    width: 370px;
+  }
+
+  .productAddContener {
+    position: relative;
+    right: 30px;
+  }
 }

@@ -14,7 +14,7 @@
   border-radius: 8px 8px 0 0;
 }
 
-.order-header h2 {
+.edit-header h2 {
   text-align: center;
   color: #fff;
   margin: 0;
@@ -28,6 +28,7 @@ form {
 
 .editform-group {
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 label {
@@ -35,7 +36,6 @@ label {
   color: #333;
 }
 
-input,
 textarea {
   padding: 10px;
   width: 100%;
@@ -70,4 +70,14 @@ input[type="file"] {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.editBody {
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .edit-container {
+    width: 300px;
+  }
 }

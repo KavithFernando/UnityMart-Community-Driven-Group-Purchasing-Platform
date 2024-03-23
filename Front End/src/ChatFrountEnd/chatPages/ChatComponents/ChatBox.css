@@ -1,4 +1,6 @@
 .box123 {
   border-radius: 30px;
-  width: 180%;
+  width: 140%;
+  position: relative;
+  right: 290px;
 }

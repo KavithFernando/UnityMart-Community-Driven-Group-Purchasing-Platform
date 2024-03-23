@@ -85,12 +85,12 @@ export default function Navbar() {
           </Link>
         </div>
         <ul>
-          <li>
+          <li style={{ marginTop: "5px" }}>
             <Link to="/">
               <IoHome />
             </Link>
           </li>
-          <li>
+          <li style={{ marginTop: "5px" }}>
             <Link to="/AboutUsPage">
               <IoMdInformationCircleOutline />
             </Link>
