@@ -10,6 +10,8 @@ import SignIn from "../../Pages/SignIn";
 import axios from "axios";
 
 export default function Navbar() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
 
@@ -45,6 +47,24 @@ export default function Navbar() {
     }
   };
 
+  const searchProduct = () => {
+    fetch('http://localhost:5000/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query: query }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        localStorage.setItem("results", data);
+        setResults(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  };
+
   return (
     <>
       {" "}
@@ -55,8 +75,14 @@ export default function Navbar() {
             className="search"
             type="text"
             placeholder="Search UnityMart"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
           />
-          <FaSearch />
+          <Link to="/search">
+            <FaSearch 
+              onClick={searchProduct}
+            />
+          </Link>
         </div>
         <ul>
           <li style={{ marginTop: "5px" }}>

@@ -10,6 +10,7 @@ import Product from "./Pages/Product";
 import OrderForm from "./Pages/AddOrder";
 import ChatWraper from "./ChatWraper";
 import ProductEdit from "./Pages/ProductEdit";
+import SearchResultsHolder from "./Pages/SearchResultsHolder";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function AppContent() {
         <Route path="/AddOrder" element={<OrderForm />} />
         <Route path="/Chat" element={<ChatWraper />} />
         <Route path="/Edit" element={<ProductEdit />} />
+        <Route path="/search" element={<SearchResultsHolder />} />
       </Routes>
       {isNotChat && <Footer />}
     </div>
