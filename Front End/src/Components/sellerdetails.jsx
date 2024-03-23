@@ -42,62 +42,64 @@ export default function Sellerdetails() {
   });
 
   return (
-    <div className="container">
-      <div className="usermain">
-        <div className="image-container">
-          <img
-            className="img2"
-            src="../src/images/buyer.png"
-            alt="User Profile Picture"
-          />
-        </div>
-        <div className="details-container">
-          <h3 className="name">Your Details:</h3>
-          <h3 className="name">{sellerName}</h3>
-          <h3 className="email">{sellerEmail}</h3>
-        </div>
+    <div className="">
+      <div className="sellercontainer">
+        <div className="sellerusermain">
+          <div className="seller-image-container">
+            <img
+              className="img3"
+              src="../src/images/buyer.png"
+              alt="User Profile Picture"
+            />
+          </div>
+          <div className="seller-details-container">
+            <h3 className="name">Your Details:</h3>
+            <h3 className="name">{sellerName}</h3>
+            <h3 className="email">{sellerEmail}</h3>
+          </div>
 
-        <div className="centerProductAdd">
-          <div className="productAddContener">
-            <Link to={"/AddOrder"} className="oderAddLink">
-              Add Your Order
-            </Link>
+          <div className="centerProductAdd">
+            <div className="productAddContener">
+              <Link to={"/AddOrder"} className="oderAddLink">
+                Add Your Order
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="userprop">
-        <br />
-        <br />
-        <h1 className="h1-1">Your pending Bulk Orders</h1>
+        <div className="seller-userprop">
+          <br />
+          <br />
+          <h1 className="seller-h1-1">Your pending Bulk Orders</h1>
 
-        <br />
-        <div className=" sellerprod">
-          {sellingProduct.map((product, index) => (
-            <Sellerproduct
-              key={index}
-              name={product.productName}
-              id={product._id}
-              desc={product.description}
-              img={product.photo}
-              reach={product.reach}
-              current={product.current}
-            />
-          ))}
+          <br />
+          <div className=" sellerprod">
+            {sellingProduct.map((product, index) => (
+              <Sellerproduct
+                key={index}
+                name={product.productName}
+                id={product._id}
+                desc={product.description}
+                img={product.photo}
+                reach={product.reach}
+                current={product.current}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="prediction">
-        <AiOutlineStock className="stock" />
-        <span className="sales-pred">&nbsp;&nbsp;Sales Prediction</span>
-      </div>
+        <div className="prediction">
+          <AiOutlineStock className="stock" />
+          <span className="sales-pred">&nbsp;&nbsp;Sales Prediction</span>
+        </div>
 
-      <div className="chat-bubble" onClick={() => Navigate("/Chat")}>
-        <img
-          src="src\images\speec.png"
-          alt="Chat Icon"
-          style={{ width: "20px", height: "20px", marginRight: "8px" }}
-        />
-        Chat
+        <div className="chat-bubble" onClick={() => Navigate("/Chat")}>
+          <img
+            src="src\images\speec.png"
+            alt="Chat Icon"
+            style={{ width: "20px", height: "20px", marginRight: "8px" }}
+          />
+          Chat
+        </div>
       </div>
     </div>
   );

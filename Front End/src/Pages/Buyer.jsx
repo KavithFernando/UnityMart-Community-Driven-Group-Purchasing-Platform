@@ -18,7 +18,7 @@ export default function Buyer() {
   };
 
   return (
-    <div>
+    <div style={{ height: "1100px" }}>
       {predictedSalesImage && (
         <img src={predictedSalesImage} alt="Predicted Sales" />
       )}

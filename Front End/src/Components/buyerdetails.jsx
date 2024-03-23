@@ -56,60 +56,62 @@ export default function Buyerdetails() {
   });
 
   return (
-    <div className="container">
-      <div className="usermain">
-        <div className="image-container">
+    <div className="buyerPageBody">
+      <div className="buyerContainer">
+        <div className="buyerUsermain">
+          <div className="buyer-image-container">
+            <img
+              className="buyer-img2"
+              src="../src/images/buyer.png"
+              alt="User Profile Picture"
+            />
+          </div>
+          <div className="buyer-details-container">
+            <h3 className="name">{name}</h3>
+            <h3 className="email">{email}</h3>
+          </div>
+        </div>
+        <div className="buyer-userprop">
+          <br />
+          <br />
+          <h1 className="buyer-h1-1">You're currently on these Purchases</h1>
+          <br />
+          <div className=" buyerprod">
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              buyerProduct.map((product, index) => (
+                <BuyerProduct
+                  img={product.photo}
+                  imgalt={product.name}
+                  key={index}
+                  name={product.productName}
+                  id={product._id}
+                  det={product.description}
+                  current={product.current}
+                  reach={product.reach}
+                  seller={product.sellerID}
+                  discountPrice={product.discountPrice}
+                  storePrice={product.storePrice}
+                />
+              ))
+            )}
+          </div>
+        </div>
+
+        <div className="prediction">
+          <AiOutlineStock className="stock" />
+          <span className="price-pred">&nbsp;&nbsp;Price Prediction</span>
+        </div>
+
+        <div className="chat-bubble" onClick={() => Navigate("/Chat")}>
           <img
-            className="img2"
-            src="../src/images/buyer.png"
-            alt="User Profile Picture"
+            src="src\images\speec.png"
+            alt="Chat Icon"
+            style={{ width: "20px", height: "20px", marginRight: "8px" }}
           />
+          Chat
         </div>
-        <div className="details-container">
-          <h3 className="name">{name}</h3>
-          <h3 className="email">{email}</h3>
-        </div>
-      </div>
-      <div className="userprop">
-        <br />
-        <br />
-        <h1 className="h1-1">You're currently on these Purchases</h1>
-        <br />
-        <div className=" buyerprod">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            buyerProduct.map((product, index) => (
-              <BuyerProduct
-                img={product.photo}
-                imgalt={product.name}
-                key={index}
-                name={product.productName}
-                id={product._id}
-                det={product.description}
-                current={product.current}
-                reach={product.reach}
-                seller={product.sellerID}
-                discountPrice={product.discountPrice}
-                storePrice={product.storePrice}
-              />
-            ))
-          )}
-        </div>
-      </div>
-
-      <div className="prediction">
-        <AiOutlineStock className="stock" />
-        <span className="price-pred">&nbsp;&nbsp;Price Prediction</span>
-      </div>
-
-      <div className="chat-bubble" onClick={() => Navigate("/Chat")}>
-        <img
-          src="src\images\speec.png"
-          alt="Chat Icon"
-          style={{ width: "20px", height: "20px", marginRight: "8px" }}
-        />
-        Chat
       </div>
     </div>
   );

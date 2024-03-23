@@ -1,13 +1,12 @@
-.container {
+.buyerContainer {
   display: flex;
   justify-content: center;
 }
-.usermain {
+.buyerUsermain {
   width: 20%;
-  /* border: 1px solid #00000023; */
 }
 
-.image-container {
+.buyer-image-container {
   width: 70%;
   height: auto;
   margin: 3% auto 2% auto;
@@ -18,41 +17,41 @@
   padding: 14%;
 }
 
-.img2 {
+.buyer-img2 {
   border-radius: 500px;
   max-width: 100%;
   max-height: 200px;
 }
 
-.img1:hover {
+.buyer-buyer-img1:hover {
   transform: scale(1.05);
 }
 
-.details-container {
+.buyer-details-container {
   border: 1px solid #00000023;
   background-color: #fff2eb;
   border-radius: 12px;
 }
 
-.details-container h3 {
+.buyer-details-container h3 {
   font-size: 20px;
   color: black;
   text-align: center;
   transition: 0.2s;
 }
 
-.details-container h3:hover {
+.buyer-details-container h3:hover {
   color: #ff5900;
 }
 
-.details-container .email {
+.buyer-details-container .email {
   color: #313131;
   font-weight: normal;
   font-size: 15px;
   margin: 2% 0 0 0;
 }
 
-.userprop {
+.buyer-userprop {
   width: 60%;
   background-color: #ffffff;
 }
@@ -189,7 +188,7 @@
   margin: 0 4% 0 4%;
 }
 
-.h1-1 {
+.buyer-h1-1 {
   font-family: Arial, sans-serif;
   font-size: 24px;
   font-weight: bold;
@@ -230,4 +229,28 @@
 
 .prediction .stock {
   font-size: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .buyerContainer {
+    height: 100%;
+  }
+  .buyerUsermain {
+    position: relative;
+    width: 80%;
+    left: 120px;
+  }
+  .buyer-h1-1 {
+    font-size: 16px;
+  }
+
+  .buyer-userprop {
+    position: relative;
+    top: 280px;
+    right: 170px;
+  }
+
+  .buyerprod {
+    width: 380px;
+  }
 }
