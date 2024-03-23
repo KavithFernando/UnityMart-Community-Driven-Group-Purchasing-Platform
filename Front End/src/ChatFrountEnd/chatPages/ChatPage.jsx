@@ -16,22 +16,17 @@ const ChatPage = () => {
       <Box className="chatPageBox1">{user && <SideBar />}</Box>
 
       <Box
-        display="flex"
+        display="grid"
         padding="2px"
-        width="120%"
-        height="91.5vh"
-
-        //flexDirection={{ base: "column", md: "row" }}
+        minHeight="91.5vh"
+        gridTemplateColumns="1fr 1fr"
       >
-        <>
-          {user && <MyChat fetchAgain={fetchAgain} />}
-
-          <Box paddingLeft="40px">
-            {user && (
-              <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
-            )}
-          </Box>
-        </>
+        {user && <MyChat fetchAgain={fetchAgain} />}
+        <Box className="Chatbox3">
+          {user && (
+            <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+          )}
+        </Box>
       </Box>
     </div>
   );

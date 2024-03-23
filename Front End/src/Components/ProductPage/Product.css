@@ -310,3 +310,54 @@
 .fuctions-display .join-share .share:hover {
   background-color: #e7cfc2;
 }
+
+@media only screen and (max-width: 600px) {
+  .three-panel-holder {
+    display: flex;
+  }
+
+  .main_img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.126);
+    border-radius: 15px;
+  }
+  .part2 {
+    position: relative;
+    right: 385px;
+    top: 320px;
+  }
+
+  .product-page {
+    height: 1300px;
+  }
+
+  .description-display .pricing-details .rs {
+    font-size: 22px;
+  }
+
+  .description-display .pricing-details .price {
+    font-size: 30px;
+  }
+
+  .description-display .pricing-details .store-price {
+    text-decoration: line-through;
+    margin: 0 5% 0 2%;
+    color: #838383;
+  }
+
+  .description-display .pricing-details .discount {
+    font-weight: 300;
+    font-size: 30px;
+  }
+
+  .part3 {
+    position: relative;
+    right: 720px;
+    top: 910px;
+  }
+
+  .fuctions-display {
+    width: 300px;
+  }
+}
