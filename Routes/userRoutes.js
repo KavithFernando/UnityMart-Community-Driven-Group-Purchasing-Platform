@@ -31,7 +31,6 @@ router.post("/user/add", async (req, res) => {
 });
 
 //user log in
-
 router.post("/user/login", async (req, res) => {
   const { userName, password } = req.body;
 
@@ -98,28 +97,6 @@ router.put("/user/purchase/:id", async (req, res) => {
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
-
-  //const user = await users.findById(userId);
-
-  //if (!user) {
-  // return res.status(404).json({ error: "User not found" });
-  // }
-
-  // Update purchasedProducts with the new productId and quantity
-  //user.purchasedProducts.set(productId, quantity);
-
-  // Save the updated user
-  //await User.findByIdAndUpdate(userId, {
-  // purchasedProducts: user.purchasedProducts,
-  //});
-  //await user.save();
-
-  // return res
-  // .status(200)
-  // .json({ success: "Purchased products updated successfully" });
-  // } catch (err) {
-  // return res.status(500).json({ error: err });
-  // }
 });
 
 // Remove a product and its count from purchasedProducts map
@@ -136,51 +113,10 @@ router.put("/user/remove-purchase/:id", async (req, res) => {
       { $unset: { [`purchasedProducts.${productId}`]: 1 } },
       { new: true }
     );
-
-    //if (!updatedUser) {
-    // return res.status(404).json({ error: "User not found" });
-    //}
-
-    // Check if the product was found in purchasedProducts
-    //if (!updatedUser.purchasedProducts[productId]) {
-    // return res
-    //.status(400)
-    //.json({ error: "Product not found in purchased products" });
-    // }
-
-    //const quantity = updatedUser.purchasedProducts[productId];
-
     return res.status(200).json({
       success: "Product removed from purchased products successfully",
       quantity: quantity,
     });
-
-    //const user = await users.findById(userId);
-
-    //if (!user) {
-    // return res.status(404).json({ error: "User not found" });
-    //}
-
-    // Check if the product exists in purchasedProducts map
-    //if (!user.purchasedProducts.has(productId)) {
-    // return res
-    //  .status(400)
-    // .json({ error: "Product not found in purchased products" });
-    // }
-
-    // Get the quantity of the product before removing it
-    //const quantity = user.purchasedProducts.get(productId);
-
-    // Remove the product from purchasedProducts map
-    //user.purchasedProducts.delete(productId);
-
-    // Save the updated user
-    //await user.save();
-
-    //return res.status(200).json({
-    // success: "Product removed from purchased products successfully",
-    //quantity: quantity,
-    // });
   } catch (err) {
     return res.status(500).json({ error: err });
   }
