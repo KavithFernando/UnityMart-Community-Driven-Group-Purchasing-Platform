@@ -42,6 +42,10 @@ nav .searchDiv > :nth-child(2):hover {
   background-color: #e16a2a;
 }
 
+nav a {
+  color: white;
+}
+
 nav ul {
   display: flex;
   list-style-type: none;
