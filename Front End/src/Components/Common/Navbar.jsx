@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 
 import "./Navbar.css";
 import SignUp from "../../Pages/SignUp";
@@ -126,7 +127,7 @@ export default function Navbar() {
                 }
                 onClick={loadBuyerData}
               >
-                Profile
+                <CgProfile/>
               </Link>
             </li>
           )}
