@@ -11,6 +11,7 @@ import OrderForm from "./Pages/AddOrder";
 import ChatWraper from "./ChatWraper";
 import ProductEdit from "./Pages/ProductEdit";
 import SearchResultsHolder from "./Pages/SearchResultsHolder";
+import LaptopPricePredictor from "./Pages/interface";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function AppContent() {
         <Route path="/Chat" element={<ChatWraper />} />
         <Route path="/Edit" element={<ProductEdit />} />
         <Route path="/search" element={<SearchResultsHolder />} />
+        <Route path='/pricePredict' element={<LaptopPricePredictor />} />
       </Routes>
       {isNotChat && <Footer />}
     </div>

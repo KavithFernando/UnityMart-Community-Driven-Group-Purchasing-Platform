@@ -4,6 +4,7 @@ import "./Buyerdetails.css";
 import BuyerProduct from "./buyerproduct";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Buyerdetails() {
   const [name, setname] = useState("");
@@ -100,8 +101,9 @@ export default function Buyerdetails() {
         </div>
 
         <div className="prediction">
+
           <AiOutlineStock className="stock" />
-          <span className="price-pred">&nbsp;&nbsp;Price Prediction</span>
+          <span className="price-pred"><Link to="/pricePredict">&nbsp;&nbsp;Price Prediction</Link></span>
         </div>
 
         <div className="chat-bubble" onClick={() => Navigate("/Chat")}>

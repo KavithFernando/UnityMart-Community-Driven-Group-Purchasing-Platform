@@ -86,6 +86,7 @@
       <workItem from="1711164612882" duration="1780000" />
       <workItem from="1711171295468" duration="211000" />
       <workItem from="1711173497048" duration="1137000" />
+      <workItem from="1711255067434" duration="3505000" />
     </task>
     <servers />
   </component>
@@ -104,7 +105,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/UnityMart_Community_Driven_Group_Purchasing_Platform$Recommendation_System_Python.coverage" NAME="Recommendation_System_Python Coverage Results" MODIFIED="1707629394695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Recommendation System Python" />
+    <SUITE FILE_PATH="coverage/UnityMart_Community_Driven_Group_Purchasing_Platform$Recommendation_System_Python.coverage" NAME="Recommendation_System_Python Coverage Results" MODIFIED="1711259102282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Recommendation System Python" />
     <SUITE FILE_PATH="coverage/UnityMart_Community_Driven_Group_Purchasing_Platform$Search_Engine_Recommendation.coverage" NAME="Search_Engine_Recommendation Coverage Results" MODIFIED="1711171321257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Recommendation System Python" />
   </component>
 </project>
