@@ -68,4 +68,6 @@ jobs:
           app-name: 'UnityMart'
           slot-name: 'Production'
           package: .
+      - name: Install dependencies
+        run: npm install --force
           
