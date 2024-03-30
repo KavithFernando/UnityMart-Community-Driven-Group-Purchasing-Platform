@@ -38,7 +38,7 @@ export default function Navbar() {
   const loadBuyerData = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
+        `https://test.atomaxia.com/expressjstest/buyer/${localStorage.getItem("userId")}`
       );
       setTimeout(() => {
         localStorage.setItem("Cart", data.key);

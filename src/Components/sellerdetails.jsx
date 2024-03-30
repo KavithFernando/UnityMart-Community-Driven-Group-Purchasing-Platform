@@ -15,7 +15,7 @@ export default function Sellerdetails() {
   const loadSellerData = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/seller/${localStorage.getItem("userId")}`
+        `https://test.atomaxia.com/expressjstest/seller/${localStorage.getItem("userId")}`
       );
 
       setsellerName(data.data.name);
@@ -28,7 +28,7 @@ export default function Sellerdetails() {
   const loadSellersProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/products/${localStorage.getItem("userId")}`
+        `https://test.atomaxia.com/expressjstest/products/${localStorage.getItem("userId")}`
       );
       // console.log(data);
       setsellingProduct(data);

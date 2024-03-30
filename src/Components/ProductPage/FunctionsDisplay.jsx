@@ -23,7 +23,7 @@ export default function FunctionsDisplay(
       const checkIfJoined = async () => {
         try {
           // Make API request to check if the user is a participant in the product
-          const response = await axios.get(`http://localhost:8080/product/check-participant/${localStorage.getItem("productId")}/${localStorage.getItem("userId")}`);
+          const response = await axios.get(`https://test.atomaxia.com/expressjstest/product/check-participant/${localStorage.getItem("productId")}/${localStorage.getItem("userId")}`);
 
           // Update isJoined state based on the response
           setIsJoined(response.data.isParticipant);
@@ -75,13 +75,13 @@ export default function FunctionsDisplay(
       to_go = to_go - count;
 
       // Make API request to update product
-      const response = await axios.put(`http://localhost:8080/product/join/${localStorage.getItem("productId")}`, {
+      const response = await axios.put(`https://test.atomaxia.com/expressjstest/product/join/${localStorage.getItem("productId")}`, {
         userId: localStorage.getItem("userId"),
         current: updatedCurrent,
       });
 
       // Make API request to update user's purchased products
-      const responseUser = await axios.put(`http://localhost:8080/user/purchase/${localStorage.getItem("userId")}`, {
+      const responseUser = await axios.put(`https://test.atomaxia.com/expressjstest/user/purchase/${localStorage.getItem("userId")}`, {
         productId: localStorage.getItem("productId"),
         quantity: count,
       });
@@ -101,7 +101,7 @@ export default function FunctionsDisplay(
     try {
       
       // Make API request to remove purchased product from user's profile and update current value
-      const responseUser = await axios.put(`http://localhost:8080/user/remove-purchase/${localStorage.getItem("userId")}`, {
+      const responseUser = await axios.put(`https://test.atomaxia.com/expressjstest/user/remove-purchase/${localStorage.getItem("userId")}`, {
         productId: localStorage.getItem("productId"),
       });
 
@@ -109,7 +109,7 @@ export default function FunctionsDisplay(
       const count = responseUser.data.quantity;
 
       // Make API request to remove user from the purchase group
-      const response = await axios.put(`http://localhost:8080/product/leave/${localStorage.getItem("productId")}`, {
+      const response = await axios.put(`https://test.atomaxia.com/expressjstest/product/leave/${localStorage.getItem("productId")}`, {
         userId: localStorage.getItem("userId"),
         current: reach - to_go - count,
       });

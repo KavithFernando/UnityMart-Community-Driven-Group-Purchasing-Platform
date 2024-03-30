@@ -46,7 +46,7 @@ export default function SignIn({ close, open }) {
   const logInUser = async (errors1) => {
     try {
       if (errors1.password === null && errors1.userName === null) {
-        const { data } = await axios.post("http://localhost:8080/user/login", {
+        const { data } = await axios.post("https://test.atomaxia.com/expressjstest/user/login", {
           userName,
           password,
         });
@@ -55,7 +55,7 @@ export default function SignIn({ close, open }) {
         localStorage.setItem("userId", id);
 
         try {
-          const response = await axios.get(`http://localhost:8080/user/${id}`);
+          const response = await axios.get(`https://test.atomaxia.com/expressjstest/user/${id}`);
           localStorage.setItem("isSeller", response.data.bORs);
         } catch (error) {
           console.error("Error fetching user info:", error);

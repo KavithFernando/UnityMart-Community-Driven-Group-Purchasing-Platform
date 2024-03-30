@@ -17,7 +17,7 @@ export default function BuyerProduct(props) {
   const getProductQuntaty = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/user/purchasedProduct/${localStorage.getItem(
+        `https://test.atomaxia.com/expressjstest/user/purchasedProduct/${localStorage.getItem(
           "userId"
         )}/${props.id}`
       );
@@ -31,7 +31,7 @@ export default function BuyerProduct(props) {
   const fetchSellerInfo = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/user/${props.seller}`
+        `https://test.atomaxia.com/expressjstest/user/${props.seller}`
       );
       setSellerInfo(response.data);
     } catch (error) {

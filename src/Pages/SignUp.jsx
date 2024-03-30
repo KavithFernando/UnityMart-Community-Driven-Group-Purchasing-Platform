@@ -84,7 +84,7 @@ export default function SignUp({ close, open }) {
         errors1.email === null &&
         errors1.userName === null
       ) {
-        const { data } = await axios.post("http://localhost:8080/user/add", {
+        const { data } = await axios.post("https://test.atomaxia.com/expressjstest/user/add", {
           name,
           email,
           userName,
@@ -96,7 +96,7 @@ export default function SignUp({ close, open }) {
         localStorage.setItem("userId", id);
 
         try {
-          const response = await axios.get(`http://localhost:8080/user/${id}`);
+          const response = await axios.get(`https://test.atomaxia.com/expressjstest/user/${id}`);
           localStorage.setItem("isSeller", response.data.bORs);
         } catch (error) {
           console.error("Error fetching user info:", error);

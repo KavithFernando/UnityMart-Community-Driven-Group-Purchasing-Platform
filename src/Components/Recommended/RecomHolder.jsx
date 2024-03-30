@@ -9,7 +9,7 @@ export default function RecomHolder() {
 	useEffect(() => {
 		const fetchData = async () => {
 		  try {
-			const response = await axios.get('http://localhost:8080/recent-products');
+			const response = await axios.get('https://test.atomaxia.com/expressjstest/recent-products');
 			setProducts(response.data.recentProducts);
 		  } catch (error) {
 			console.error('Error fetching recent products:', error);

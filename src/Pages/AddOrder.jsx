@@ -98,7 +98,7 @@ const OrderForm = () => {
     formData.append("sellerID", sellerID);
 
     try {
-      await axios.post("http://localhost:8080/product/save", formData, {
+      await axios.post("https://test.atomaxia.com/expressjstest/product/save", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

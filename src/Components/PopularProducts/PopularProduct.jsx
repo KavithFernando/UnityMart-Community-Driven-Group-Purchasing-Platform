@@ -34,7 +34,7 @@ export default function PopularProduct(
   // Function to fetch seller details
   const fetchSellerInfo = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/user/${sellerId}`);
+      const response = await axios.get(`https://test.atomaxia.com/expressjstest/user/${sellerId}`);
       setSellerInfo(response.data);
     } catch (error) {
       console.error('Error fetching seller info00:', error);

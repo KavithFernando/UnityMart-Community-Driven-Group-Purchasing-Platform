@@ -42,7 +42,7 @@ export default function PopularPanel() {
   useEffect(() => {
     // GET request to fetch top products
     axios
-      .get("http://localhost:8080/top-products")
+      .get("https://test.atomaxia.com/expressjstest/top-products")
       .then((response) => {
         setTopProducts(response.data.topProducts);
       })

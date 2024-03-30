@@ -14,7 +14,7 @@ export default function Sellerproduct(props) {
   const deleteProduct = async () => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8080/product/delete/${props.id}`
+        `https://test.atomaxia.com/expressjstest//product/delete/${props.id}`
       );
       console.log(data);
     } catch (err) {

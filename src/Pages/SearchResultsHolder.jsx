@@ -13,7 +13,7 @@ export default function SearchResultsHolder() {
         // const array = ["65f03142b639cb94b1111666", "65fda2646a670fc089374a65", "65fdd06adca17ee93e4b159c", "65fda5c86a670fc089374a67", "65fda9086a670fc089375bf3", "65fdae7e6a670fc089376b0e"];
         try {
           const { data } = await axios.post(
-            "http://localhost:8080/get/queProducts",
+            "https://test.atomaxia.com/expressjstest/get/queProducts",
             {
               ids: array,
             }

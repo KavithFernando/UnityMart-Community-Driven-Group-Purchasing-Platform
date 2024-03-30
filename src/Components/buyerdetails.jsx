@@ -16,7 +16,7 @@ export default function Buyerdetails() {
   const loadBuyerData = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/buyer/${localStorage.getItem("userId")}`
+        `https://test.atomaxia.com/expressjstest/buyer/${localStorage.getItem("userId")}`
       );
 
       setname(data.data.name);
@@ -35,7 +35,7 @@ export default function Buyerdetails() {
     const array = cartProduct.split(",");
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/get/queProducts",
+        "https://test.atomaxia.com/expressjstest/get/queProducts",
         {
           ids: array,
         }

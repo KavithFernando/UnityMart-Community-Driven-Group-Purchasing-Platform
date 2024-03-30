@@ -79,7 +79,7 @@ const ProductEdit = () => {
   const getValue = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/product/getOneProductDetailds/${localStorage.getItem(
+        `https://test.atomaxia.com/expressjstest/product/getOneProductDetailds/${localStorage.getItem(
           "editItems"
         )}`
       );
@@ -98,7 +98,7 @@ const ProductEdit = () => {
   const editProduct = async () => {
     try {
       const { data } = await axios.put(
-        `http://localhost:8080/product/update/${localStorage.getItem(
+        `https://test.atomaxia.com/expressjstest/product/update/${localStorage.getItem(
           "editItems"
         )}`,
         {
